@@ -201,6 +201,26 @@ section {
   display: none;
 }
 
+/* Menu Toggle Button */
+.menu-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-toggle:hover {
+  opacity: 0.7;
+}
+
+.menu-toggle:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
 @media (min-width: 768px) {
   .desktop-nav {
     display: flex;
@@ -225,26 +245,6 @@ section {
   .menu-toggle {
     display: none;
   }
-}
-
-/* Menu Toggle Button */
-.menu-toggle {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: var(--space-xs);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.menu-toggle:hover {
-  opacity: 0.7;
-}
-
-.menu-toggle:focus {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
 }
 
 .menu-icon {
@@ -279,34 +279,47 @@ section {
   inset: 0;
   width: 100vw;
   height: 100vh;
-  background: var(--color-surface);
+  background: var(--color-background);
   z-index: 200;
   overflow: auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0;
+  animation: fadeIn 0.25s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .mobile-nav-content {
   text-align: center;
   position: relative;
   width: 100%;
+  padding: var(--space-xl);
 }
 
 .close-btn {
   position: absolute;
-  top: var(--space-sm);
-  right: var(--space-sm);
+  top: var(--space-md);
+  right: var(--space-md);
   background: transparent;
   border: none;
-  font-size: var(--font-size-3xl);
+  font-size: var(--font-size-2xl);
   cursor: pointer;
-  color: var(--color-text);
+  color: var(--color-text-muted);
   width: 48px;
   height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: color var(--transition);
 }
 
 .close-btn:hover {
@@ -321,14 +334,17 @@ section {
 .mobile-nav nav {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: var(--space-sm);
+  margin-top: var(--space-3xl);
 }
 
 .mobile-nav nav a {
   font-size: var(--font-size-xl);
-  font-weight: 500;
+  font-weight: 400;
   color: var(--color-text);
-  padding: var(--space-sm);
+  padding: var(--space-md);
+  transition: color var(--transition);
+  letter-spacing: 0.5px;
 }
 
 .mobile-nav nav a:hover {
