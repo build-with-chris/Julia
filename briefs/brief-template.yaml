@@ -1,0 +1,15 @@
+client: { name: "<Vorname Nachname>", email: "<mail@domain.tld>" }
+scope: "onepager | multipage"
+style: "elegant | minimal | bold"
+palette: "earth | ocean | neon | custom"
+font: "clean | serif | display"
+goals: ["portfolio","contact"]
+audience: "public | b2b | fans"
+update_frequency: "rarely | monthly | weekly"
+timeline: "flexible | fixed:<YYYY-MM-DD>"
+package: "custom | basic | pro"
+voice: >
+  Kurz, aktiv, verständlich. Beispiele, Tonalität, Claims.
+pages_or_sections: ["About","Portfolio","Contact"]
+references: ["https://..."]
+notes: "Besonderheiten, CI-Vorgaben, Assets."

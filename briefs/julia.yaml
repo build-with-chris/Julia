@@ -1,0 +1,16 @@
+client: { name: "Julia", email: "j.mayr.96@web.de" }
+profession: "Fotografin"
+scope: "booking"
+style: "playful"
+palette: "earth"
+font: "minimal"
+goals: ["bookings","portfolio"]
+audience: "other"
+update_frequency: "regular"
+timeline: "flexible"
+package: "custom"
+voice: >
+  Locker, nahbar, spielerisch. Klarer CTA: jetzt anfragen/buchen.
+pages: ["Home","Portfolio","About","Services","Booking","Contact"]
+references: []
+notes: "Julia ist Fotografin. Kein USP-Text geliefert. Bitte kurze Statements per Follow-up erfragen."

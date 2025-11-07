@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking - Julia Mayr Fotografie</title>
+  <meta name="description" content="Buche jetzt dein Fotoshooting mit Julia Mayr. Einfach, schnell und unkompliziert.">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Julia Mayr</a>
+      <button type="button" class="menu-toggle" data-menu-btn aria-expanded="false" aria-label="Menü öffnen">
+        <span class="menu-icon"></span>
+      </button>
+      <nav class="desktop-nav">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="booking.html" class="active">Booking</a>
+        <a href="contact.html">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="mobile-nav" data-menu hidden>
+    <div class="mobile-nav-content">
+      <button type="button" class="close-btn" data-menu-close aria-label="Menü schließen">×</button>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="booking.html">Booking</a>
+        <a href="contact.html">Kontakt</a>
+      </nav>
+    </div>
+  </div>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>Shooting buchen</h1>
+      <p class="page-subtitle">Lass uns gemeinsam dein Projekt planen</p>
+    </div>
+  </section>
+
+  <section class="booking-page">
+    <div class="container">
+      <div class="booking-layout">
+        <!-- Booking Form -->
+        <div class="booking-form-wrapper">
+          <h2>Buchungsanfrage</h2>
+          <p class="form-intro">Fülle das Formular aus und ich melde mich innerhalb von 24 Stunden bei dir!</p>
+
+          <form id="booking-form" class="booking-form" novalidate>
+            <!-- Personal Info -->
+            <div class="form-section">
+              <h3>Deine Kontaktdaten</h3>
+
+              <div class="form-group">
+                <label for="name">Name <span class="required">*</span></label>
+                <input type="text" id="name" name="name" required autocomplete="name" aria-required="true">
+                <span class="error-message" role="alert"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="email">E-Mail <span class="required">*</span></label>
+                <input type="email" id="email" name="email" required autocomplete="email" aria-required="true">
+                <span class="error-message" role="alert"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Telefon (optional)</label>
+                <input type="tel" id="phone" name="phone" autocomplete="tel">
+              </div>
+            </div>
+
+            <!-- Shooting Details -->
+            <div class="form-section">
+              <h3>Shooting Details</h3>
+
+              <div class="form-group">
+                <label for="service-type">Art des Shootings <span class="required">*</span></label>
+                <select id="service-type" name="service-type" required aria-required="true">
+                  <option value="">Bitte wählen...</option>
+                  <option value="event">Event & Veranstaltung</option>
+                  <option value="portrait">Portrait & People</option>
+                  <option value="wedding">Hochzeit</option>
+                  <option value="engagement">Verlobung</option>
+                  <option value="family">Familie</option>
+                  <option value="business">Business / Corporate</option>
+                  <option value="other">Sonstiges</option>
+                </select>
+                <span class="error-message" role="alert"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="shoot-date">Wunschdatum <span class="required">*</span></label>
+                <input type="date" id="shoot-date" name="shoot-date" required aria-required="true">
+                <span class="error-message" role="alert"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="location">Ort / Location <span class="required">*</span></label>
+                <input type="text" id="location" name="location" required aria-required="true" placeholder="z.B. München, Studio, Outdoor">
+                <span class="error-message" role="alert"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="duration">Voraussichtliche Dauer</label>
+                <select id="duration" name="duration">
+                  <option value="">Bitte wählen...</option>
+                  <option value="30min">30 Minuten</option>
+                  <option value="1h">1 Stunde</option>
+                  <option value="2h">2 Stunden</option>
+                  <option value="half-day">Halber Tag (4h)</option>
+                  <option value="full-day">Ganzer Tag (8h+)</option>
+                  <option value="unsure">Weiß noch nicht</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="budget">Budget (ca.)</label>
+                <input type="text" id="budget" name="budget" placeholder="z.B. 200-400€">
+              </div>
+            </div>
+
+            <!-- Additional Info -->
+            <div class="form-section">
+              <h3>Weitere Details</h3>
+
+              <div class="form-group">
+                <label for="message">Deine Nachricht / Projekt-Beschreibung <span class="required">*</span></label>
+                <textarea id="message" name="message" rows="6" required aria-required="true" placeholder="Erzähl mir mehr über dein Projekt: Was ist der Anlass? Was ist dir wichtig? Hast du besondere Wünsche?"></textarea>
+                <span class="error-message" role="alert"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="reference">Hast du Referenzen oder Inspirationen?</label>
+                <textarea id="reference" name="reference" rows="3" placeholder="Links zu Bildern, Stilen oder Ideen, die dir gefallen (optional)"></textarea>
+              </div>
+            </div>
+
+            <!-- Privacy -->
+            <div class="form-group privacy-notice">
+              <label class="checkbox-label">
+                <input type="checkbox" id="privacy" name="privacy" required aria-required="true">
+                <span>Ich habe die <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a> gelesen und stimme zu. <span class="required">*</span></span>
+              </label>
+              <span class="error-message" role="alert"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-large" data-utm="booking-form-submit">
+              Buchungsanfrage senden
+            </button>
+
+            <div class="form-feedback" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="booking-sidebar">
+          <div class="sidebar-card">
+            <h3>Verfügbarkeit prüfen</h3>
+            <div id="calendar-embed" class="calendar-placeholder">
+              <p>Kalender-Integration folgt</p>
+              <p class="calendar-note">Nutze das Formular für deine Anfrage - ich prüfe die Verfügbarkeit und melde mich schnellstmöglich bei dir!</p>
+            </div>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Wie geht es weiter?</h3>
+            <ol class="process-list">
+              <li>Du sendest das Formular ab</li>
+              <li>Ich melde mich innerhalb von 24h</li>
+              <li>Wir besprechen Details & Verfügbarkeit</li>
+              <li>Du erhältst ein konkretes Angebot</li>
+              <li>Nach Bestätigung: Shooting & Spaß!</li>
+            </ol>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Fragen?</h3>
+            <p>Du bist dir noch unsicher oder hast Fragen? Schreib mir einfach!</p>
+            <a href="contact.html" class="btn btn-secondary btn-small">Kontakt aufnehmen</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>Julia Mayr</h3>
+          <p>Fotografin</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Navigation</h4>
+            <nav>
+              <a href="index.html">Home</a>
+              <a href="portfolio.html">Portfolio</a>
+              <a href="about.html">About</a>
+              <a href="services.html">Services</a>
+            </nav>
+          </div>
+          <div class="footer-column">
+            <h4>Kontakt</h4>
+            <nav>
+              <a href="booking.html">Booking</a>
+              <a href="contact.html">Kontakt</a>
+              <a href="mailto:j.mayr.96@web.de">j.mayr.96@web.de</a>
+            </nav>
+          </div>
+          <div class="footer-column">
+            <h4>Legal</h4>
+            <nav>
+              <a href="impressum.html">Impressum</a>
+              <a href="datenschutz.html">Datenschutz</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Julia Mayr Fotografie. Alle Rechte vorbehalten.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
