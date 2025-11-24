@@ -3,20 +3,20 @@ import { Button } from "@/components/ui/button";
 
 const galleryImages = [
   [
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw1.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw2.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw3.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw4.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw5.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw6.jpeg",
+    "/Hero234/1oben.webp",
+    "/Hero234/2oben.webp",
+    "/Hero234/3oben.webp",
+    "/Hero234/4oben.webp",
+    "/Hero234/5oben.webp",
+    "/Hero234/6oben.webp",
   ],
   [
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw7.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw8.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw9.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw10.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw11.jpeg",
-    "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/lummi/bw12.jpeg",
+    "/Hero234/1unten.webp",
+    "/Hero234/2unten.webp",
+    "/Hero234/3unten.webp",
+    "/Hero234/4unten.webp",
+    "/Hero234/5unten.webp",
+    "/Hero234/6unten.webp",
   ],
 ];
 
@@ -80,7 +80,7 @@ const Hero234 = ({
                   src={image}
                   alt={`Gallery image ${imageIndex + 1}`}
                   className="h-full w-full object-cover"
-                  loading="lazy" />
+                  loading={rowIndex === 0 && imageIndex < 6 ? "eager" : "lazy"} />
               </motion.div>
             ))}
           </motion.div>

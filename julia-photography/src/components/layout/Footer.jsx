@@ -53,24 +53,24 @@ const Footer = () => {
         </div>
         <div className="w-full grid grid-cols-4 md:grid-cols-6 gap-6 md:gap-4 px-0">
           {[
-            'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=500&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=500&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=500&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=500&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=500&auto=format&fit=crop',
-            'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=500&auto=format&fit=crop',
-          ].map((imageUrl, index) => (
+            { src: '/footer/1-nicht mobil.png', mobile: false },
+            { src: '/footer/2.png', mobile: true },
+            { src: '/footer/3.png', mobile: true },
+            { src: '/footer/4.png', mobile: true },
+            { src: '/footer/5.png', mobile: true },
+            { src: '/footer/6nicht mobil.png', mobile: false },
+          ].map((image, index) => (
             <a
               key={index}
               href="https://instagram.com/moanayulia"
               target="_blank"
               rel="noopener noreferrer"
               className={`relative aspect-square overflow-hidden group cursor-pointer ${
-                index >= 4 ? 'hidden md:block' : ''
+                !image.mobile ? 'hidden md:block' : ''
               }`}
             >
               <img
-                src={imageUrl}
+                src={image.src}
                 alt={`Instagram post ${index + 1}`}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                 loading="lazy"
