@@ -53,12 +53,12 @@ const Footer = () => {
         </div>
         <div className="w-full grid grid-cols-4 md:grid-cols-6 gap-6 md:gap-4 px-0">
           {[
-            { src: '/footer/1-nicht mobil.png', mobile: false },
-            { src: '/footer/2.png', mobile: true },
-            { src: '/footer/3.png', mobile: true },
-            { src: '/footer/4.png', mobile: true },
-            { src: '/footer/5.png', mobile: true },
-            { src: '/footer/6nicht mobil.png', mobile: false },
+            { src: '/footer/1-nicht mobil.webp', mobile: false },
+            { src: '/footer/2.webp', mobile: true },
+            { src: '/footer/3.webp', mobile: true },
+            { src: '/footer/4.webp', mobile: true },
+            { src: '/footer/5.webp', mobile: true },
+            { src: '/footer/6nicht mobil.webp', mobile: false },
           ].map((image, index) => (
             <a
               key={index}

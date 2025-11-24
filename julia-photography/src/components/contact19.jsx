@@ -179,9 +179,10 @@ const Contact19 = () => {
           {/* Right Side - Image - Full Width */}
           <div className="h-[400px] md:h-[500px] lg:h-[calc(100vh-8rem)] w-full lg:sticky lg:top-0">
             <img
-              src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=2070&auto=format&fit=crop"
-              alt="Fotoshooting"
-              className="h-full w-full object-cover rounded-lg" />
+              src="/Kontakt.webp"
+              alt="Julia Mayr - Fotografin"
+              className="h-full w-full object-cover rounded-lg"
+              loading="eager" />
           </div>
         </div>
       </div>
