@@ -51,7 +51,7 @@ const Footer = () => {
             @moanayulia
           </a>
         </div>
-        <div className="w-full grid grid-cols-6 gap-3 md:gap-4 px-0">
+        <div className="w-full grid grid-cols-4 md:grid-cols-6 gap-6 md:gap-4 px-0">
           {[
             'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=500&auto=format&fit=crop',
             'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=500&auto=format&fit=crop',
@@ -65,7 +65,9 @@ const Footer = () => {
               href="https://instagram.com/moanayulia"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative aspect-square overflow-hidden group cursor-pointer"
+              className={`relative aspect-square overflow-hidden group cursor-pointer ${
+                index >= 4 ? 'hidden md:block' : ''
+              }`}
             >
               <img
                 src={imageUrl}

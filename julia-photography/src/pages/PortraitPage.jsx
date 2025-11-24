@@ -1,9 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
 import PageHeader from '../components/common/PageHeader';
-import ProcessSteps from '../components/common/ProcessSteps';
 import { Ratecard2 } from '../components/ratecard2';
-import Gallery25 from '../components/common/Gallery25';
+import { Gallery25 } from '../components/gallery25';
 import ShootingDetails from '../components/common/ShootingDetails';
 import TestimonialCarousel from '../components/sections/TestimonialCarousel';
 import CTASection from '../components/sections/CTASection';
@@ -11,33 +10,6 @@ import { testimonialsData } from '../data/testimonialsData';
 
 const PortraitPage = () => {
   const navigate = useNavigate();
-  // Process Steps Data
-  const shootingSteps = [
-    {
-      icon: '💌',
-      iconLabel: 'Anfrage',
-      title: 'Anfrage',
-      description: 'Schreibt mir über das Kontaktformular oder Instagram. Erzählt mir von euch und euren Wünschen für euer Portrait.',
-    },
-    {
-      icon: '☕',
-      iconLabel: 'Kennenlernen',
-      title: 'Kennenlernen',
-      description: 'Wir lernen uns per Videocall oder bei einem Kaffee kennen. Ich möchte euch und eure Persönlichkeit verstehen.',
-    },
-    {
-      icon: '📸',
-      iconLabel: 'Shooting',
-      title: 'Das Shooting',
-      description: 'Entspannt und ohne Zeitdruck. Wir nehmen uns Zeit für eure natürliche Ausstrahlung und authentische Momente.',
-    },
-    {
-      icon: '🖼️',
-      iconLabel: 'Bilderauswahl',
-      title: 'Eure Bilder',
-      description: 'Innerhalb von 1-2 Wochen erhaltet ihr eure professionell bearbeiteten Bilder in einer schönen Online-Galerie zum Download.',
-    },
-  ];
 
   // Package Data
   const packages = [
@@ -182,14 +154,6 @@ const PortraitPage = () => {
 
       {/* Shooting Details */}
       <ShootingDetails />
-
-      {/* Process Steps */}
-      <ProcessSteps
-        title="So läuft euer Portrait-Shooting ab"
-        description="Von der ersten Nachricht bis zu euren fertigen Bildern – ich begleite euch durch den gesamten Prozess."
-        steps={shootingSteps}
-        variant="vertical"
-      />
 
       {/* Packages Section */}
       <Ratecard2

@@ -18,7 +18,7 @@ const FactCard = ({ title, description, icon, iconLabel }) => {
       </h3>
 
       {/* Description */}
-      <p className="text-base md:text-lg text-muted leading-relaxed text-center md:text-left">
+      <p className="text-base md:text-lg text-anthracite leading-relaxed text-center md:text-left">
         {description}
       </p>
     </div>

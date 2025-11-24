@@ -29,7 +29,7 @@ const CTASection = ({
 
   return (
     <section className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-[#FAF8F5] to-[#F5F0EA]">
-      <div className="container-custom">
+      <div className="container-custom px-4 md:px-6">
         <div className={`${variant === 'compact' ? 'max-w-3xl' : 'max-w-4xl'} mx-auto`}>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-12">
             {/* Text Content */}
@@ -42,13 +42,13 @@ const CTASection = ({
               )}
 
               {/* Headline */}
-              <h2 className="text-anthracite mb-5 md:mb-6">
+              <h2 className="text-anthracite mb-5 md:mb-6 break-words">
                 {headline}
               </h2>
 
               {/* Subline */}
               {subline && (
-                <p className="text-lg md:text-xl text-anthracite/80 leading-relaxed max-w-2xl mx-auto md:mx-0">
+                <p className="text-base md:text-lg lg:text-xl text-anthracite/80 leading-relaxed max-w-2xl mx-auto md:mx-0 break-words">
                   {subline}
                 </p>
               )}

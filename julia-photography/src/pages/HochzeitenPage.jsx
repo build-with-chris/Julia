@@ -4,11 +4,12 @@ import Layout from '../components/layout/Layout';
 import PageHeader from '../components/common/PageHeader';
 import HighlightList from '../components/common/HighlightList';
 import { Ratecard2 } from '../components/ratecard2';
-import Gallery25 from '../components/common/Gallery25';
+import { Gallery25 } from '../components/gallery25';
 import ProcessPagination from '../components/common/ProcessPagination';
 import FaqSection from '../components/common/FaqSection';
 import TestimonialCarousel from '../components/sections/TestimonialCarousel';
 import CTASection from '../components/sections/CTASection';
+import InternalNavigation from '../components/common/InternalNavigation';
 import { testimonialsData } from '../data/testimonialsData';
 
 const HochzeitenPage = () => {
@@ -311,8 +312,19 @@ const HochzeitenPage = () => {
     viewport: { once: true, margin: '-50px' }
   };
 
+  // Navigation items
+  const navItems = [
+    { id: 'gallery', label: 'Gallery' },
+    { id: 'ablauf', label: 'Ablauf' },
+    { id: 'angebot', label: 'Angebot' },
+    { id: 'faq', label: 'Häufige Fragen' },
+  ];
+
   return (
     <Layout>
+      {/* Internal Navigation */}
+      <InternalNavigation items={navItems} />
+
       {/* Page Header */}
       <PageHeader
         headline="Eure Hochzeitsgeschichte in Bildern, die bleiben."
@@ -358,101 +370,103 @@ const HochzeitenPage = () => {
         </div>
       </motion.section>
 
-      {/* Gallery - Getting Ready */}
-      <section className="py-20 md:py-32 bg-white">
+      {/* Gallery Section - All Galleries Together */}
+      <section id="gallery" className="py-20 md:py-32 bg-white scroll-mt-24">
         <div className="container-custom">
-          <motion.div 
-            className="text-center mb-12 md:mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
-              Portfolio
-            </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-6">
-              Getting Ready
-            </h2>
-            <p className="text-lg md:text-xl text-anthracite/80 max-w-3xl mx-auto leading-relaxed">
-              Die ersten Momente des Tages – voller Vorfreude und Emotionen
-            </p>
-          </motion.div>
-          <Gallery25 images={gettingReadyImages} enableLightbox={true} />
-        </div>
-      </section>
+          {/* Gallery - Getting Ready */}
+          <div className="mb-20 md:mb-32">
+            <motion.div 
+              className="text-center mb-12 md:mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.6 }}
+            >
+              <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
+                Portfolio
+              </p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-6">
+                Getting Ready
+              </h2>
+              <p className="text-lg md:text-xl text-anthracite/80 max-w-3xl mx-auto leading-relaxed">
+                Die ersten Momente des Tages – voller Vorfreude und Emotionen
+              </p>
+            </motion.div>
+            <Gallery25 images={gettingReadyImages} enableLightbox={true} />
+          </div>
 
-      {/* Gallery - Zeremonie */}
-      <section className="py-20 md:py-32 bg-gradient-to-br from-offwhite to-[#F5F0EA]">
-        <div className="container-custom">
-          <motion.div 
-            className="text-center mb-12 md:mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
-              Portfolio
-            </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-6">
-              Die Zeremonie
-            </h2>
-            <p className="text-lg md:text-xl text-anthracite/80 max-w-3xl mx-auto leading-relaxed">
-              Euer Ja-Wort – der Moment, auf den alles hinausläuft
-            </p>
-          </motion.div>
-          <Gallery25 images={ceremonyImages} enableLightbox={true} />
+          {/* Gallery - Zeremonie */}
+          <div className="mb-20 md:mb-32">
+            <motion.div 
+              className="text-center mb-12 md:mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.6 }}
+            >
+              <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
+                Portfolio
+              </p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-6">
+                Die Zeremonie
+              </h2>
+              <p className="text-lg md:text-xl text-anthracite/80 max-w-3xl mx-auto leading-relaxed">
+                Euer Ja-Wort – der Moment, auf den alles hinausläuft
+              </p>
+            </motion.div>
+            <Gallery25 images={ceremonyImages} enableLightbox={true} />
+          </div>
+
+          {/* Gallery - Party & Feier */}
+          <div>
+            <motion.div 
+              className="text-center mb-12 md:mb-16"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.6 }}
+            >
+              <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
+                Portfolio
+              </p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-6">
+                Party & Feier
+              </h2>
+              <p className="text-lg md:text-xl text-anthracite/80 max-w-3xl mx-auto leading-relaxed">
+                Der erste Tanz, die Torte, die Feier – unvergessliche Momente voller Freude
+              </p>
+            </motion.div>
+            <Gallery25 images={partyImages} enableLightbox={true} />
+          </div>
         </div>
       </section>
 
       {/* Hochzeitsprozess with Pagination */}
-      <ProcessPagination
-        title="Von der ersten Nachricht bis zu euren Bildern"
-        description="So läuft es ab"
-        steps={processSteps}
-      />
-
-      {/* Gallery - Party & Feier */}
-      <section className="py-20 md:py-32 bg-white">
-        <div className="container-custom">
-          <motion.div 
-            className="text-center mb-12 md:mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
-              Portfolio
-            </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-6">
-              Party & Feier
-            </h2>
-            <p className="text-lg md:text-xl text-anthracite/80 max-w-3xl mx-auto leading-relaxed">
-              Der erste Tanz, die Torte, die Feier – unvergessliche Momente voller Freude
-            </p>
-          </motion.div>
-          <Gallery25 images={partyImages} enableLightbox={true} />
-        </div>
+      <section id="ablauf" className="scroll-mt-24">
+        <ProcessPagination
+          title="Von der ersten Nachricht bis zu euren Bildern"
+          description="So läuft es ab"
+          steps={processSteps}
+        />
       </section>
 
       {/* Packages Section */}
-      <motion.section 
-        className="bg-gradient-to-br from-offwhite to-[#F5F0EA]"
-        initial="initial"
-        whileInView="whileInView"
-        viewport={{ once: true }}
-        variants={staggerContainer}
-      >
-        <Ratecard2
-          eyebrow="Mein Angebot"
-          title="Findet euer Package"
-          description="Flexible Pakete für euren perfekten Tag. Alle Preise verstehen sich inklusive Anfahrt im Raum München."
-          packages={packages}
-          onButtonClick={handlePackageClick}
-        />
-      </motion.section>
+      <section id="angebot" className="bg-gradient-to-br from-offwhite to-[#F5F0EA] scroll-mt-24">
+        <motion.div
+          initial="initial"
+          whileInView="whileInView"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+        >
+          <Ratecard2
+            eyebrow="Mein Angebot"
+            title="Findet euer Package"
+            description="Flexible Pakete für euren perfekten Tag. Alle Preise verstehen sich inklusive Anfahrt im Raum München."
+            packages={packages}
+            onButtonClick={handlePackageClick}
+          />
+        </motion.div>
+      </section>
 
       {/* Highlights - dezenter platziert */}
       <section className="py-12 md:py-16 bg-offwhite">
@@ -492,22 +506,26 @@ const HochzeitenPage = () => {
       </section>
 
       {/* FAQ Section */}
-      <FaqSection
-        title="Häufige Fragen"
-        description="Alles, was ihr wissen müsst"
-        faqs={faqs}
-      />
+      <section id="faq" className="scroll-mt-24">
+        <FaqSection
+          title="Häufige Fragen"
+          description="Alles, was ihr wissen müsst"
+          faqs={faqs}
+        />
+      </section>
 
       {/* Testimonials */}
       <TestimonialCarousel testimonials={[testimonialsData[0], testimonialsData[1], testimonialsData[3]]} />
 
       {/* CTA Section */}
-      <CTASection
-        eyebrow="Hochzeitsreportage buchen"
-        headline="Bereit, eure Hochzeitsgeschichte festzuhalten?"
-        subline="Von den ersten Vorbereitungen bis zum letzten Tanz – ich bin dabei und halte jeden emotionalen Moment fest."
-        buttonLabel="Verfügbarkeit anfragen"
-      />
+      <div className="pb-20 lg:pb-0">
+        <CTASection
+          eyebrow="Hochzeitsreportage buchen"
+          headline="Bereit, eure Hochzeitsgeschichte festzuhalten?"
+          subline="Von den ersten Vorbereitungen bis zum letzten Tanz – ich bin dabei und halte jeden emotionalen Moment fest."
+          buttonLabel="Verfügbarkeit anfragen"
+        />
+      </div>
     </Layout>
   );
 };

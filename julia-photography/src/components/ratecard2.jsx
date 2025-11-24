@@ -79,7 +79,7 @@ const Ratecard2 = ({
                   className={`w-full px-6 md:px-8 py-4 md:py-5 rounded-sm font-medium text-base md:text-lg transition-all duration-300 min-h-[52px] ${
                     plan.highlight
                       ? 'bg-warm-accent text-white hover:bg-warm-accent-dark shadow-md hover:shadow-lg'
-                      : 'border-2 border-warm-accent text-warm-accent hover:bg-warm-accent hover:text-white'
+                      : 'bg-white border-2 border-warm-accent/40 text-warm-accent hover:border-warm-accent hover:bg-warm-accent/10'
                   }`}>
                   {plan.buttonLabel || 'Anfragen'}
                 </Button>
