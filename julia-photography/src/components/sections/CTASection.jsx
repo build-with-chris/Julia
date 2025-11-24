@@ -28,27 +28,27 @@ const CTASection = ({
   };
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-[#FAF8F5] to-[#F5F0EA]">
+    <section className="py-16 md:py-24 lg:py-32 bg-gradient-to-br from-[#FAF8F5] to-[#F5F0EA]">
       <div className="container-custom">
         <div className={`${variant === 'compact' ? 'max-w-3xl' : 'max-w-4xl'} mx-auto`}>
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 md:gap-12">
             {/* Text Content */}
             <div className="flex-1 text-center md:text-left">
               {/* Eyebrow */}
               {eyebrow && (
-                <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-3">
+                <p className="text-xs md:text-sm uppercase tracking-[0.15em] text-warm-accent font-medium mb-4 md:mb-6">
                   {eyebrow}
                 </p>
               )}
 
               {/* Headline */}
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-4 leading-tight">
+              <h2 className="text-anthracite mb-5 md:mb-6">
                 {headline}
               </h2>
 
               {/* Subline */}
               {subline && (
-                <p className="text-base md:text-lg text-muted leading-relaxed max-w-2xl mx-auto md:mx-0">
+                <p className="text-lg md:text-xl text-anthracite/80 leading-relaxed max-w-2xl mx-auto md:mx-0">
                   {subline}
                 </p>
               )}
@@ -59,7 +59,7 @@ const CTASection = ({
               <button
                 type="button"
                 onClick={handleClick}
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-warm-accent text-warm-accent hover:bg-warm-accent hover:text-white rounded-sm transition-all duration-300 font-medium text-base md:text-lg group"
+                className="inline-flex items-center justify-center px-8 md:px-10 py-4 md:py-5 border-2 border-warm-accent text-warm-accent hover:bg-warm-accent hover:text-white rounded-sm transition-all duration-300 font-medium text-base md:text-lg group min-h-[52px] shadow-md hover:shadow-lg"
                 aria-label={`${buttonLabel} - Kontaktformular öffnen`}
               >
                 <span>{buttonLabel}</span>

@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
-import HomeHero from '../components/sections/HomeHero';
-import TestimonialCarousel from '../components/sections/TestimonialCarousel';
+import { Hero234 } from '../components/hero234';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -16,11 +15,9 @@ const Home = () => {
 
   return (
     <Layout>
-      {/* Hero Section - vereinfacht mit klarem Buchungs-CTA */}
-      <HomeHero
+      {/* Hero Section - Hero234 Block */}
+      <Hero234
         kicker="Cinematische & emotionale Fotografie"
-        headline="Eure Geschichte, festgehalten"
-        subtitle="Natürlich, achtsam und mit einem Hauch Nostalgie – ich halte eure wertvollsten Momente fest. Ob Paarshooting, Hochzeit, Portrait oder Familie."
         primaryButtonText="Jetzt Shooting buchen"
         secondaryButtonText="Mehr erfahren"
         onPrimaryClick={handleBookingClick}
@@ -33,125 +30,154 @@ const Home = () => {
       />
 
       {/* Services - kompakte Übersicht */}
-      <section id="services" className="py-20 md:py-28 bg-offwhite">
+      <section id="services" className="py-16 md:py-24 lg:py-32 bg-offwhite">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
+          <div className="max-w-4xl mx-auto text-center mb-16 md:mb-20">
+            <p className="text-xs md:text-sm uppercase tracking-[0.15em] text-warm-accent font-medium mb-6">
               Meine Services
             </p>
-            <h2 className="text-4xl md:text-5xl font-bold text-anthracite mb-6">
+            <h2 className="text-anthracite mb-8">
               Für jeden Moment das richtige Shooting
             </h2>
-            <p className="text-lg text-muted leading-relaxed">
+            <p className="text-lg md:text-xl text-anthracite/80 leading-relaxed max-w-3xl mx-auto">
               Ob romantisches Paarshooting, euer besonderer Hochzeitstag, ein persönliches Portrait oder ein Familienshooting – 
               ich begleite euch mit meiner Kamera und halte die Momente fest, die euer Herz berühren.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
-            <div className="bg-white p-8 rounded-lg border border-border-soft/50 hover:shadow-lg transition-shadow">
-              <h3 className="text-2xl font-bold text-anthracite mb-3">Paarshootings</h3>
-              <p className="text-muted leading-relaxed mb-4">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
+            <div
+              onClick={() => navigate('/paare')}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  navigate('/paare');
+                }
+              }}
+              className="bg-white p-8 md:p-10 rounded-lg border border-border-soft/50 hover:shadow-lg transition-all duration-300 cursor-pointer group"
+            >
+              <h3 className="text-anthracite mb-4 group-hover:text-warm-accent transition-colors">Paarshootings</h3>
+              <p className="text-anthracite/75 leading-relaxed mb-6 text-base md:text-lg">
                 Echte Verbindung statt perfekte Posen. Ich halte eure Liebe und Intimität fest – 
                 natürlich, emotional und zeitlos.
               </p>
-              <button
-                onClick={() => navigate('/paare')}
-                className="text-warm-accent hover:text-anthracite font-medium transition-colors"
-              >
+              <div className="text-warm-accent group-hover:text-anthracite font-medium transition-colors text-base md:text-lg">
                 Mehr erfahren →
-              </button>
+              </div>
             </div>
-            <div className="bg-white p-8 rounded-lg border border-border-soft/50 hover:shadow-lg transition-shadow">
-              <h3 className="text-2xl font-bold text-anthracite mb-3">Hochzeiten</h3>
-              <p className="text-muted leading-relaxed mb-4">
+            <div
+              onClick={() => navigate('/hochzeiten')}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  navigate('/hochzeiten');
+                }
+              }}
+              className="bg-white p-8 md:p-10 rounded-lg border border-border-soft/50 hover:shadow-lg transition-all duration-300 cursor-pointer group"
+            >
+              <h3 className="text-anthracite mb-4 group-hover:text-warm-accent transition-colors">Hochzeiten</h3>
+              <p className="text-anthracite/75 leading-relaxed mb-6 text-base md:text-lg">
                 Eure wichtigsten Momente dokumentiert – zeitlos, emotional, ehrlich. 
                 Von den Vorbereitungen bis zum letzten Tanz.
               </p>
-              <button
-                onClick={() => navigate('/hochzeiten')}
-                className="text-warm-accent hover:text-anthracite font-medium transition-colors"
-              >
+              <div className="text-warm-accent group-hover:text-anthracite font-medium transition-colors text-base md:text-lg">
                 Mehr erfahren →
-              </button>
+              </div>
             </div>
-            <div className="bg-white p-8 rounded-lg border border-border-soft/50 hover:shadow-lg transition-shadow">
-              <h3 className="text-2xl font-bold text-anthracite mb-3">Portraitshootings</h3>
-              <p className="text-muted leading-relaxed mb-4">
+            <div
+              onClick={() => navigate('/portrait')}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  navigate('/portrait');
+                }
+              }}
+              className="bg-white p-8 md:p-10 rounded-lg border border-border-soft/50 hover:shadow-lg transition-all duration-300 cursor-pointer group"
+            >
+              <h3 className="text-anthracite mb-4 group-hover:text-warm-accent transition-colors">Portraitshootings</h3>
+              <p className="text-anthracite/75 leading-relaxed mb-6 text-base md:text-lg">
                 Individuell, authentisch und voller Persönlichkeit. Ich zeige euch, wie schön ihr seid – 
                 natürlich und ohne Maskerade.
               </p>
-              <button
-                onClick={() => navigate('/portrait')}
-                className="text-warm-accent hover:text-anthracite font-medium transition-colors"
-              >
+              <div className="text-warm-accent group-hover:text-anthracite font-medium transition-colors text-base md:text-lg">
                 Mehr erfahren →
-              </button>
+              </div>
             </div>
-            <div className="bg-white p-8 rounded-lg border border-border-soft/50 hover:shadow-lg transition-shadow">
-              <h3 className="text-2xl font-bold text-anthracite mb-3">Familienshootings</h3>
-              <p className="text-muted leading-relaxed mb-4">
+            <div
+              onClick={() => navigate('/familie')}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  navigate('/familie');
+                }
+              }}
+              className="bg-white p-8 md:p-10 rounded-lg border border-border-soft/50 hover:shadow-lg transition-all duration-300 cursor-pointer group"
+            >
+              <h3 className="text-anthracite mb-4 group-hover:text-warm-accent transition-colors">Familienshootings</h3>
+              <p className="text-anthracite/75 leading-relaxed mb-6 text-base md:text-lg">
                 Die besonderen Momente eurer Familie festgehalten – ehrlich, lebendig und voller Emotion. 
                 Für Erinnerungen, die ein Leben lang halten.
               </p>
-              <button
-                onClick={() => navigate('/familie')}
-                className="text-warm-accent hover:text-anthracite font-medium transition-colors"
-              >
+              <div className="text-warm-accent group-hover:text-anthracite font-medium transition-colors text-base md:text-lg">
                 Mehr erfahren →
-              </button>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Carousel */}
-      <TestimonialCarousel />
-
       {/* Kontakt Section - prominent und einfach */}
-      <section id="kontakt" className="py-24 md:py-32 bg-offwhite">
+      <section id="kontakt" className="py-16 md:py-24 lg:py-32 bg-offwhite">
         <div className="container-custom">
           <div className="max-w-2xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-anthracite mb-4">
+            <div className="text-center mb-12 md:mb-16">
+              <h2 className="text-anthracite mb-6">
                 Bereit für euer Shooting?
               </h2>
-              <p className="text-lg text-muted leading-relaxed">
+              <p className="text-lg md:text-xl text-anthracite/80 leading-relaxed">
                 Schreibt mir und wir finden gemeinsam den perfekten Termin für euch.
               </p>
             </div>
             
-            <div className="bg-white p-8 md:p-10 rounded-lg shadow-sm border border-border-soft">
-              <form className="space-y-6">
+            <div className="bg-white p-8 md:p-10 lg:p-12 rounded-lg shadow-sm border border-border-soft">
+              <form className="space-y-6 md:space-y-8">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-anthracite mb-2">
+                  <label htmlFor="name" className="block text-sm md:text-base font-medium text-anthracite mb-3">
                     Euer Name
                   </label>
                   <input
                     type="text"
                     id="name"
-                    className="w-full px-4 py-3 border border-border-soft rounded-sm focus:outline-none focus:ring-2 focus:ring-warm-accent focus:border-transparent"
+                    className="w-full px-4 md:px-5 py-3 md:py-4 border border-border-soft rounded-sm focus:outline-none focus:ring-2 focus:ring-warm-accent focus:border-transparent text-base"
                     placeholder="Anna & Tom"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-anthracite mb-2">
+                  <label htmlFor="email" className="block text-sm md:text-base font-medium text-anthracite mb-3">
                     E-Mail
                   </label>
                   <input
                     type="email"
                     id="email"
-                    className="w-full px-4 py-3 border border-border-soft rounded-sm focus:outline-none focus:ring-2 focus:ring-warm-accent focus:border-transparent"
+                    className="w-full px-4 md:px-5 py-3 md:py-4 border border-border-soft rounded-sm focus:outline-none focus:ring-2 focus:ring-warm-accent focus:border-transparent text-base"
                     placeholder="eure@email.de"
                   />
                 </div>
                 <div>
-                  <label htmlFor="shooting-type" className="block text-sm font-medium text-anthracite mb-2">
+                  <label htmlFor="shooting-type" className="block text-sm md:text-base font-medium text-anthracite mb-3">
                     Art des Shootings
                   </label>
                   <select
                     id="shooting-type"
-                    className="w-full px-4 py-3 border border-border-soft rounded-sm focus:outline-none focus:ring-2 focus:ring-warm-accent focus:border-transparent"
+                    className="w-full px-4 md:px-5 py-3 md:py-4 border border-border-soft rounded-sm focus:outline-none focus:ring-2 focus:ring-warm-accent focus:border-transparent text-base"
                   >
                     <option value="">Bitte wählen</option>
                     <option value="paare">Paarshooting</option>
@@ -162,19 +188,19 @@ const Home = () => {
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-anthracite mb-2">
+                  <label htmlFor="message" className="block text-sm md:text-base font-medium text-anthracite mb-3">
                     Nachricht
                   </label>
                   <textarea
                     id="message"
-                    rows="4"
-                    className="w-full px-4 py-3 border border-border-soft rounded-sm focus:outline-none focus:ring-2 focus:ring-warm-accent focus:border-transparent"
+                    rows="5"
+                    className="w-full px-4 md:px-5 py-3 md:py-4 border border-border-soft rounded-sm focus:outline-none focus:ring-2 focus:ring-warm-accent focus:border-transparent text-base resize-none"
                     placeholder="Erzählt mir von euren Plänen und eurem Wunschtermin..."
                   />
                 </div>
                 <button
                   type="submit"
-                  className="w-full px-8 py-4 bg-warm-accent hover:bg-warm-accent-dark text-white rounded-sm transition-colors duration-200 font-medium text-lg shadow-md hover:shadow-lg"
+                  className="w-full px-8 md:px-10 py-4 md:py-5 bg-warm-accent hover:bg-warm-accent-dark text-white rounded-sm transition-colors duration-200 font-medium text-base md:text-lg shadow-md hover:shadow-lg min-h-[52px]"
                 >
                   Anfrage senden
                 </button>

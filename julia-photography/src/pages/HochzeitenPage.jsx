@@ -3,11 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
 import PageHeader from '../components/common/PageHeader';
 import HighlightList from '../components/common/HighlightList';
-import PackageCard from '../components/common/PackageCard';
+import { Ratecard2 } from '../components/ratecard2';
 import Gallery25 from '../components/common/Gallery25';
 import ProcessPagination from '../components/common/ProcessPagination';
 import FaqSection from '../components/common/FaqSection';
+import TestimonialCarousel from '../components/sections/TestimonialCarousel';
 import CTASection from '../components/sections/CTASection';
+import { testimonialsData } from '../data/testimonialsData';
 
 const HochzeitenPage = () => {
   const navigate = useNavigate();
@@ -341,7 +343,7 @@ const HochzeitenPage = () => {
               </h2>
             </motion.div>
 
-            <motion.div className="prose prose-lg max-w-none text-muted space-y-6" variants={fadeInUp}>
+            <motion.div className="prose prose-lg max-w-none text-anthracite/80 space-y-6" variants={fadeInUp}>
               <p className="text-lg md:text-xl leading-relaxed">
                 Ich fotografiere Hochzeiten, aber auch Paare, Familien und People. Ich liebe es besonders Hochzeiten zu begleiten und halte Schönheit und Momente in ganz ehrlicher und individueller Weise fest. So entstehen zeitlose, emotionale Erinnerungen zu Momenten, die sonst verloren wären.
               </p>
@@ -380,7 +382,7 @@ const HochzeitenPage = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-6">
               Getting Ready
             </h2>
-            <p className="text-lg md:text-xl text-muted max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-anthracite/80 max-w-3xl mx-auto leading-relaxed">
               Die ersten Momente des Tages – voller Vorfreude und Emotionen
             </p>
           </motion.div>
@@ -404,7 +406,7 @@ const HochzeitenPage = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-6">
               Die Zeremonie
             </h2>
-            <p className="text-lg md:text-xl text-muted max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-anthracite/80 max-w-3xl mx-auto leading-relaxed">
               Euer Ja-Wort – der Moment, auf den alles hinausläuft
             </p>
           </motion.div>
@@ -435,7 +437,7 @@ const HochzeitenPage = () => {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-6">
               Party & Feier
             </h2>
-            <p className="text-lg md:text-xl text-muted max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-anthracite/80 max-w-3xl mx-auto leading-relaxed">
               Der erste Tanz, die Torte, die Feier – unvergessliche Momente voller Freude
             </p>
           </motion.div>
@@ -445,45 +447,19 @@ const HochzeitenPage = () => {
 
       {/* Packages Section */}
       <motion.section 
-        className="py-20 md:py-28 bg-gradient-to-br from-offwhite to-[#F5F0EA]"
+        className="bg-gradient-to-br from-offwhite to-[#F5F0EA]"
         initial="initial"
         whileInView="whileInView"
         viewport={{ once: true }}
         variants={staggerContainer}
       >
-        <div className="container-custom">
-          <motion.div className="text-center mb-12 md:mb-16" variants={fadeInUp}>
-            <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
-              Mein Angebot
-            </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-6">
-              Findet euer Package
-            </h2>
-            <p className="text-lg md:text-xl text-muted max-w-3xl mx-auto leading-relaxed">
-              Flexible Pakete für euren perfekten Tag. Alle Preise verstehen sich inklusive Anfahrt im Raum München.
-            </p>
-          </motion.div>
-
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
-            variants={staggerContainer}
-          >
-            {packages.map((pkg, index) => (
-              <motion.div key={index} variants={fadeInUp}>
-                <PackageCard
-                  title={pkg.title}
-                  price={pkg.price}
-                  duration={pkg.duration}
-                  description={pkg.description}
-                  features={pkg.features}
-                  highlight={pkg.highlight}
-                  buttonLabel={pkg.buttonLabel}
-                  onButtonClick={handlePackageClick}
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
+        <Ratecard2
+          eyebrow="Mein Angebot"
+          title="Findet euer Package"
+          description="Flexible Pakete für euren perfekten Tag. Alle Preise verstehen sich inklusive Anfahrt im Raum München."
+          packages={packages}
+          onButtonClick={handlePackageClick}
+        />
       </motion.section>
 
       {/* FAQ Section */}
@@ -492,6 +468,9 @@ const HochzeitenPage = () => {
         description="Alles, was ihr wissen müsst"
         faqs={faqs}
       />
+
+      {/* Testimonials */}
+      <TestimonialCarousel testimonials={[testimonialsData[0], testimonialsData[1], testimonialsData[3]]} />
 
       {/* CTA Section */}
       <CTASection

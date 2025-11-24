@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { testimonialsData } from '../../data/testimonialsData';
 
-const TestimonialCarousel = () => {
+const TestimonialCarousel = ({ testimonials = testimonialsData }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(1);
 
@@ -22,7 +22,7 @@ const TestimonialCarousel = () => {
     return () => window.removeEventListener('resize', updateItemsPerView);
   }, []);
 
-  const maxIndex = Math.max(0, testimonialsData.length - itemsPerView);
+  const maxIndex = Math.max(0, testimonials.length - itemsPerView);
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
@@ -46,7 +46,7 @@ const TestimonialCarousel = () => {
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-anthracite">
             Echte Stimmen
           </h2>
-          <p className="text-muted max-w-md text-sm md:text-base leading-relaxed">
+          <p className="text-anthracite/75 max-w-md text-sm md:text-base leading-relaxed">
             Echte Erfahrungen von Menschen, deren besondere Momente ich festhalten durfte.
           </p>
         </div>
@@ -60,7 +60,7 @@ const TestimonialCarousel = () => {
                 transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)`,
               }}
             >
-              {testimonialsData.map((testimonial, index) => {
+              {testimonials.map((testimonial, index) => {
                 const itemWidth = 100 / itemsPerView;
                 
                 return (
@@ -92,7 +92,7 @@ const TestimonialCarousel = () => {
                               {testimonial.author}
                             </div>
                             {testimonial.location && (
-                              <div className="text-muted text-xs">
+                              <div className="text-anthracite/65 text-xs">
                                 {testimonial.location}
                               </div>
                             )}

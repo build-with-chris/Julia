@@ -6,7 +6,7 @@ const FaqItem = ({ question, answer, isOpen, onToggle }) => {
       <button
         type="button"
         onClick={onToggle}
-        className="w-full py-6 flex items-center justify-between gap-4 text-left hover:text-warm-accent transition-colors duration-200"
+        className="w-full py-5 md:py-6 flex items-center justify-between gap-4 text-left hover:text-warm-accent transition-colors duration-200"
         aria-expanded={isOpen}
       >
         <h3 className="text-lg md:text-xl font-semibold text-anthracite pr-4">
@@ -32,10 +32,10 @@ const FaqItem = ({ question, answer, isOpen, onToggle }) => {
 
       <div
         className={`overflow-hidden transition-all duration-300 ${
-          isOpen ? 'max-h-96 pb-6' : 'max-h-0'
+          isOpen ? 'max-h-96 pb-6 md:pb-8' : 'max-h-0'
         }`}
       >
-        <div className="text-base md:text-lg text-muted leading-relaxed">
+        <div className="text-base md:text-lg text-anthracite/80 leading-relaxed">
           {answer}
         </div>
       </div>
@@ -55,22 +55,22 @@ const FaqSection = ({
   };
 
   return (
-    <section className="py-20 md:py-28 bg-offwhite">
+    <section className="py-16 md:py-24 lg:py-32 bg-offwhite">
       <div className="container-custom">
         {/* Section Header */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-6">
+        <div className="text-center mb-12 md:mb-16 lg:mb-20">
+          <h2 className="text-anthracite mb-6 md:mb-8">
             {title}
           </h2>
           {description && (
-            <p className="text-lg md:text-xl text-muted max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-anthracite/80 max-w-3xl mx-auto leading-relaxed">
               {description}
             </p>
           )}
         </div>
 
         {/* FAQ Items */}
-        <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-sm p-6 md:p-8">
+        <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-sm p-8 md:p-10 lg:p-12">
           {faqs.map((faq, index) => (
             <FaqItem
               key={index}

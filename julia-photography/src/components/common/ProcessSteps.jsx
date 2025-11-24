@@ -5,15 +5,15 @@ const ProcessSteps = ({
   variant = 'vertical', // 'vertical' or 'horizontal'
 }) => {
   return (
-    <section className="py-20 md:py-28 bg-offwhite">
+    <section className="py-16 md:py-24 lg:py-32 bg-offwhite">
       <div className="container-custom">
         {/* Section Header */}
-        <div className="text-center mb-16 md:mb-20">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-6">
+        <div className="text-center mb-12 md:mb-16 lg:mb-20">
+          <h2 className="text-anthracite mb-6 md:mb-8">
             {title}
           </h2>
           {description && (
-            <p className="text-lg md:text-xl text-muted max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-anthracite/80 max-w-3xl mx-auto leading-relaxed">
               {description}
             </p>
           )}
@@ -22,8 +22,8 @@ const ProcessSteps = ({
         {/* Steps */}
         <div className={`
           ${variant === 'horizontal'
-            ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'
-            : 'max-w-4xl mx-auto space-y-12 md:space-y-16'
+            ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10'
+            : 'max-w-4xl mx-auto space-y-10 md:space-y-14 lg:space-y-16'
           }
         `}>
           {steps.map((step, index) => (
@@ -50,10 +50,10 @@ const ProcessSteps = ({
 
               {/* Content */}
               <div className={`flex-1 ${variant === 'horizontal' ? 'mt-6' : ''}`}>
-                <h3 className="text-xl md:text-2xl font-bold text-anthracite mb-3">
+                <h3 className="text-xl md:text-2xl font-bold text-anthracite mb-4">
                   {step.title}
                 </h3>
-                <p className="text-base md:text-lg text-muted leading-relaxed">
+                <p className="text-base md:text-lg text-anthracite/75 leading-relaxed">
                   {step.description}
                 </p>
               </div>

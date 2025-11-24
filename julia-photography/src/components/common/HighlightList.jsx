@@ -30,23 +30,23 @@ const HighlightList = ({
   };
 
   return (
-    <section className="py-20 md:py-28 bg-white">
+    <section className="py-16 md:py-24 lg:py-32 bg-white">
       <div className="container-custom">
         {/* Section Header */}
         <motion.div 
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-12 md:mb-16 lg:mb-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6 }}
         >
           {title && (
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-6">
+            <h2 className="text-anthracite mb-6 md:mb-8">
               {title}
             </h2>
           )}
           {description && (
-            <p className="text-lg md:text-xl text-muted max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-anthracite/80 max-w-3xl mx-auto leading-relaxed">
               {description}
             </p>
           )}
@@ -54,7 +54,7 @@ const HighlightList = ({
 
         {/* Highlights Grid */}
         <motion.div 
-          className={`grid grid-cols-1 ${columnClasses[columns]} gap-8 md:gap-12`}
+          className={`grid grid-cols-1 ${columnClasses[columns]} gap-10 md:gap-12 lg:gap-16`}
           initial="initial"
           whileInView="whileInView"
           viewport={{ once: true }}
@@ -82,12 +82,12 @@ const HighlightList = ({
               )}
 
               {/* Title */}
-              <h3 className="text-xl md:text-2xl font-bold text-anthracite mb-4">
+              <h3 className="text-xl md:text-2xl font-bold text-anthracite mb-4 md:mb-5">
                 {highlight.title}
               </h3>
 
               {/* Description */}
-              <p className="text-base md:text-lg text-muted leading-relaxed">
+              <p className="text-base md:text-lg text-anthracite/75 leading-relaxed">
                 {highlight.description}
               </p>
             </motion.div>

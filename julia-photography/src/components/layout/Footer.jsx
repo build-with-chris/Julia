@@ -50,7 +50,7 @@ const Footer = () => {
                     <li key={item.id}>
                       <button
                         onClick={() => handleNavClick(item.path)}
-                        className="text-offwhite/80 hover:text-warm-accent transition-colors duration-200 text-sm text-left"
+                        className="text-offwhite hover:text-warm-accent transition-colors duration-200 text-sm text-left"
                       >
                         {item.label}
                       </button>
@@ -63,7 +63,7 @@ const Footer = () => {
                     <li key={item.id}>
                       <button
                         onClick={() => handleNavClick(item.path)}
-                        className="text-offwhite/80 hover:text-warm-accent transition-colors duration-200 text-sm text-left"
+                        className="text-offwhite hover:text-warm-accent transition-colors duration-200 text-sm text-left"
                       >
                         {item.label}
                       </button>
@@ -77,7 +77,7 @@ const Footer = () => {
           {/* CTA Section */}
           <div className="text-center md:text-left">
             <h3 className="text-lg font-semibold mb-4 text-offwhite">Bereit für euer Shooting?</h3>
-            <p className="text-sm text-offwhite/80 mb-6">
+            <p className="text-sm text-offwhite/90 mb-6">
               Bereit, eure Geschichte festzuhalten?
             </p>
             <button
@@ -95,7 +95,7 @@ const Footer = () => {
               <div>
                 <a
                   href="mailto:juliamayr.photo@gmail.com"
-                  className="text-offwhite/80 hover:text-warm-accent transition-colors duration-200 text-sm block mb-2"
+                  className="text-offwhite hover:text-warm-accent transition-colors duration-200 text-sm block mb-2"
                 >
                   juliamayr.photo@gmail.com
                 </a>
@@ -105,7 +105,7 @@ const Footer = () => {
                   href="https://instagram.com/moanayulia"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-offwhite/80 hover:text-warm-accent transition-colors duration-200"
+                  className="text-offwhite hover:text-warm-accent transition-colors duration-200"
                   aria-label="Instagram"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -116,7 +116,7 @@ const Footer = () => {
                   href="https://pinterest.com/juliamayrphotography"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-offwhite/80 hover:text-warm-accent transition-colors duration-200"
+                  className="text-offwhite hover:text-warm-accent transition-colors duration-200"
                   aria-label="Pinterest"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -142,18 +142,18 @@ const Footer = () => {
             <div className="flex gap-6">
               <button
                 onClick={() => navigate('/impressum')}
-                className="text-sm text-offwhite/60 hover:text-warm-accent transition-colors duration-200"
+                className="text-sm text-offwhite/80 hover:text-warm-accent transition-colors duration-200"
               >
                 Impressum
               </button>
               <button
                 onClick={() => navigate('/datenschutz')}
-                className="text-sm text-offwhite/60 hover:text-warm-accent transition-colors duration-200"
+                className="text-sm text-offwhite/80 hover:text-warm-accent transition-colors duration-200"
               >
                 Datenschutz
               </button>
             </div>
-            <p className="text-sm text-offwhite/60 text-center md:text-right">
+            <p className="text-sm text-offwhite/75 text-center md:text-right">
               &copy; {new Date().getFullYear()} Julia Mayr Photography. Alle Rechte vorbehalten.
             </p>
           </div>

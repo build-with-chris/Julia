@@ -60,7 +60,7 @@ const AboutPage = () => {
                 <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-anthracite mb-6 leading-tight">
                   Hey, ich bin Julia
                 </h1>
-                <p className="text-xl md:text-2xl text-muted leading-relaxed">
+                <p className="text-xl md:text-2xl text-anthracite/85 leading-relaxed">
                   Fotografin aus dem Herzen Bayerns, verliebt in echte Momente und natürliches Licht.
                 </p>
               </div>
@@ -86,16 +86,16 @@ const AboutPage = () => {
                 </div>
 
                 <div className="prose prose-lg max-w-none space-y-6">
-                  <p className="text-base md:text-lg text-muted leading-relaxed">
+                  <p className="text-base md:text-lg text-anthracite/80 leading-relaxed">
                     Meine Geschichte beginnt mit einem Ende. Das bedeutet, ich habe sehr viele verschiedene Jobs ausprobiert und mich nirgendwo 'angekommen' gefühlt. Von der Arbeit in einem Industrieunternehmen bis zur Fitnesstrainerin. Ich habe mit Kindern zusammen gearbeitet und gekellnert.
                   </p>
-                  <p className="text-base md:text-lg text-muted leading-relaxed">
+                  <p className="text-base md:text-lg text-anthracite/80 leading-relaxed">
                     Das einzige was ich immer wusste war, ich wollte die Freiheit haben meine Stunden selbst einzuteilen, nach draußen zu gehen wann ich wollte und in irgendeiner Hinsicht etwas schönes für die Welt erschaffen.
                   </p>
-                  <p className="text-base md:text-lg text-muted leading-relaxed">
+                  <p className="text-base md:text-lg text-anthracite/80 leading-relaxed">
                     Seit ich mit 16 meine erste Spiegelreflexkamera bekommen habe, träume ich davon mit Fotografie Geld zu verdienen. Nach jahrelangen gescheiterten Versuchen einen Job für mich zu finden, der zu mir passt, bin ich für ein Studium an die Bayerische Akademie für Fernsehen und Digitale Medien gegangen und habe mich danach endlich selbstständig gemacht und bisher keinen Tag davon bereut.
                   </p>
-                  <p className="text-base md:text-lg text-muted leading-relaxed">
+                  <p className="text-base md:text-lg text-anthracite/80 leading-relaxed">
                     Ich möchte die Welt ein kleines bisschen besser machen – wenn ich Menschen mit meiner Arbeit ein Lächeln aufs Gesicht zaubern kann, komme ich diesem Ziel schon ein großes Stück näher.
                   </p>
                 </div>
@@ -112,7 +112,7 @@ const AboutPage = () => {
                       Deine Geschichte erzählen
                     </h3>
                   </div>
-                  <p className="text-base text-muted leading-relaxed">
+                  <p className="text-base text-anthracite/80 leading-relaxed">
                     Ob Hochzeitsreportage, Paar- oder Portraitshooting. Mir ist es wichtig so authentisch, persönlich und mit so viel Freude und Leidenschaft wie möglich deine Geschichte zu erzählen – denn jeder von uns hat eine eigene und individuelle, die es verdient hat gesehen und festgehalten zu werden.
                   </p>
                 </div>
@@ -166,7 +166,7 @@ const AboutPage = () => {
                 <h3 className="text-lg font-semibold text-anthracite mb-3">
                   Wenn du nur eine Sache essen könntest für eine Woche, was wäre das?
                 </h3>
-                <p className="text-muted italic">
+                <p className="text-anthracite/75 italic">
                   "Wahrscheinlich Porridge. Ohne das starte ich nicht in den Tag."
                 </p>
               </div>
@@ -175,7 +175,7 @@ const AboutPage = () => {
                 <h3 className="text-lg font-semibold text-anthracite mb-3">
                   Top 3 Destinationen, die du immer wieder besuchen würdest?
                 </h3>
-                <p className="text-muted italic">
+                <p className="text-anthracite/75 italic">
                   "Hawai'i, den Wald, meinen eigenen Verstand"
                 </p>
               </div>
@@ -184,7 +184,7 @@ const AboutPage = () => {
                 <h3 className="text-lg font-semibold text-anthracite mb-3">
                   Eines Tages will ich...?
                 </h3>
-                <p className="text-muted italic">
+                <p className="text-anthracite/75 italic">
                   "Einen Husky haben, in einem kleinen Haus mitten in der Natur wohnen, Fotografien auf einer Ausstellung zeigen"
                 </p>
               </div>
@@ -193,7 +193,7 @@ const AboutPage = () => {
                 <h3 className="text-lg font-semibold text-anthracite mb-3">
                   Was magst du an Menschen besonders gerne?
                 </h3>
-                <p className="text-muted italic">
+                <p className="text-anthracite/75 italic">
                   "Ich liebe humorvolle Menschen und sympathisch sind mir die, die auch mal über sich selbst lachen können. Außerdem find ich es beeindruckend wenn Menschen wirklich zuhören können"
                 </p>
               </div>
@@ -202,7 +202,7 @@ const AboutPage = () => {
                 <h3 className="text-lg font-semibold text-anthracite mb-3">
                   Was ist deine große Leidenschaft?
                 </h3>
-                <p className="text-muted italic">
+                <p className="text-anthracite/75 italic">
                   "Eiskunstlaufen. Dabei kann ich alles um mich herum vergessen, es gibt keine bessere Möglichkeit Stress abzubauen"
                 </p>
               </div>
@@ -211,7 +211,7 @@ const AboutPage = () => {
                 <h3 className="text-lg font-semibold text-anthracite mb-3">
                   Was inspiriert dich am meisten?
                 </h3>
-                <p className="text-muted italic">
+                <p className="text-anthracite/75 italic">
                   "Sonnenuntergänge, das Meer, die Vielfältigkeit der Natur, ein kreatives Umfeld und ästhetische Räume oder Dinge."
                 </p>
               </div>
@@ -224,7 +224,7 @@ const AboutPage = () => {
       <section className="py-16 md:py-20 bg-white">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-lg md:text-xl text-muted leading-relaxed mb-6">
+            <p className="text-lg md:text-xl text-anthracite/80 leading-relaxed mb-6">
               Du findest hier einen Einblick in meine Arbeit und vielleicht ja auch ein paar Inspirationen! :)
             </p>
             <p className="text-lg md:text-xl text-muted leading-relaxed">

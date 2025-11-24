@@ -67,7 +67,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-offwhite/95 backdrop-blur-sm border-b border-border-soft shadow-sm">
-      <nav className="container-custom py-4">
+      <nav className="container-custom py-5 md:py-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <button
@@ -78,17 +78,17 @@ const Header = () => {
             <img
               src="/Logo Julia.avif"
               alt="Julia Mayr Photography"
-              className="h-8 md:h-10 w-auto"
+              className="h-9 md:h-11 w-auto"
             />
           </button>
 
           {/* Navigation Links */}
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden md:flex items-center gap-10">
             {navItems.map((item) => (
               <li key={item.id}>
                 <button
                   onClick={() => handleNavClick(item)}
-                  className={`relative text-sm font-medium transition-colors duration-200 pb-1
+                  className={`relative text-sm font-medium transition-colors duration-200 pb-2 tracking-wide
                     ${activeSection === item.id
                       ? 'text-warm-accent'
                       : 'text-anthracite hover:text-warm-accent'
@@ -98,7 +98,7 @@ const Header = () => {
                   {item.label}
                   {/* Active indicator */}
                   {activeSection === item.id && (
-                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-warm-accent" />
+                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-warm-accent" />
                   )}
                 </button>
               </li>

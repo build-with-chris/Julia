@@ -39,17 +39,17 @@ const PageHeader = ({
       <div className={`absolute inset-0 ${overlayClasses[overlayOpacity]}`} />
 
       {/* Content */}
-      <div className="relative z-10 w-full pb-12 md:pb-16">
+      <div className="relative z-10 w-full pb-16 md:pb-20 lg:pb-24 px-4 md:px-0">
         <div className="container-custom">
           <div className={`flex flex-col ${textAlignClasses[textPosition]} max-w-4xl ${textPosition === 'center' ? 'mx-auto' : ''}`}>
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight">
+            <h1 className="text-white mb-6 md:mb-8 drop-shadow-lg">
               {headline}
             </h1>
 
             {/* Subline */}
             {subline && (
-              <p className="text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed max-w-2xl">
+              <p className="text-lg md:text-xl lg:text-2xl text-white leading-relaxed max-w-2xl drop-shadow-md">
                 {subline}
               </p>
             )}

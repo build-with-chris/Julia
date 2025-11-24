@@ -50,35 +50,35 @@ const HomeHero = ({
       <div className="absolute inset-0 bg-gradient-to-t from-[#2D2A26]/90 via-[#2D2A26]/50 to-transparent" />
 
       {/* Content */}
-      <div className="relative z-10 container-custom py-20">
-        <div className="max-w-4xl mx-auto text-center md:text-left md:mx-0">
+      <div className="relative z-10 container-custom py-16 md:py-24 lg:py-32">
+        <div className="max-w-4xl mx-auto text-center md:text-left md:mx-0 px-4 md:px-0">
           {/* Kicker */}
-          <p className="text-white/80 text-sm md:text-base font-medium tracking-wide uppercase mb-4 md:mb-6">
+          <p className="text-white text-xs md:text-sm font-medium tracking-[0.15em] uppercase mb-6 md:mb-8 drop-shadow-md">
             {kicker}
           </p>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight">
+          <h1 className="text-white mb-6 md:mb-8 max-w-3xl drop-shadow-lg">
             {headline}
           </h1>
 
           {/* Subtitle */}
-          <p className="text-white/90 text-base md:text-lg lg:text-xl max-w-2xl mx-auto md:mx-0 mb-8 md:mb-10 leading-relaxed">
+          <p className="text-white text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto md:mx-0 mb-10 md:mb-12 leading-relaxed font-light drop-shadow-md">
             {subtitle}
           </p>
 
           {/* CTA Buttons */}
-          <nav className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start" aria-label="Hero navigation">
+          <nav className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center md:justify-start" aria-label="Hero navigation">
             <button
               onClick={handlePrimaryClick}
-              className="px-8 py-4 bg-[#8B7355] hover:bg-[#6B5844] text-white rounded-sm transition-all duration-300 font-medium text-base md:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              className="px-8 md:px-10 py-4 md:py-5 bg-[#8B7355] hover:bg-[#6B5844] text-white rounded-sm transition-all duration-300 font-medium text-base md:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 min-h-[48px]"
             >
               {primaryButtonText}
             </button>
             {secondaryButtonText && (
               <button
                 onClick={handleSecondaryClick}
-                className="px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#2D2A26] rounded-sm transition-all duration-300 font-medium text-base md:text-lg"
+                className="px-8 md:px-10 py-4 md:py-5 bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#2D2A26] rounded-sm transition-all duration-300 font-medium text-base md:text-lg min-h-[48px]"
               >
                 {secondaryButtonText}
               </button>
