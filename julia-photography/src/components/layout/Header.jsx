@@ -67,7 +67,7 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-offwhite/95 backdrop-blur-sm border-b border-border-soft shadow-sm">
-      <nav className="container-custom py-5 md:py-6">
+      <nav className="container-custom py-3 md:py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <button

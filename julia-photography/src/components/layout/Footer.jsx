@@ -35,13 +35,56 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-anthracite text-offwhite py-12 mt-auto">
-      <div className="container-custom">
+    <footer className="bg-white text-anthracite py-0 mt-auto">
+      {/* Instagram Gallery - zuerst */}
+      <div className="w-full py-8 md:py-12 border-b border-border-soft">
+        <div className="text-center mb-6 md:mb-8">
+          <p className="text-xs md:text-sm uppercase tracking-[0.15em] text-anthracite/70 font-medium mb-2">
+            FOLLOW ME ON INSTAGRAM
+          </p>
+          <a
+            href="https://instagram.com/moanayulia"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-lg md:text-xl font-semibold text-anthracite hover:text-warm-accent transition-colors duration-200"
+          >
+            @moanayulia
+          </a>
+        </div>
+        <div className="w-full grid grid-cols-6 gap-3 md:gap-4 px-0">
+          {[
+            'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=500&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=500&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=500&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=500&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=500&auto=format&fit=crop',
+            'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=500&auto=format&fit=crop',
+          ].map((imageUrl, index) => (
+            <a
+              key={index}
+              href="https://instagram.com/moanayulia"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative aspect-square overflow-hidden group cursor-pointer"
+            >
+              <img
+                src={imageUrl}
+                alt={`Instagram post ${index + 1}`}
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-anthracite/0 group-hover:bg-anthracite/20 transition-colors duration-300" />
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div className="container-custom py-12">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Navigation */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-offwhite">Navigation</h3>
+            <h3 className="text-lg font-semibold mb-4 text-anthracite">Navigation</h3>
             <nav>
               <div className="grid grid-cols-2 gap-x-8 gap-y-2">
                 {/* Column 1 */}
@@ -50,7 +93,7 @@ const Footer = () => {
                     <li key={item.id}>
                       <button
                         onClick={() => handleNavClick(item.path)}
-                        className="text-offwhite hover:text-warm-accent transition-colors duration-200 text-sm text-left"
+                        className="text-anthracite hover:text-warm-accent transition-colors duration-200 text-sm text-left"
                       >
                         {item.label}
                       </button>
@@ -63,7 +106,7 @@ const Footer = () => {
                     <li key={item.id}>
                       <button
                         onClick={() => handleNavClick(item.path)}
-                        className="text-offwhite hover:text-warm-accent transition-colors duration-200 text-sm text-left"
+                        className="text-anthracite hover:text-warm-accent transition-colors duration-200 text-sm text-left"
                       >
                         {item.label}
                       </button>
@@ -76,13 +119,13 @@ const Footer = () => {
 
           {/* CTA Section */}
           <div className="text-center md:text-left">
-            <h3 className="text-lg font-semibold mb-4 text-offwhite">Bereit für euer Shooting?</h3>
-            <p className="text-sm text-offwhite/90 mb-6">
+            <h3 className="text-lg font-semibold mb-4 text-anthracite">Bereit für euer Shooting?</h3>
+            <p className="text-sm text-anthracite/80 mb-6">
               Bereit, eure Geschichte festzuhalten?
             </p>
             <button
               onClick={scrollToContact}
-              className="inline-block px-6 py-3 bg-warm-accent hover:bg-warm-accent-dark text-offwhite rounded-sm transition-colors duration-200 font-medium"
+              className="inline-block px-6 py-3 bg-warm-accent hover:bg-warm-accent-dark text-white rounded-sm transition-colors duration-200 font-medium"
             >
               Termin anfragen
             </button>
@@ -90,12 +133,12 @@ const Footer = () => {
 
           {/* Social Links & Contact */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-offwhite">Kontakt</h3>
+            <h3 className="text-lg font-semibold mb-4 text-anthracite">Kontakt</h3>
             <div className="space-y-4">
               <div>
                 <a
                   href="mailto:juliamayr.photo@gmail.com"
-                  className="text-offwhite hover:text-warm-accent transition-colors duration-200 text-sm block mb-2"
+                  className="text-anthracite hover:text-warm-accent transition-colors duration-200 text-sm block mb-2"
                 >
                   juliamayr.photo@gmail.com
                 </a>
@@ -105,7 +148,7 @@ const Footer = () => {
                   href="https://instagram.com/moanayulia"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-offwhite hover:text-warm-accent transition-colors duration-200"
+                  className="text-anthracite hover:text-warm-accent transition-colors duration-200"
                   aria-label="Instagram"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -116,7 +159,7 @@ const Footer = () => {
                   href="https://pinterest.com/juliamayrphotography"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-offwhite hover:text-warm-accent transition-colors duration-200"
+                  className="text-anthracite hover:text-warm-accent transition-colors duration-200"
                   aria-label="Pinterest"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -129,7 +172,7 @@ const Footer = () => {
                 <img
                   src="/Logo Julia.avif"
                   alt="Julia Mayr Photography"
-                  className="h-10 w-auto brightness-0 invert opacity-90"
+                  className="h-10 w-auto"
                 />
               </div>
             </div>
@@ -137,23 +180,23 @@ const Footer = () => {
         </div>
 
         {/* Legal Links & Copyright */}
-        <div className="pt-8 border-t border-offwhite/10">
+        <div className="pt-8 border-t border-border-soft">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-4">
             <div className="flex gap-6">
               <button
                 onClick={() => navigate('/impressum')}
-                className="text-sm text-offwhite/80 hover:text-warm-accent transition-colors duration-200"
+                className="text-sm text-anthracite/70 hover:text-warm-accent transition-colors duration-200"
               >
                 Impressum
               </button>
               <button
                 onClick={() => navigate('/datenschutz')}
-                className="text-sm text-offwhite/80 hover:text-warm-accent transition-colors duration-200"
+                className="text-sm text-anthracite/70 hover:text-warm-accent transition-colors duration-200"
               >
                 Datenschutz
               </button>
             </div>
-            <p className="text-sm text-offwhite/75 text-center md:text-right">
+            <p className="text-sm text-anthracite/70 text-center md:text-right">
               &copy; {new Date().getFullYear()} Julia Mayr Photography. Alle Rechte vorbehalten.
             </p>
           </div>

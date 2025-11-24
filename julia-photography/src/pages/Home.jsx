@@ -16,26 +16,25 @@ const Home = () => {
   return (
     <Layout>
       {/* Hero Section - Hero234 Block */}
-      <Hero234
-        kicker="Cinematische & emotionale Fotografie"
-        primaryButtonText="Jetzt Shooting buchen"
-        secondaryButtonText="Mehr erfahren"
-        onPrimaryClick={handleBookingClick}
-        onSecondaryClick={() => {
-          const servicesSection = document.getElementById('services');
-          if (servicesSection) {
-            servicesSection.scrollIntoView({ behavior: 'smooth' });
-          }
-        }}
-      />
+      <div className="-mt-12 md:-mt-16 -mb-12 md:-mb-16">
+        <Hero234
+          kicker="Cinematische & emotionale Fotografie"
+          primaryButtonText="Jetzt Shooting buchen"
+          secondaryButtonText="Mehr erfahren"
+          onPrimaryClick={handleBookingClick}
+          onSecondaryClick={() => {
+            const servicesSection = document.getElementById('services');
+            if (servicesSection) {
+              servicesSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
+        />
+      </div>
 
       {/* Services - kompakte Übersicht */}
-      <section id="services" className="py-16 md:py-24 lg:py-32 bg-offwhite">
+      <section id="services" className="pt-12 md:pt-16 pb-16 md:pb-24 lg:pb-32 bg-offwhite">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center mb-16 md:mb-20">
-            <p className="text-xs md:text-sm uppercase tracking-[0.15em] text-warm-accent font-medium mb-6">
-              Meine Services
-            </p>
             <h2 className="text-anthracite mb-8">
               Für jeden Moment das richtige Shooting
             </h2>
@@ -135,7 +134,7 @@ const Home = () => {
       </section>
 
       {/* Kontakt Section - prominent und einfach */}
-      <section id="kontakt" className="py-16 md:py-24 lg:py-32 bg-offwhite">
+      <section id="kontakt" className="pt-16 md:pt-24 lg:pt-32 pb-6 md:pb-10 bg-offwhite">
         <div className="container-custom">
           <div className="max-w-2xl mx-auto">
             <div className="text-center mb-12 md:mb-16">

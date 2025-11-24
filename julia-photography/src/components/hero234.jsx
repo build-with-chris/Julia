@@ -52,7 +52,7 @@ const Hero234 = ({
   };
 
   return (
-    <section className="bg-offwhite relative min-h-screen overflow-hidden">
+    <section className="bg-background relative min-h-screen overflow-hidden">
       <div className="absolute inset-0 flex flex-col justify-center gap-4">
         {galleryImages.map((row, rowIndex) => (
           <motion.div

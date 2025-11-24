@@ -358,14 +358,6 @@ const HochzeitenPage = () => {
         </div>
       </motion.section>
 
-      {/* Highlights */}
-      <HighlightList
-        title="Was euch erwartet"
-        description="So arbeite ich an eurem Hochzeitstag"
-        highlights={highlights}
-        columns={4}
-      />
-
       {/* Gallery - Getting Ready */}
       <section className="py-20 md:py-32 bg-white">
         <div className="container-custom">
@@ -461,6 +453,43 @@ const HochzeitenPage = () => {
           onButtonClick={handlePackageClick}
         />
       </motion.section>
+
+      {/* Highlights - dezenter platziert */}
+      <section className="py-12 md:py-16 bg-offwhite">
+        <div className="container-custom">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-8 md:mb-10">
+              <p className="text-xs uppercase tracking-wider text-warm-accent font-medium mb-3">
+                Was euch erwartet
+              </p>
+              <h3 className="text-xl md:text-2xl font-semibold text-anthracite mb-4">
+                So arbeite ich an eurem Hochzeitstag
+              </h3>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+              {highlights.map((highlight, index) => (
+                <div key={index} className="text-center">
+                  {highlight.icon && (
+                    <div className="mb-4 flex justify-center">
+                      <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center bg-warm-accent/10 rounded-full">
+                        <span className="text-2xl md:text-3xl" role="img" aria-label={highlight.iconLabel}>
+                          {highlight.icon}
+                        </span>
+                      </div>
+                    </div>
+                  )}
+                  <h4 className="text-base md:text-lg font-semibold text-anthracite mb-2">
+                    {highlight.title}
+                  </h4>
+                  <p className="text-sm md:text-base text-anthracite/70 leading-relaxed">
+                    {highlight.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <FaqSection
