@@ -29,11 +29,13 @@ const LightboxModal = ({ image, onClose, onNext, onPrev, currentIndex, totalImag
 
   // Prevent body scroll when modal is open
   useEffect(() => {
+    if (!image) return;
+    
     document.body.style.overflow = 'hidden';
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     };
-  }, []);
+  }, [image]);
 
   // Close on backdrop click
   const handleBackdropClick = (e) => {

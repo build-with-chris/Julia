@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import PaarePage from './pages/PaarePage';
 import HochzeitenPage from './pages/HochzeitenPage';
@@ -9,9 +10,24 @@ import ContactPage from './pages/ContactPage';
 import ImpressumPage from './pages/ImpressumPage';
 import DatenschutzPage from './pages/DatenschutzPage';
 
+// Component to ensure scrolling is enabled on route changes
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    // Ensure body scroll is enabled
+    document.body.style.overflow = '';
+    // Scroll to top on route change
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/paare" element={<PaarePage />} />

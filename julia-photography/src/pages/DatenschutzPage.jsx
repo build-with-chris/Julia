@@ -4,7 +4,7 @@ import PageHeader from '../components/common/PageHeader';
 const DatenschutzPage = () => {
   return (
     <Layout>
-      <div className="min-h-screen bg-offwhite">
+      <div className="bg-offwhite">
         {/* Page Header */}
         <PageHeader
           headline="Datenschutzerklärung"

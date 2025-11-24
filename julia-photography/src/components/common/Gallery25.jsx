@@ -105,12 +105,14 @@ const Gallery25 = ({ images = [], enableLightbox = false }) => {
         ))}
       </div>
 
-      {enableLightbox && (
+      {enableLightbox && lightboxOpen && allImages[selectedImageIndex] && (
         <LightboxModal
-          isOpen={lightboxOpen}
+          image={allImages[selectedImageIndex]}
           onClose={() => setLightboxOpen(false)}
-          images={allImages}
+          onNext={selectedImageIndex < allImages.length - 1 ? () => setSelectedImageIndex(selectedImageIndex + 1) : null}
+          onPrev={selectedImageIndex > 0 ? () => setSelectedImageIndex(selectedImageIndex - 1) : null}
           currentIndex={selectedImageIndex}
+          totalImages={allImages.length}
         />
       )}
     </>

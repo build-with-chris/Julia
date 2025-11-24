@@ -25,11 +25,11 @@ const MobileMenu = ({ isOpen, onClose, navItems, activeSection, onNavClick }) =>
         firstFocusableRef.current.focus();
       }
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     }
 
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     };
   }, [isOpen]);
 
