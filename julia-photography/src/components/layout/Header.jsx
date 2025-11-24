@@ -69,12 +69,17 @@ const Header = () => {
     <header className="sticky top-0 z-50 bg-offwhite/95 backdrop-blur-sm border-b border-border-soft shadow-sm">
       <nav className="container-custom py-4">
         <div className="flex items-center justify-between">
-          {/* Logo/Wordmark */}
+          {/* Logo */}
           <button
             onClick={() => handleNavClick({ id: 'home', path: '/', isPage: true })}
-            className="text-lg font-heading font-semibold text-anthracite hover:text-warm-accent transition-colors duration-200"
+            className="flex items-center transition-opacity duration-200 hover:opacity-80"
+            aria-label="Zur Startseite"
           >
-            Julia Mayr Photography
+            <img
+              src="/Logo Julia.avif"
+              alt="Julia Mayr Photography"
+              className="h-8 md:h-10 w-auto"
+            />
           </button>
 
           {/* Navigation Links */}

@@ -1,14 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
 import HomeHero from '../components/sections/HomeHero';
-import TestimonialsSection from '../components/sections/TestimonialsSection';
-import TestimonialCard from '../components/common/TestimonialCard';
-import { testimonialsData } from '../data/testimonialsData';
+import TestimonialCarousel from '../components/sections/TestimonialCarousel';
 
 const Home = () => {
   const navigate = useNavigate();
-  // Nur die ersten 3 Testimonials für die vereinfachte Version
-  const featuredTestimonials = testimonialsData.slice(0, 3);
 
   const handleBookingClick = () => {
     // Scroll to contact form
@@ -22,9 +18,9 @@ const Home = () => {
     <Layout>
       {/* Hero Section - vereinfacht mit klarem Buchungs-CTA */}
       <HomeHero
-        kicker="Cinematische & emotionale Hochzeits- und Paarfotografie"
-        headline="Eure Liebesgeschichte, festgehalten"
-        subtitle="Natürlich, achtsam und mit einem Hauch Nostalgie – ich halte eure wertvollsten Momente fest."
+        kicker="Cinematische & emotionale Fotografie"
+        headline="Eure Geschichte, festgehalten"
+        subtitle="Natürlich, achtsam und mit einem Hauch Nostalgie – ich halte eure wertvollsten Momente fest. Ob Paarshooting, Hochzeit, Portrait oder Familie."
         primaryButtonText="Jetzt Shooting buchen"
         secondaryButtonText="Mehr erfahren"
         onPrimaryClick={handleBookingClick}
@@ -44,15 +40,15 @@ const Home = () => {
               Meine Services
             </p>
             <h2 className="text-4xl md:text-5xl font-bold text-anthracite mb-6">
-              Paare & Hochzeiten
+              Für jeden Moment das richtige Shooting
             </h2>
             <p className="text-lg text-muted leading-relaxed">
-              Ob romantisches Paarshooting oder euer besonderer Hochzeitstag – 
+              Ob romantisches Paarshooting, euer besonderer Hochzeitstag, ein persönliches Portrait oder ein Familienshooting – 
               ich begleite euch mit meiner Kamera und halte die Momente fest, die euer Herz berühren.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-12">
+          <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
             <div className="bg-white p-8 rounded-lg border border-border-soft/50 hover:shadow-lg transition-shadow">
               <h3 className="text-2xl font-bold text-anthracite mb-3">Paarshootings</h3>
               <p className="text-muted leading-relaxed mb-4">
@@ -79,33 +75,38 @@ const Home = () => {
                 Mehr erfahren →
               </button>
             </div>
+            <div className="bg-white p-8 rounded-lg border border-border-soft/50 hover:shadow-lg transition-shadow">
+              <h3 className="text-2xl font-bold text-anthracite mb-3">Portraitshootings</h3>
+              <p className="text-muted leading-relaxed mb-4">
+                Individuell, authentisch und voller Persönlichkeit. Ich zeige euch, wie schön ihr seid – 
+                natürlich und ohne Maskerade.
+              </p>
+              <button
+                onClick={() => navigate('/portrait')}
+                className="text-warm-accent hover:text-anthracite font-medium transition-colors"
+              >
+                Mehr erfahren →
+              </button>
+            </div>
+            <div className="bg-white p-8 rounded-lg border border-border-soft/50 hover:shadow-lg transition-shadow">
+              <h3 className="text-2xl font-bold text-anthracite mb-3">Familienshootings</h3>
+              <p className="text-muted leading-relaxed mb-4">
+                Die besonderen Momente eurer Familie festgehalten – ehrlich, lebendig und voller Emotion. 
+                Für Erinnerungen, die ein Leben lang halten.
+              </p>
+              <button
+                onClick={() => navigate('/familie')}
+                className="text-warm-accent hover:text-anthracite font-medium transition-colors"
+              >
+                Mehr erfahren →
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials - nur 3, kompakt */}
-      <section className="py-20 md:py-28 bg-gradient-to-br from-[#FAF8F5] to-[#F5F0EA]">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center mb-12">
-            <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
-              Was meine Paare sagen
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-anthracite mb-6">
-              Echte Stimmen
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {featuredTestimonials.map((testimonial) => (
-              <TestimonialCard
-                key={testimonial.id}
-                quote={testimonial.quote}
-                author={testimonial.author}
-                location={testimonial.location}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Testimonials Carousel */}
+      <TestimonialCarousel />
 
       {/* Kontakt Section - prominent und einfach */}
       <section id="kontakt" className="py-24 md:py-32 bg-offwhite">
@@ -155,6 +156,8 @@ const Home = () => {
                     <option value="">Bitte wählen</option>
                     <option value="paare">Paarshooting</option>
                     <option value="hochzeit">Hochzeit</option>
+                    <option value="portrait">Portraitshooting</option>
+                    <option value="familie">Familienshooting</option>
                     <option value="anderes">Anderes</option>
                   </select>
                 </div>

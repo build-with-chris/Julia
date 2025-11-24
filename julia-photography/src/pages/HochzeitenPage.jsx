@@ -1,8 +1,11 @@
+import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
 import PageHeader from '../components/common/PageHeader';
 import HighlightList from '../components/common/HighlightList';
 import PackageCard from '../components/common/PackageCard';
+import Gallery25 from '../components/common/Gallery25';
+import ProcessPagination from '../components/common/ProcessPagination';
 import FaqSection from '../components/common/FaqSection';
 import CTASection from '../components/sections/CTASection';
 
@@ -109,9 +112,201 @@ const HochzeitenPage = () => {
     },
   ];
 
+  // Gallery Images - Getting Ready
+  const gettingReadyImages = [
+    {
+      id: 1,
+      src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Getting Ready Moment',
+      orientation: 'portrait',
+      priority: true,
+    },
+    {
+      id: 2,
+      src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Braut beim Anziehen',
+      orientation: 'portrait',
+      priority: true,
+    },
+    {
+      id: 3,
+      src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Details',
+      orientation: 'landscape',
+    },
+    {
+      id: 4,
+      src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Emotionale Momente',
+      orientation: 'portrait',
+    },
+    {
+      id: 5,
+      src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Vorbereitungen',
+      orientation: 'portrait',
+    },
+    {
+      id: 6,
+      src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Intime Momente',
+      orientation: 'landscape',
+    },
+  ];
+
+  // Gallery Images - Zeremonie
+  const ceremonyImages = [
+    {
+      id: 7,
+      src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Hochzeitszeremonie',
+      orientation: 'portrait',
+      priority: true,
+    },
+    {
+      id: 8,
+      src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Ringwechsel',
+      orientation: 'portrait',
+      priority: true,
+    },
+    {
+      id: 9,
+      src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Emotionale Momente',
+      orientation: 'landscape',
+    },
+    {
+      id: 10,
+      src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Brautpaar',
+      orientation: 'portrait',
+    },
+    {
+      id: 11,
+      src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Zeremonie Details',
+      orientation: 'portrait',
+    },
+    {
+      id: 12,
+      src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Hochzeitsfeier',
+      orientation: 'landscape',
+    },
+  ];
+
+  // Gallery Images - Party & Feier
+  const partyImages = [
+    {
+      id: 13,
+      src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Hochzeitsfeier',
+      orientation: 'portrait',
+      priority: true,
+    },
+    {
+      id: 14,
+      src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Erster Tanz',
+      orientation: 'portrait',
+      priority: true,
+    },
+    {
+      id: 15,
+      src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Party',
+      orientation: 'landscape',
+    },
+    {
+      id: 16,
+      src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Feier',
+      orientation: 'portrait',
+    },
+    {
+      id: 17,
+      src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Tanz',
+      orientation: 'portrait',
+    },
+    {
+      id: 18,
+      src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Hochzeitsfeier',
+      orientation: 'landscape',
+    },
+  ];
+
+  // Process Steps for Pagination
+  const processSteps = [
+    {
+      title: 'Der 1. Eindruck',
+      content: [
+        'Für mich ist es wichtig, dass zwischen Brautpaar und Fotograf:in eine Grundharmonie besteht.',
+        'Beim 1. Gespräch lernen wir uns kennen, wir besprechen die Eckdaten eurer Hochzeit, klären Preis-Fragen und ob eure und meine Wünsche und Vorstellungen vereinbar sind.',
+      ],
+      button: {
+        label: 'Unverbindliches Erstgespräch vereinbaren',
+        href: '/kontakt',
+      },
+    },
+    {
+      title: 'Planung',
+      content: [
+        'Falls ihr euch dazu entschieden habt, dass ich euren Tag begleiten darf, werden wir im zweiten Schritt den Ablauf genau besprechen, um euren Tag so reibungslos und schön wie möglich zu gestalten. So könnt ihr sicher sein, dass jeder wichtige Moment eures besonderen Tages auf Bildern festgehalten wird.',
+      ],
+    },
+    {
+      title: 'Specials*',
+      content: [
+        'Natürlich gibt es die Möglichkeit auch weitere Specials, je nach Interesse, zu buchen:',
+        'Falls ihr noch andere besondere Wünsche habt, teilt mir diese gerne mit. Ich bin immer offen für neue Vorschläge und Ideen.',
+      ],
+      list: [
+        'Verlobungsshooting',
+        'Fotobuch',
+        'Prints',
+      ],
+    },
+    {
+      title: 'Hochzeitstag',
+      content: [
+        'Jetzt ist es endlich so weit!',
+        'Die meisten Brautpaare sind an diesem Tag sehr nervös. Dadurch, dass wir im Vorfeld den Zeitplan besprochen haben, werdet ihr mich kaum mitbekommen.',
+        'Mein Ziel ist es, die vielen Emotionen des Tages in meinem dokumentarischen und authentischen Fotostil festzuhalten.',
+      ],
+    },
+    {
+      title: 'Bilderausgabe',
+      content: [
+        'Der Tag ist vorbei und ihr könnt es wahrscheinlich kaum erwarten eure Bilder zu sehen.',
+        'Deshalb bemühe ich mich darum die Bilder so schnell es geht bereit zu stellen. Ihr bekommt einen Link zu einer schönen Online-Galerie, die ihr mit eurer Familie und Freunden teilen und downloaden könnt.',
+      ],
+    },
+  ];
+
   const handlePackageClick = () => {
     // Navigate to contact page
     navigate('/kontakt');
+  };
+
+  // Animation variants
+  const fadeInUp = {
+    initial: { opacity: 0, y: 30 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: '-50px' },
+    transition: { duration: 0.6 }
+  };
+
+  const staggerContainer = {
+    initial: {},
+    whileInView: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    },
+    viewport: { once: true, margin: '-50px' }
   };
 
   return (
@@ -127,41 +322,39 @@ const HochzeitenPage = () => {
         minHeight="lg"
       />
 
-      {/* Intro Section */}
-      <section className="py-20 md:py-28 bg-offwhite">
+      {/* Intro Section with Animation */}
+      <motion.section 
+        className="py-20 md:py-28 bg-offwhite"
+        initial="initial"
+        whileInView="whileInView"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+      >
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
+            <motion.div className="text-center mb-12" variants={fadeInUp}>
               <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
-                Meine Mission
+                Eure Hochzeitsfotografin
               </p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-8">
-                Echte Momente, keine Posen
+                Aus München, Bayern und eigentlich der ganzen Welt
               </h2>
-            </div>
+            </motion.div>
 
-            <div className="prose prose-lg max-w-none text-muted space-y-6">
+            <motion.div className="prose prose-lg max-w-none text-muted space-y-6" variants={fadeInUp}>
               <p className="text-lg md:text-xl leading-relaxed">
-                Ich setze nicht auf perfekt gestellte Gruppenfotos oder steife Posen.
-                Stattdessen halte ich die echten Momente fest – das Lachen zwischen Mutter und Tochter
-                beim Getting Ready, die Tränen des Bräutigams, wenn er euch zum ersten Mal sieht,
-                die zärtliche Berührung während eures ersten Tanzes.
+                Ich fotografiere Hochzeiten, aber auch Paare, Familien und People. Ich liebe es besonders Hochzeiten zu begleiten und halte Schönheit und Momente in ganz ehrlicher und individueller Weise fest. So entstehen zeitlose, emotionale Erinnerungen zu Momenten, die sonst verloren wären.
               </p>
               <p className="text-lg md:text-xl leading-relaxed">
-                Meine Hochzeitsreportagen sind cinematisch, emotional und zeitlos.
-                Ich arbeite mit natürlichem Licht, warmen Farben und einem Hauch Nostalgie.
-                Das Ergebnis sind Bilder, die sich anfühlen wie Filmstills – Kunstwerke,
-                die eure Geschichte erzählen.
+                Ich lege großen Wert darauf, den Charakter und Persönlichkeit jedes Brautpaares einzufangen und dafür ist mir auch kein Aufwand zu groß.
               </p>
               <p className="text-lg md:text-xl leading-relaxed">
-                Ich begleite euch achtsam und unaufdringlich durch euren Tag.
-                Ihr könnt entspannen, lachen, weinen und feiern – während ich dafür sorge,
-                dass jeder besondere Moment für immer bleibt.
+                Gerne nehme ich mir bei einem unverbindlichen und kostenlosen Gespräch Zeit alle eure Fragen zu beantworten und stehe euch beratend zur Seite. Zusammen mit euch kreiere ich einen Stil, eine Idee, die euren Wünschen entspricht und sich auf euren Fotos widerspiegelt.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Highlights */}
       <HighlightList
@@ -171,10 +364,95 @@ const HochzeitenPage = () => {
         columns={4}
       />
 
-      {/* Packages Section */}
-      <section className="py-20 md:py-28 bg-offwhite">
+      {/* Gallery - Getting Ready */}
+      <section className="py-20 md:py-32 bg-white">
         <div className="container-custom">
-          <div className="text-center mb-12 md:mb-16">
+          <motion.div 
+            className="text-center mb-12 md:mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
+              Portfolio
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-6">
+              Getting Ready
+            </h2>
+            <p className="text-lg md:text-xl text-muted max-w-3xl mx-auto leading-relaxed">
+              Die ersten Momente des Tages – voller Vorfreude und Emotionen
+            </p>
+          </motion.div>
+          <Gallery25 images={gettingReadyImages} enableLightbox={true} />
+        </div>
+      </section>
+
+      {/* Gallery - Zeremonie */}
+      <section className="py-20 md:py-32 bg-gradient-to-br from-offwhite to-[#F5F0EA]">
+        <div className="container-custom">
+          <motion.div 
+            className="text-center mb-12 md:mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
+              Portfolio
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-6">
+              Die Zeremonie
+            </h2>
+            <p className="text-lg md:text-xl text-muted max-w-3xl mx-auto leading-relaxed">
+              Euer Ja-Wort – der Moment, auf den alles hinausläuft
+            </p>
+          </motion.div>
+          <Gallery25 images={ceremonyImages} enableLightbox={true} />
+        </div>
+      </section>
+
+      {/* Hochzeitsprozess with Pagination */}
+      <ProcessPagination
+        title="Von der ersten Nachricht bis zu euren Bildern"
+        description="So läuft es ab"
+        steps={processSteps}
+      />
+
+      {/* Gallery - Party & Feier */}
+      <section className="py-20 md:py-32 bg-white">
+        <div className="container-custom">
+          <motion.div 
+            className="text-center mb-12 md:mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.6 }}
+          >
+            <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
+              Portfolio
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-6">
+              Party & Feier
+            </h2>
+            <p className="text-lg md:text-xl text-muted max-w-3xl mx-auto leading-relaxed">
+              Der erste Tanz, die Torte, die Feier – unvergessliche Momente voller Freude
+            </p>
+          </motion.div>
+          <Gallery25 images={partyImages} enableLightbox={true} />
+        </div>
+      </section>
+
+      {/* Packages Section */}
+      <motion.section 
+        className="py-20 md:py-28 bg-gradient-to-br from-offwhite to-[#F5F0EA]"
+        initial="initial"
+        whileInView="whileInView"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+      >
+        <div className="container-custom">
+          <motion.div className="text-center mb-12 md:mb-16" variants={fadeInUp}>
             <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
               Mein Angebot
             </p>
@@ -184,25 +462,29 @@ const HochzeitenPage = () => {
             <p className="text-lg md:text-xl text-muted max-w-3xl mx-auto leading-relaxed">
               Flexible Pakete für euren perfekten Tag. Alle Preise verstehen sich inklusive Anfahrt im Raum München.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
+            variants={staggerContainer}
+          >
             {packages.map((pkg, index) => (
-              <PackageCard
-                key={index}
-                title={pkg.title}
-                price={pkg.price}
-                duration={pkg.duration}
-                description={pkg.description}
-                features={pkg.features}
-                highlight={pkg.highlight}
-                buttonLabel={pkg.buttonLabel}
-                onButtonClick={handlePackageClick}
-              />
+              <motion.div key={index} variants={fadeInUp}>
+                <PackageCard
+                  title={pkg.title}
+                  price={pkg.price}
+                  duration={pkg.duration}
+                  description={pkg.description}
+                  features={pkg.features}
+                  highlight={pkg.highlight}
+                  buttonLabel={pkg.buttonLabel}
+                  onButtonClick={handlePackageClick}
+                />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* FAQ Section */}
       <FaqSection

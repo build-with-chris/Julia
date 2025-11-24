@@ -163,6 +163,8 @@ const ContactPage = () => {
                   <option value="">Bitte wählen...</option>
                   <option value="paare">Paarshooting</option>
                   <option value="hochzeit">Hochzeitsreportage</option>
+                  <option value="portrait">Portraitshooting</option>
+                  <option value="familie">Familienshooting</option>
                   <option value="elopement">Elopement</option>
                   <option value="sonstiges">Sonstiges</option>
                 </select>

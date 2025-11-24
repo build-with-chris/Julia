@@ -39,27 +39,15 @@ const MobileMenu = ({ isOpen, onClose, navItems, activeSection, onNavClick }) =>
     onClose();
   };
 
+  if (!isOpen) return null;
+
   return (
     <>
-      {/* Backdrop */}
+      {/* Backdrop - rendered immediately when open */}
       <div
-        className={`fixed inset-0 bg-anthracite/95 backdrop-blur-sm z-[100] md:hidden transition-opacity duration-300 ${
-          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}
+        className="fixed inset-0 bg-anthracite/95 backdrop-blur-sm z-[100] md:hidden"
         onClick={onClose}
         aria-hidden="true"
-      />
-
-      {/* Mobile Menu Panel */}
-      <div
-        ref={menuRef}
-        className={`fixed top-0 left-0 right-0 bottom-0 w-screen h-screen z-[101] md:hidden flex flex-col bg-offwhite transform transition-transform duration-300 ease-in-out ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
-        role="dialog"
-        aria-modal="true"
-        aria-label="Mobile navigation menu"
-        aria-hidden={!isOpen}
         style={{ 
           position: 'fixed',
           top: 0,
@@ -67,17 +55,40 @@ const MobileMenu = ({ isOpen, onClose, navItems, activeSection, onNavClick }) =>
           right: 0,
           bottom: 0,
           width: '100vw',
-          height: '100dvh', // Dynamic viewport height for mobile
+          height: '100dvh'
+        }}
+      />
+
+      {/* Mobile Menu Panel - rendered immediately when open */}
+      <div
+        ref={menuRef}
+        className="fixed top-0 left-0 right-0 bottom-0 w-screen h-screen z-[101] md:hidden flex flex-col bg-offwhite"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Mobile navigation menu"
+        style={{ 
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          width: '100vw',
+          height: '100dvh',
           maxWidth: '100vw',
           maxHeight: '100dvh',
           overflow: 'hidden',
           margin: 0,
-          padding: 0
+          padding: 0,
+          willChange: 'auto'
         }}
       >
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-border-soft">
-          <h2 className="text-xl font-bold text-anthracite">Menü</h2>
+          <img
+            src="/Logo Julia.avif"
+            alt="Julia Mayr Photography"
+            className="h-8 w-auto"
+          />
           <button
             ref={firstFocusableRef}
             onClick={onClose}
@@ -93,14 +104,8 @@ const MobileMenu = ({ isOpen, onClose, navItems, activeSection, onNavClick }) =>
         {/* Navigation Items */}
         <nav className="flex-1 flex flex-col justify-center px-6 py-8 overflow-y-auto">
           <ul className="space-y-3">
-            {navItems.map((item, index) => (
-              <li 
-                key={item.id}
-                className={`transform transition-all duration-300 ${
-                  isOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-                }`}
-                style={{ transitionDelay: isOpen ? `${index * 50}ms` : '0ms' }}
-              >
+            {navItems.map((item) => (
+              <li key={item.id}>
                 <button
                   onClick={() => handleNavItemClick(item)}
                   className={`w-full text-left px-6 py-4 rounded-sm text-xl md:text-2xl font-semibold transition-all duration-200 ${

@@ -5,11 +5,9 @@ import ProcessSteps from '../components/common/ProcessSteps';
 import PackageCard from '../components/common/PackageCard';
 import Gallery25 from '../components/common/Gallery25';
 import ShootingDetails from '../components/common/ShootingDetails';
-import TestimonialsSection from '../components/sections/TestimonialsSection';
 import CTASection from '../components/sections/CTASection';
-import { testimonialsData } from '../data/testimonialsData';
 
-const PaarePage = () => {
+const FamiliePage = () => {
   const navigate = useNavigate();
   // Process Steps Data
   const shootingSteps = [
@@ -17,19 +15,19 @@ const PaarePage = () => {
       icon: '💌',
       iconLabel: 'Anfrage',
       title: 'Anfrage',
-      description: 'Schreibt mir über das Kontaktformular oder Instagram. Erzählt mir von euch und euren Wünschen.',
+      description: 'Schreibt mir über das Kontaktformular oder Instagram. Erzählt mir von eurer Familie und euren Wünschen.',
     },
     {
       icon: '☕',
       iconLabel: 'Kennenlernen',
       title: 'Kennenlernen',
-      description: 'Wir lernen uns per Videocall oder bei einem Kaffee kennen. Ich möchte euch und eure Geschichte verstehen.',
+      description: 'Wir lernen uns per Videocall oder bei einem Kaffee kennen. Ich möchte eure Familie und eure Geschichte verstehen.',
     },
     {
       icon: '📸',
       iconLabel: 'Shooting',
       title: 'Das Shooting',
-      description: 'Entspannt und ohne Zeitdruck. Wir nehmen uns Zeit für eure Verbindung und besondere Momente.',
+      description: 'Entspannt und ohne Zeitdruck. Wir nehmen uns Zeit für eure Familie und die besonderen Momente zwischen euch.',
     },
     {
       icon: '🖼️',
@@ -43,13 +41,13 @@ const PaarePage = () => {
   const packages = [
     {
       title: 'Essential',
-      price: 'Ab 250€',
+      price: 'Ab 300€',
       duration: '1 Stunde Shooting',
-      description: 'Perfekt für ein entspanntes Paar-Shooting an eurem Lieblingsort.',
+      description: 'Perfekt für ein entspanntes Familien-Shooting an eurem Lieblingsort.',
       features: [
         'Vorgespräch & Location-Beratung',
         'Ca. 1 Stunde Shooting-Zeit',
-        'Mindestens 30 bearbeitete Bilder',
+        'Mindestens 40 bearbeitete Bilder',
         'Online-Galerie zum Download',
         'Nutzungsrechte für private Zwecke',
       ],
@@ -57,13 +55,13 @@ const PaarePage = () => {
     },
     {
       title: 'Extended',
-      price: 'Ab 450€',
+      price: 'Ab 500€',
       duration: '2 Stunden Shooting',
       description: 'Für alle, die mehr Zeit und verschiedene Locations möchten.',
       features: [
         'Alles aus Essential',
         'Ca. 2 Stunden Shooting-Zeit',
-        'Mindestens 60 bearbeitete Bilder',
+        'Mindestens 80 bearbeitete Bilder',
         '1-2 Locations eurer Wahl',
         'Outfit-Wechsel möglich',
         'Print-Release für Social Media',
@@ -92,53 +90,41 @@ const PaarePage = () => {
   const galleryImages = [
     {
       id: 1,
-      src: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Paar beim Sonnenuntergang',
-      orientation: 'portrait',
+      src: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Glückliche Familie',
+      orientation: 'landscape',
       priority: true,
     },
     {
       id: 2,
-      src: 'https://images.unsplash.com/photo-1522673607167-38967e70f98e?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Romantischer Moment',
+      src: 'https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Familie in der Natur',
       orientation: 'portrait',
       priority: true,
     },
     {
       id: 3,
-      src: 'https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Verliebtes Paar',
+      src: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Familienmoment',
       orientation: 'portrait',
       priority: true,
     },
     {
       id: 4,
-      src: 'https://images.unsplash.com/photo-1524617205305-99f76f178c81?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Inniger Moment',
+      src: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Zusammenhalt',
       orientation: 'landscape',
     },
     {
       id: 5,
-      src: 'https://images.unsplash.com/photo-1512163143273-bde2e3595b1e?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Natürliches Lachen',
+      src: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Familienliebe',
       orientation: 'portrait',
     },
     {
       id: 6,
-      src: 'https://images.unsplash.com/photo-1544928147-79a2dbc1f389?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Gemeinsamer Spaziergang',
-      orientation: 'portrait',
-    },
-    {
-      id: 7,
-      src: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Zärtliche Umarmung',
-      orientation: 'portrait',
-    },
-    {
-      id: 8,
-      src: 'https://images.unsplash.com/photo-1606216794079-c6273cbdee1a?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Glückliches Paar',
+      src: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=1887&auto=format&fit=crop',
+      alt: 'Natürliche Familienmomente',
       orientation: 'landscape',
     },
   ];
@@ -152,10 +138,10 @@ const PaarePage = () => {
     <Layout>
       {/* Page Header */}
       <PageHeader
-        headline="Paarfotografie, die sich anfühlt wie ihr."
-        subline="Natürlich, achtsam, authentisch"
-        imageSrc="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=2070&auto=format&fit=crop"
-        imageAlt="Romantisches Paar beim Fotoshooting"
+        headline="Familienshootings voller Leben & Emotion."
+        subline="Ehrlich, lebendig, authentisch"
+        imageSrc="https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=2070&auto=format&fit=crop"
+        imageAlt="Glückliche Familie beim Fotoshooting"
         overlayOpacity="medium"
         textPosition="center"
         minHeight="lg"
@@ -170,22 +156,22 @@ const PaarePage = () => {
                 Was euch erwartet
               </p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-8">
-                Eure Liebe, festgehalten
+                Eure Familie, festgehalten
               </h2>
             </div>
 
             <div className="prose prose-lg max-w-none text-muted space-y-6">
               <p className="text-lg md:text-xl leading-relaxed">
-                Bei mir gibt es keine steifen Posen oder gestellte Momente. Ich möchte eure echte Verbindung einfangen –
-                die Art, wie ihr euch anschaut, berührt und miteinander lacht.
+                Bei meinen Familienshootings geht es nicht um perfekte Posen, sondern um eure echte Verbindung.
+                Ich möchte die besonderen Momente zwischen euch einfangen – das Lachen, die Umarmungen, die kleinen Gesten der Zuneigung.
               </p>
               <p className="text-lg md:text-xl leading-relaxed">
-                Ob im goldenen Licht des Sonnenuntergangs, in der Natur oder an eurem Lieblingsort in der Stadt –
-                ich begleite euch achtsam und halte die Momente fest, die eure Geschichte erzählen.
+                Ob in der Natur, zuhause oder an einem Ort, der euch bedeutet – 
+                ich begleite euch achtsam und schaffe eine entspannte Atmosphäre, in der sich alle wohlfühlen.
               </p>
               <p className="text-lg md:text-xl leading-relaxed">
-                Meine Bilder sind natürlich, zeitlos und mit einem Hauch Nostalgie.
-                Sie fühlen sich an wie ein Film – cinematisch, emotional, echt.
+                Meine Familienbilder sind lebendig, ehrlich und voller Emotion.
+                Sie zeigen euch, wie schön eure Familie ist – für Erinnerungen, die ein Leben lang halten.
               </p>
             </div>
           </div>
@@ -197,7 +183,7 @@ const PaarePage = () => {
 
       {/* Process Steps */}
       <ProcessSteps
-        title="So läuft euer Shooting ab"
+        title="So läuft euer Familien-Shooting ab"
         description="Von der ersten Nachricht bis zu euren fertigen Bildern – ich begleite euch durch den gesamten Prozess."
         steps={shootingSteps}
         variant="vertical"
@@ -247,7 +233,7 @@ const PaarePage = () => {
               Bisherige Arbeiten
             </h2>
             <p className="text-lg md:text-xl text-muted max-w-3xl mx-auto leading-relaxed">
-              Ein kleiner Einblick in meine Paarfotografie
+              Ein kleiner Einblick in meine Familienfotografie
             </p>
           </div>
           <Gallery25
@@ -257,23 +243,16 @@ const PaarePage = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <TestimonialsSection
-        eyebrow="Worte von meinen Paaren"
-        title="Was meine Paare sagen"
-        testimonials={testimonialsData.slice(0, 3)}
-        variant="slider"
-      />
-
       {/* CTA Section */}
       <CTASection
-        eyebrow="Paarshooting buchen"
-        headline="Bereit für natürliche & authentische Paarbilder?"
-        subline="Lasst uns gemeinsam eure Verbindung festhalten – ohne Posen, nur echte Momente."
+        eyebrow="Familien-Shooting buchen"
+        headline="Bereit für lebendige & authentische Familienbilder?"
+        subline="Lasst uns gemeinsam eure Familie festhalten – ehrlich, lebendig und voller Emotion."
         buttonLabel="Shooting anfragen"
       />
     </Layout>
   );
 };
 
-export default PaarePage;
+export default FamiliePage;
+
