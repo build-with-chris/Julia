@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
 import PageHeader from '../components/common/PageHeader';
 import HighlightList from '../components/common/HighlightList';
@@ -6,6 +7,7 @@ import FaqSection from '../components/common/FaqSection';
 import CTASection from '../components/sections/CTASection';
 
 const HochzeitenPage = () => {
+  const navigate = useNavigate();
   // Highlights Data
   const highlights = [
     {
@@ -109,9 +111,7 @@ const HochzeitenPage = () => {
 
   const handlePackageClick = () => {
     // Navigate to contact page
-    if (window.navigateTo) {
-      window.navigateTo('kontakt');
-    }
+    navigate('/kontakt');
   };
 
   return (

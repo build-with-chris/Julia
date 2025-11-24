@@ -1,8 +1,19 @@
+import { useNavigate, useLocation } from 'react-router-dom';
+
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const scrollToContact = () => {
-    // Navigate to contact page
-    if (window.navigateTo) {
-      window.navigateTo('kontakt');
+    if (location.pathname === '/') {
+      // If on home page, scroll to contact section
+      const contactSection = document.getElementById('kontakt');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Otherwise navigate to contact page
+      navigate('/kontakt');
     }
   };
 

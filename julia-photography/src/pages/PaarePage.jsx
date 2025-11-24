@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
 import PageHeader from '../components/common/PageHeader';
 import ProcessSteps from '../components/common/ProcessSteps';
@@ -8,6 +9,7 @@ import CTASection from '../components/sections/CTASection';
 import { testimonialsData } from '../data/testimonialsData';
 
 const PaarePage = () => {
+  const navigate = useNavigate();
   // Process Steps Data
   const shootingSteps = [
     {
@@ -142,9 +144,7 @@ const PaarePage = () => {
 
   const handlePackageClick = () => {
     // Navigate to contact page
-    if (window.navigateTo) {
-      window.navigateTo('kontakt');
-    }
+    navigate('/kontakt');
   };
 
   return (

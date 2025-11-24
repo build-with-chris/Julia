@@ -1,3 +1,5 @@
+import { useNavigate, useLocation } from 'react-router-dom';
+
 const CTASection = ({
   eyebrow,
   headline = 'Bereit, eure Geschichte festzuhalten?',
@@ -6,13 +8,21 @@ const CTASection = ({
   onButtonClick,
   variant = 'default', // 'default' or 'compact'
 }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const handleClick = () => {
     if (onButtonClick) {
       onButtonClick();
     } else {
-      // Default: Navigate to contact page
-      if (window.navigateTo) {
-        window.navigateTo('kontakt');
+      // Default: Navigate to contact page or scroll to contact section
+      if (location.pathname === '/') {
+        const contactSection = document.getElementById('kontakt');
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        navigate('/kontakt');
       }
     }
   };

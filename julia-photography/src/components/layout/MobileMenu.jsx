@@ -35,19 +35,17 @@ const MobileMenu = ({ isOpen, onClose, navItems, activeSection, onNavClick }) =>
 
   const handleNavItemClick = (item) => {
     onNavClick(item);
-    // Close menu after navigation
-    setTimeout(() => {
-      onClose();
-    }, 300);
+    // Close menu immediately for better UX
+    onClose();
   };
-
-  if (!isOpen) return null;
 
   return (
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-anthracite/95 backdrop-blur-sm z-40 md:hidden transition-opacity duration-300"
+        className={`fixed inset-0 bg-anthracite/95 backdrop-blur-sm z-[100] md:hidden transition-opacity duration-300 ${
+          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
         onClick={onClose}
         aria-hidden="true"
       />
@@ -55,10 +53,27 @@ const MobileMenu = ({ isOpen, onClose, navItems, activeSection, onNavClick }) =>
       {/* Mobile Menu Panel */}
       <div
         ref={menuRef}
-        className="fixed inset-0 z-50 md:hidden flex flex-col bg-offwhite"
+        className={`fixed top-0 left-0 right-0 bottom-0 w-screen h-screen z-[101] md:hidden flex flex-col bg-offwhite transform transition-transform duration-300 ease-in-out ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation menu"
+        aria-hidden={!isOpen}
+        style={{ 
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          width: '100vw',
+          height: '100dvh', // Dynamic viewport height for mobile
+          maxWidth: '100vw',
+          maxHeight: '100dvh',
+          overflow: 'hidden',
+          margin: 0,
+          padding: 0
+        }}
       >
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-border-soft">
@@ -77,12 +92,18 @@ const MobileMenu = ({ isOpen, onClose, navItems, activeSection, onNavClick }) =>
 
         {/* Navigation Items */}
         <nav className="flex-1 flex flex-col justify-center px-6 py-8 overflow-y-auto">
-          <ul className="space-y-2">
-            {navItems.map((item) => (
-              <li key={item.id}>
+          <ul className="space-y-3">
+            {navItems.map((item, index) => (
+              <li 
+                key={item.id}
+                className={`transform transition-all duration-300 ${
+                  isOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+                }`}
+                style={{ transitionDelay: isOpen ? `${index * 50}ms` : '0ms' }}
+              >
                 <button
                   onClick={() => handleNavItemClick(item)}
-                  className={`w-full text-left px-6 py-4 rounded-sm text-2xl font-semibold transition-all duration-200 ${
+                  className={`w-full text-left px-6 py-4 rounded-sm text-xl md:text-2xl font-semibold transition-all duration-200 ${
                     activeSection === item.id
                       ? 'bg-warm-accent text-white'
                       : 'text-anthracite hover:bg-border-soft/50 hover:text-warm-accent'

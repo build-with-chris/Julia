@@ -1,10 +1,10 @@
 const HomeHero = ({
   backgroundImage = 'https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=2070&auto=format&fit=crop',
   kicker = 'Cinematische & emotionale Hochzeits- und Paarfotografie',
-  headline = 'Your love story, captured like a movie.',
+  headline = 'Eure Liebesgeschichte, festgehalten',
   subtitle = 'Natürlich, achtsam und mit einem Hauch Nostalgie – ich halte eure wertvollsten Momente fest.',
-  primaryButtonText = 'Paare entdecken',
-  secondaryButtonText = 'Hochzeiten entdecken',
+  primaryButtonText = 'Jetzt Shooting buchen',
+  secondaryButtonText = 'Mehr erfahren',
   onPrimaryClick,
   onSecondaryClick,
 }) => {
@@ -12,9 +12,10 @@ const HomeHero = ({
     if (onPrimaryClick) {
       onPrimaryClick();
     } else {
-      // Navigate to Paare page
-      if (window.navigateTo) {
-        window.navigateTo('paare');
+      // Default: Scroll to contact form
+      const contactSection = document.getElementById('kontakt');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
       }
     }
   };
@@ -23,9 +24,10 @@ const HomeHero = ({
     if (onSecondaryClick) {
       onSecondaryClick();
     } else {
-      // Navigate to Hochzeiten page
-      if (window.navigateTo) {
-        window.navigateTo('hochzeiten');
+      // Default: Scroll to services
+      const servicesSection = document.getElementById('services');
+      if (servicesSection) {
+        servicesSection.scrollIntoView({ behavior: 'smooth' });
       }
     }
   };
@@ -73,12 +75,14 @@ const HomeHero = ({
             >
               {primaryButtonText}
             </button>
-            <button
-              onClick={handleSecondaryClick}
-              className="px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#2D2A26] rounded-sm transition-all duration-300 font-medium text-base md:text-lg"
-            >
-              {secondaryButtonText}
-            </button>
+            {secondaryButtonText && (
+              <button
+                onClick={handleSecondaryClick}
+                className="px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#2D2A26] rounded-sm transition-all duration-300 font-medium text-base md:text-lg"
+              >
+                {secondaryButtonText}
+              </button>
+            )}
           </nav>
         </div>
       </div>

@@ -1,35 +1,51 @@
 import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import MobileMenu from './MobileMenu';
 
 const Header = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { id: 'home', label: 'Home', isPage: true },
-    { id: 'paare', label: 'Paare', isPage: true },
-    { id: 'hochzeiten', label: 'Hochzeiten', isPage: true },
-    { id: 'about', label: 'Über mich', isPage: true },
-    { id: 'kontakt', label: 'Kontakt', isPage: true },
+    { id: 'home', label: 'Home', path: '/', isPage: true },
+    { id: 'paare', label: 'Paare', path: '/paare', isPage: true },
+    { id: 'hochzeiten', label: 'Hochzeiten', path: '/hochzeiten', isPage: true },
+    { id: 'about', label: 'Über mich', path: '/about', isPage: true },
+    { id: 'kontakt', label: 'Kontakt', path: '/kontakt', isPage: true },
   ];
+
+  // Update active section based on current route
+  useEffect(() => {
+    const currentPath = location.pathname;
+    const currentItem = navItems.find(item => item.path === currentPath);
+    if (currentItem) {
+      setActiveSection(currentItem.id);
+    }
+  }, [location.pathname]);
 
   const handleNavClick = (item) => {
     // If it's a separate page, navigate to it
-    if (item.isPage && window.navigateTo) {
-      window.navigateTo(item.id);
+    if (item.isPage) {
+      navigate(item.path);
       setActiveSection(item.id);
+      setMobileMenuOpen(false);
     } else {
-      // Otherwise scroll to section
+      // Otherwise scroll to section (for same-page anchors)
       const element = document.getElementById(item.id);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
         setActiveSection(item.id);
+        setMobileMenuOpen(false);
       }
     }
   };
 
-  // Detect active section on scroll
+  // Detect active section on scroll (only on home page)
   useEffect(() => {
+    if (location.pathname !== '/') return;
+
     const handleScroll = () => {
       const sections = navItems.map(item => item.id);
       const current = sections.find(section => {
@@ -47,7 +63,7 @@ const Header = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   return (
     <header className="sticky top-0 z-50 bg-offwhite/95 backdrop-blur-sm border-b border-border-soft shadow-sm">
@@ -55,7 +71,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo/Wordmark */}
           <button
-            onClick={() => handleNavClick({ id: 'home', isPage: true })}
+            onClick={() => handleNavClick({ id: 'home', path: '/', isPage: true })}
             className="text-lg font-heading font-semibold text-anthracite hover:text-warm-accent transition-colors duration-200"
           >
             Julia Mayr Photography
