@@ -31,52 +31,52 @@ const Ratecard2 = ({
             )}
           </div>
         )}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 max-w-6xl mx-auto">
           {packages.map((plan, index) => (
             <div
               key={index}
-              className={`relative bg-offwhite flex w-full flex-col justify-between gap-6 md:gap-8 rounded-lg p-8 md:p-10 border-2 transition-all duration-300 ${
+              className={`relative bg-offwhite flex w-full flex-col justify-between gap-4 md:gap-5 rounded-lg p-6 md:p-8 border-2 transition-all duration-300 ${
                 plan.highlight
                   ? 'border-warm-accent shadow-xl scale-105'
                   : 'border-border-soft hover:border-warm-accent hover:shadow-lg'
               }`}>
               {plan.highlight && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                  <span className="inline-block px-4 py-1.5 bg-warm-accent text-white text-sm font-medium rounded-full">
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+                  <span className="inline-block px-3 py-1 bg-warm-accent text-white text-xs font-medium rounded-full">
                     Beliebt
                   </span>
                 </div>
               )}
               <div>
-                <h3 className="text-anthracite mb-3 md:mb-4">
+                <h3 className="text-anthracite mb-2 md:mb-3 text-xl md:text-2xl">
                   {plan.title}
                 </h3>
                 {plan.duration && (
-                  <p className="text-sm md:text-base text-anthracite/70 mb-4 font-medium">
+                  <p className="text-xs md:text-sm text-anthracite/70 mb-3 font-medium">
                     {plan.duration}
                   </p>
                 )}
-                <p className="text-base md:text-lg text-anthracite/80 leading-relaxed mb-6">
+                <p className="text-sm md:text-base text-anthracite/80 leading-relaxed mb-4 md:mb-5">
                   {plan.description}
                 </p>
               </div>
-              <ul className="space-y-3 md:space-y-4 mb-6 md:mb-8">
+              <ul className="space-y-2 md:space-y-2.5 mb-4 md:mb-5">
                 {plan.features && plan.features.map((feature, featureIndex) => (
-                  <li key={featureIndex} className="flex items-start gap-3">
-                    <Check className="w-5 h-5 md:w-6 md:h-6 text-warm-accent flex-shrink-0 mt-0.5" />
-                    <span className="text-base md:text-lg text-anthracite leading-relaxed">{feature}</span>
+                  <li key={featureIndex} className="flex items-start gap-2">
+                    <Check className="w-4 h-4 md:w-5 md:h-5 text-warm-accent flex-shrink-0 mt-0.5" />
+                    <span className="text-sm md:text-base text-anthracite leading-relaxed">{feature}</span>
                   </li>
                 ))}
               </ul>
-              <div className="mt-auto flex flex-col gap-4">
+              <div className="mt-auto flex flex-col gap-3">
                 <div className="flex items-baseline gap-2">
-                  <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-warm-accent">
+                  <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-warm-accent">
                     {plan.price}
                   </h1>
                 </div>
                 <Button
                   onClick={() => onButtonClick && onButtonClick()}
-                  className={`w-full px-6 md:px-8 py-4 md:py-5 rounded-sm font-medium text-base md:text-lg transition-all duration-300 min-h-[52px] ${
+                  className={`w-full px-5 md:px-6 py-3 md:py-4 rounded-sm font-medium text-sm md:text-base transition-all duration-300 min-h-[44px] md:min-h-[48px] ${
                     plan.highlight
                       ? 'bg-warm-accent text-white hover:bg-warm-accent-dark shadow-md hover:shadow-lg'
                       : 'bg-white border-2 border-warm-accent/40 text-warm-accent hover:border-warm-accent hover:bg-warm-accent/10'

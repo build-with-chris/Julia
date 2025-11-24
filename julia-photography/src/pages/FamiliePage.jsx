@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
 import PageHeader from '../components/common/PageHeader';
@@ -6,6 +7,8 @@ import { Gallery25 } from '../components/gallery25';
 import ShootingDetails from '../components/common/ShootingDetails';
 import TestimonialCarousel from '../components/sections/TestimonialCarousel';
 import CTASection from '../components/sections/CTASection';
+import FaqSection from '../components/common/FaqSection';
+import InternalNavigation from '../components/common/InternalNavigation';
 import { testimonialsData } from '../data/testimonialsData';
 
 const FamiliePage = () => {
@@ -60,6 +63,30 @@ const FamiliePage = () => {
     },
   ];
 
+  // FAQ Data
+  const faqs = [
+    {
+      question: 'Wie viele Bilder bekommen wir?',
+      answer: 'Das hängt vom gewählten Package ab. Beim Essential sind es mindestens 40, beim Extended mindestens 80 professionell bearbeitete Bilder. Ich gebe euch alle Bilder, die ich für zeigenswert halte – oft sind es mehr als angegeben.',
+    },
+    {
+      question: 'Wann bekommen wir die Bilder?',
+      answer: 'Innerhalb von 1-2 Wochen nach dem Shooting erhaltet ihr eure fertig bearbeiteten Bilder in einer schönen Online-Galerie. Einige Sneak Peeks bekommt ihr bereits nach wenigen Tagen.',
+    },
+    {
+      question: 'Können wir ein Kennenlernen vereinbaren?',
+      answer: 'Absolut! Ich finde es wichtig, dass die Chemie stimmt. Wir können uns per Videocall oder bei einem Kaffee treffen, damit ihr mich kennenlernt und wir eure Wünsche besprechen können. Völlig unverbindlich.',
+    },
+    {
+      question: 'Wo findet das Shooting statt?',
+      answer: 'Gemeinsam finden wir den perfekten Ort für euer Familien-Shooting. Ob in der Natur, zuhause oder an einem Ort, der euch bedeutet – ich berate euch gerne bei der Location-Wahl.',
+    },
+    {
+      question: 'Was sollen wir anziehen?',
+      answer: 'Am besten tragt ihr etwas, in dem ihr euch wohlfühlt und das eure Persönlichkeit widerspiegelt. Ich berate euch gerne bei der Outfit-Wahl und helfe euch, einen harmonischen Look zu finden.',
+    },
+  ];
+
   // Gallery Images
   const galleryImages = [
     {
@@ -108,8 +135,36 @@ const FamiliePage = () => {
     navigate('/kontakt');
   };
 
+  // Animation variants
+  const fadeInUp = {
+    initial: { opacity: 0, y: 30 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: '-50px' },
+    transition: { duration: 0.6 }
+  };
+
+  const staggerContainer = {
+    initial: {},
+    whileInView: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    },
+    viewport: { once: true, margin: '-50px' }
+  };
+
+  // Navigation items
+  const navItems = [
+    { id: 'gallery', label: 'Gallery' },
+    { id: 'angebot', label: 'Angebot' },
+    { id: 'faq', label: 'Häufige Fragen' },
+  ];
+
   return (
     <Layout>
+      {/* Internal Navigation */}
+      <InternalNavigation items={navItems} />
+
       {/* Page Header */}
       <PageHeader
         headline="Familienshootings voller Leben & Emotion."
@@ -121,20 +176,26 @@ const FamiliePage = () => {
         minHeight="lg"
       />
 
-      {/* Intro Section */}
-      <section className="py-20 md:py-28 bg-offwhite">
+      {/* Intro Section with Animation */}
+      <motion.section 
+        className="py-20 md:py-28 bg-offwhite"
+        initial="initial"
+        whileInView="whileInView"
+        viewport={{ once: true }}
+        variants={staggerContainer}
+      >
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
+            <motion.div className="text-center mb-12" variants={fadeInUp}>
               <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
                 Was euch erwartet
               </p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-8">
                 Eure Familie, festgehalten
               </h2>
-            </div>
+            </motion.div>
 
-            <div className="prose prose-lg max-w-none text-anthracite/80 space-y-6">
+            <motion.div className="prose prose-lg max-w-none text-anthracite/80 space-y-6" variants={fadeInUp}>
               <p className="text-lg md:text-xl leading-relaxed">
                 Bei meinen Familienshootings geht es nicht um perfekte Posen, sondern um eure echte Verbindung.
                 Ich möchte die besonderen Momente zwischen euch einfangen – das Lachen, die Umarmungen, die kleinen Gesten der Zuneigung.
@@ -147,27 +208,24 @@ const FamiliePage = () => {
                 Meine Familienbilder sind lebendig, ehrlich und voller Emotion.
                 Sie zeigen euch, wie schön eure Familie ist – für Erinnerungen, die ein Leben lang halten.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Shooting Details */}
       <ShootingDetails />
 
-      {/* Packages Section */}
-      <Ratecard2
-        eyebrow="Packages"
-        title="Findet euer Package"
-        description="Flexible Pakete, die zu euren Wünschen passen. Alle Preise verstehen sich inklusive Anfahrt im Raum München."
-        packages={packages}
-        onButtonClick={handlePackageClick}
-      />
-
-      {/* Gallery */}
-      <section className="py-20 md:py-28 bg-offwhite">
+      {/* Gallery Section */}
+      <section id="gallery" className="py-20 md:py-32 bg-white scroll-mt-24">
         <div className="container-custom">
-          <div className="text-center mb-12 md:mb-16">
+          <motion.div 
+            className="text-center mb-12 md:mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-50px' }}
+            transition={{ duration: 0.6 }}
+          >
             <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
               Portfolio
             </p>
@@ -177,7 +235,7 @@ const FamiliePage = () => {
             <p className="text-lg md:text-xl text-anthracite/80 max-w-3xl mx-auto leading-relaxed">
               Ein kleiner Einblick in meine Familienfotografie
             </p>
-          </div>
+          </motion.div>
           <Gallery25
             images={galleryImages}
             enableLightbox={true}
@@ -185,16 +243,45 @@ const FamiliePage = () => {
         </div>
       </section>
 
+      {/* Packages Section */}
+      <section id="angebot" className="bg-gradient-to-br from-offwhite to-[#F5F0EA] scroll-mt-24">
+        <motion.div
+          initial="initial"
+          whileInView="whileInView"
+          viewport={{ once: true }}
+          variants={staggerContainer}
+        >
+          <Ratecard2
+            eyebrow="Packages"
+            title="Findet euer Package"
+            description="Flexible Pakete, die zu euren Wünschen passen. Alle Preise verstehen sich inklusive Anfahrt im Raum München."
+            packages={packages}
+            onButtonClick={handlePackageClick}
+          />
+        </motion.div>
+      </section>
+
+      {/* FAQ Section */}
+      <section id="faq" className="scroll-mt-24">
+        <FaqSection
+          title="Häufige Fragen"
+          description="Alles, was ihr wissen müsst"
+          faqs={faqs}
+        />
+      </section>
+
       {/* Testimonials */}
       <TestimonialCarousel testimonials={[testimonialsData[0], testimonialsData[1], testimonialsData[3]]} />
 
       {/* CTA Section */}
-      <CTASection
-        eyebrow="Familien-Shooting buchen"
-        headline="Bereit für lebendige & authentische Familienbilder?"
-        subline="Lasst uns gemeinsam eure Familie festhalten – ehrlich, lebendig und voller Emotion."
-        buttonLabel="Shooting anfragen"
-      />
+      <div className="pb-20 lg:pb-0">
+        <CTASection
+          eyebrow="Familien-Shooting buchen"
+          headline="Bereit für lebendige & authentische Familienbilder?"
+          subline="Lasst uns gemeinsam eure Familie festhalten – ehrlich, lebendig und voller Emotion."
+          buttonLabel="Shooting anfragen"
+        />
+      </div>
     </Layout>
   );
 };
