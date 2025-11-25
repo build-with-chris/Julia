@@ -47,8 +47,11 @@ const Header = () => {
     if (location.pathname !== '/') return;
 
     const handleScroll = () => {
-      const sections = navItems.map(item => item.id);
-      const current = sections.find(section => {
+      // Only check sections that exist on the home page
+      // Note: 'kontakt' section exists on home page but should not activate the 'kontakt' nav item
+      // since 'kontakt' is a separate page
+      const homePageSections = ['home', 'services', 'kontakt'];
+      const current = homePageSections.find(section => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
@@ -57,7 +60,13 @@ const Header = () => {
         return false;
       });
       if (current) {
-        setActiveSection(current);
+        // Map both 'services' and 'kontakt' to 'home' for navigation highlighting
+        // since they are sections on the home page, not separate pages
+        if (current === 'services' || current === 'kontakt') {
+          setActiveSection('home');
+        } else {
+          setActiveSection(current);
+        }
       }
     };
 
