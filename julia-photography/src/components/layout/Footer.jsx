@@ -85,7 +85,7 @@ const Footer = () => {
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Navigation */}
-          <div>
+          <div className="hidden md:block">
             <h3 className="text-lg font-semibold mb-4 text-anthracite">Navigation</h3>
             <nav>
               <div className="grid grid-cols-2 gap-x-8 gap-y-2">

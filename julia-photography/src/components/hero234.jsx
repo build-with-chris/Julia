@@ -52,7 +52,7 @@ const Hero234 = ({
   };
 
   return (
-    <section className="bg-background relative min-h-screen overflow-hidden">
+    <section className="bg-background relative h-[70vh] md:min-h-screen overflow-hidden">
       <div className="absolute inset-0 flex flex-col justify-center gap-4">
         {galleryImages.map((row, rowIndex) => (
           <motion.div
@@ -90,9 +90,9 @@ const Hero234 = ({
       <div className="from-offwhite absolute left-0 top-0 z-10 h-full w-[160px] bg-gradient-to-r to-transparent md:w-[200px]" />
       {/* Right side masks */}
       <div className="from-offwhite absolute right-0 top-0 z-10 h-full w-[160px] bg-gradient-to-l to-transparent md:w-[200px]" />
-      <div className="relative z-20 flex min-h-screen items-center justify-center px-4">
+      <div className="relative z-20 flex h-full md:min-h-screen items-center justify-center px-4">
         <motion.div
-          className="rounded-lg bg-anthracite/85 backdrop-blur-md p-8 md:p-10 lg:p-12 max-w-lg w-full"
+          className="hidden md:block rounded-lg bg-anthracite/85 backdrop-blur-md p-8 md:p-10 lg:p-12 max-w-lg w-full"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}>

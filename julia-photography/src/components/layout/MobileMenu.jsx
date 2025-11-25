@@ -43,52 +43,16 @@ const MobileMenu = ({ isOpen, onClose, navItems, activeSection, onNavClick }) =>
 
   return (
     <>
-      {/* Backdrop - rendered immediately when open */}
-      <div
-        className="fixed inset-0 bg-anthracite/95 backdrop-blur-sm z-[100] md:hidden"
-        onClick={onClose}
-        aria-hidden="true"
-        style={{ 
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          width: '100vw',
-          height: '100dvh'
-        }}
-      />
-
       {/* Mobile Menu Panel - rendered immediately when open */}
       <div
         ref={menuRef}
-        className="fixed top-0 left-0 right-0 bottom-0 w-screen h-screen z-[101] md:hidden flex flex-col bg-offwhite"
+        className="fixed top-[64px] left-0 right-0 w-full h-[60vh] z-[101] md:hidden flex flex-col bg-offwhite/98 backdrop-blur-sm shadow-xl border-b border-border-soft"
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation menu"
-        style={{ 
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          width: '100vw',
-          height: '100dvh',
-          maxWidth: '100vw',
-          maxHeight: '100dvh',
-          overflow: 'hidden',
-          margin: 0,
-          padding: 0,
-          willChange: 'auto'
-        }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-border-soft">
-          <img
-            src="/Logo Julia.avif"
-            alt="Julia Mayr Photography"
-            className="h-8 w-auto"
-          />
+        <div className="flex items-center justify-end p-3 border-b border-border-soft flex-shrink-0">
           <button
             ref={firstFocusableRef}
             onClick={onClose}
@@ -102,13 +66,13 @@ const MobileMenu = ({ isOpen, onClose, navItems, activeSection, onNavClick }) =>
         </div>
 
         {/* Navigation Items */}
-        <nav className="flex-1 flex flex-col justify-center px-6 py-8 overflow-y-auto">
-          <ul className="space-y-3">
+        <nav className="flex-1 flex flex-col justify-center items-center px-4 py-4 overflow-y-auto min-h-0">
+          <ul className="space-y-1.5 w-full max-w-xs">
             {navItems.map((item) => (
-              <li key={item.id}>
+              <li key={item.id} className="w-full">
                 <button
                   onClick={() => handleNavItemClick(item)}
-                  className={`w-full text-left px-6 py-4 rounded-sm text-xl md:text-2xl font-semibold transition-all duration-200 ${
+                  className={`w-full text-center px-4 py-2.5 rounded-sm text-base font-semibold transition-all duration-200 uppercase ${
                     activeSection === item.id
                       ? 'bg-warm-accent text-white'
                       : 'text-anthracite hover:bg-border-soft/50 hover:text-warm-accent'
@@ -120,29 +84,6 @@ const MobileMenu = ({ isOpen, onClose, navItems, activeSection, onNavClick }) =>
             ))}
           </ul>
         </nav>
-
-        {/* Footer */}
-        <div className="p-6 border-t border-border-soft bg-gradient-to-br from-offwhite to-[#F5F0EA]">
-          <div className="space-y-3">
-            <p className="text-sm text-muted text-center">Kontakt</p>
-            <div className="flex flex-col gap-2 text-center">
-              <a
-                href="mailto:juliamayr.photo@gmail.com"
-                className="text-sm text-warm-accent hover:text-warm-accent-dark transition-colors duration-200"
-              >
-                juliamayr.photo@gmail.com
-              </a>
-              <a
-                href="https://instagram.com/moanayulia"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-warm-accent hover:text-warm-accent-dark transition-colors duration-200"
-              >
-                @moanayulia
-              </a>
-            </div>
-          </div>
-        </div>
       </div>
     </>
   );

@@ -66,13 +66,13 @@ const Header = () => {
   }, [location.pathname]);
 
   return (
-    <header className="sticky top-0 z-50 bg-offwhite/95 backdrop-blur-sm border-b border-border-soft shadow-sm">
-      <nav className="container-custom py-3 md:py-4">
-        <div className="flex items-center justify-between">
+    <header className="sticky top-0 z-[102] bg-offwhite/95 backdrop-blur-sm border-b border-border-soft shadow-sm relative">
+      <nav className="container-custom py-3 md:py-4 relative z-[102]">
+        <div className="flex items-center justify-between relative">
           {/* Logo */}
           <button
             onClick={() => handleNavClick({ id: 'home', path: '/', isPage: true })}
-            className="flex items-center transition-opacity duration-200 hover:opacity-80"
+            className="relative z-[103] flex items-center transition-opacity duration-200 hover:opacity-80"
             aria-label="Zur Startseite"
           >
             <img
@@ -88,7 +88,7 @@ const Header = () => {
               <li key={item.id}>
                 <button
                   onClick={() => handleNavClick(item)}
-                  className={`relative text-sm font-medium transition-colors duration-200 pb-2 tracking-wide
+                  className={`relative text-sm font-medium transition-colors duration-200 pb-2 tracking-wide uppercase
                     ${activeSection === item.id
                       ? 'text-warm-accent'
                       : 'text-anthracite hover:text-warm-accent'
@@ -108,7 +108,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="md:hidden p-2 rounded-sm text-anthracite hover:bg-border-soft/50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-warm-accent"
+            className="relative z-[103] md:hidden p-2 rounded-sm text-anthracite hover:bg-border-soft/50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-warm-accent"
             aria-label="Open mobile menu"
             aria-expanded={mobileMenuOpen}
           >

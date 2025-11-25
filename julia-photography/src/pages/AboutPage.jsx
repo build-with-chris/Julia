@@ -48,7 +48,7 @@ const AboutPage = () => {
               <div className="order-2 md:order-1">
                 <div className="relative overflow-hidden rounded-lg aspect-[3/4] shadow-xl">
                   <img
-                    src="/JM006204.JPG"
+                    src="/About.webp"
                     alt="Julia Mayr Portrait"
                     className="w-full h-full object-cover"
                   />

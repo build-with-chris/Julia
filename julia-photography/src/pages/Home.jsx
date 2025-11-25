@@ -16,7 +16,7 @@ const Home = () => {
   return (
     <Layout>
       {/* Hero Section - Hero234 Block */}
-      <div className="-mt-12 md:-mt-16 -mb-12 md:-mb-16">
+      <div className="mt-8 md:-mt-16 -mb-12 md:-mb-16">
         <Hero234
           kicker="Cinematische & emotionale Fotografie"
           primaryButtonText="Jetzt Shooting buchen"
@@ -32,7 +32,7 @@ const Home = () => {
       </div>
 
       {/* Services - kompakte Übersicht */}
-      <section id="services" className="pt-12 md:pt-16 pb-16 md:pb-24 lg:pb-32 bg-offwhite">
+      <section id="services" className="pt-20 md:pt-28 lg:pt-32 pb-16 md:pb-24 lg:pb-32 bg-offwhite">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto text-center mb-16 md:mb-20">
             <h2 className="text-anthracite mb-8">
@@ -133,79 +133,117 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Kontakt Section - prominent und einfach */}
-      <section id="kontakt" className="pt-16 md:pt-24 lg:pt-32 pb-6 md:pb-10 bg-offwhite">
-        <div className="container-custom">
-          <div className="max-w-2xl mx-auto">
-            <div className="text-center mb-12 md:mb-16">
-              <h2 className="text-anthracite mb-6">
-                Bereit für euer Shooting?
-              </h2>
-              <p className="text-lg md:text-xl text-anthracite/80 leading-relaxed">
-                Schreibt mir und wir finden gemeinsam den perfekten Termin für euch.
-              </p>
-            </div>
-            
-            <div className="bg-white p-8 md:p-10 lg:p-12 rounded-lg shadow-sm border border-border-soft">
-              <form className="space-y-6 md:space-y-8">
-                <div>
-                  <label htmlFor="name" className="block text-sm md:text-base font-medium text-anthracite mb-3">
-                    Euer Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full px-4 md:px-5 py-3 md:py-4 border border-border-soft rounded-sm focus:outline-none focus:ring-2 focus:ring-warm-accent focus:border-transparent text-base"
-                    placeholder="Anna & Tom"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm md:text-base font-medium text-anthracite mb-3">
-                    E-Mail
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full px-4 md:px-5 py-3 md:py-4 border border-border-soft rounded-sm focus:outline-none focus:ring-2 focus:ring-warm-accent focus:border-transparent text-base"
-                    placeholder="eure@email.de"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="shooting-type" className="block text-sm md:text-base font-medium text-anthracite mb-3">
-                    Art des Shootings
-                  </label>
-                  <select
-                    id="shooting-type"
-                    className="w-full px-4 md:px-5 py-3 md:py-4 border border-border-soft rounded-sm focus:outline-none focus:ring-2 focus:ring-warm-accent focus:border-transparent text-base"
-                  >
-                    <option value="">Bitte wählen</option>
-                    <option value="paare">Paarshooting</option>
-                    <option value="hochzeit">Hochzeit</option>
-                    <option value="portrait">Portraitshooting</option>
-                    <option value="familie">Familienshooting</option>
-                    <option value="anderes">Anderes</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm md:text-base font-medium text-anthracite mb-3">
-                    Nachricht
-                  </label>
-                  <textarea
-                    id="message"
-                    rows="5"
-                    className="w-full px-4 md:px-5 py-3 md:py-4 border border-border-soft rounded-sm focus:outline-none focus:ring-2 focus:ring-warm-accent focus:border-transparent text-base resize-none"
-                    placeholder="Erzählt mir von euren Plänen und eurem Wunschtermin..."
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full px-8 md:px-10 py-4 md:py-5 bg-warm-accent hover:bg-warm-accent-dark text-white rounded-sm transition-colors duration-200 font-medium text-base md:text-lg shadow-md hover:shadow-lg min-h-[52px]"
-                >
-                  Anfrage senden
-                </button>
-              </form>
-            </div>
+      {/* Kontakt Section - Graustufen, breit, ohne Box */}
+      <section id="kontakt" className="pt-16 md:pt-24 lg:pt-32 pb-16 md:pb-24 bg-[#2a2a2a]">
+        <div className="w-full px-4 md:px-6 lg:px-8 xl:px-12 max-w-7xl mx-auto">
+          <div className="flex justify-end mb-8 md:mb-12">
+            <h2 className="text-[#e8e8e8] text-3xl md:text-4xl lg:text-5xl font-bold">
+              Jetzt kontaktieren.
+            </h2>
           </div>
+          
+          <form className="space-y-6 md:space-y-8">
+            {/* Vorname / Nachname - 2 Spalten */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
+              <div>
+                <label htmlFor="firstName" className="block text-[#d0d0d0] mb-2 text-sm md:text-base">
+                  Vorname*
+                </label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  className="w-full bg-transparent border-b-2 border-[#666666] text-[#e8e8e8] placeholder-[#888888] focus:outline-none focus:border-[#b0b0b0] transition-colors duration-200 pb-2 text-base md:text-lg"
+                  placeholder=""
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="lastName" className="block text-[#d0d0d0] mb-2 text-sm md:text-base">
+                  Nachname*
+                </label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  className="w-full bg-transparent border-b-2 border-[#666666] text-[#e8e8e8] placeholder-[#888888] focus:outline-none focus:border-[#b0b0b0] transition-colors duration-200 pb-2 text-base md:text-lg"
+                  placeholder=""
+                  required
+                />
+              </div>
+            </div>
+
+            {/* E-Mail / Telefon - 2 Spalten */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
+              <div>
+                <label htmlFor="email" className="block text-[#d0d0d0] mb-2 text-sm md:text-base">
+                  E-Mail*
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  className="w-full bg-transparent border-b-2 border-[#666666] text-[#e8e8e8] placeholder-[#888888] focus:outline-none focus:border-[#b0b0b0] transition-colors duration-200 pb-2 text-base md:text-lg"
+                  placeholder=""
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="phone" className="block text-[#d0d0d0] mb-2 text-sm md:text-base">
+                  Telefon
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  className="w-full bg-transparent border-b-2 border-[#666666] text-[#e8e8e8] placeholder-[#888888] focus:outline-none focus:border-[#b0b0b0] transition-colors duration-200 pb-2 text-base md:text-lg"
+                  placeholder=""
+                />
+              </div>
+            </div>
+
+            {/* Nachricht - volle Breite */}
+            <div>
+              <label htmlFor="message" className="block text-[#d0d0d0] mb-2 text-sm md:text-base">
+                Nachricht*
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                className="w-full bg-transparent border-b-2 border-[#666666] text-[#e8e8e8] placeholder-[#888888] focus:outline-none focus:border-[#b0b0b0] transition-colors duration-200 pb-2 resize-none text-base md:text-lg"
+                placeholder=""
+                required
+              />
+            </div>
+
+            {/* Checkbox für Datenschutz */}
+            <div className="flex items-start gap-3 pt-2">
+              <input
+                type="checkbox"
+                id="privacy"
+                name="privacy"
+                className="mt-1 w-4 h-4 border-2 border-[#888888] bg-transparent focus:ring-0 focus:ring-offset-0 cursor-pointer accent-[#b0b0b0] checked:bg-[#b0b0b0] checked:border-[#b0b0b0]"
+                required
+              />
+              <label htmlFor="privacy" className="text-[#c0c0c0] text-sm md:text-base cursor-pointer">
+                Ich habe die Datenschutzerklärung gelesen und akzeptiert.*
+              </label>
+            </div>
+
+            {/* Pflichtfeld Hinweis */}
+            <p className="text-[#888888] text-xs md:text-sm">*Pflichtfeld</p>
+
+            {/* Submit Button */}
+            <div className="pt-4">
+              <button
+                type="submit"
+                className="px-8 md:px-12 py-3 md:py-4 border-2 border-[#b0b0b0] text-[#d0d0d0] uppercase tracking-wider font-medium hover:bg-[#b0b0b0] hover:text-[#2a2a2a] transition-all duration-200 text-sm md:text-base"
+              >
+                SENDEN
+              </button>
+            </div>
+          </form>
         </div>
       </section>
     </Layout>

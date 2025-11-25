@@ -2,8 +2,11 @@ import { useState } from 'react';
 
 const useContactForm = () => {
   const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
     name: '',
     email: '',
+    phone: '',
     inquiryType: '',
     preferredDate: '',
     location: '',
@@ -22,8 +25,18 @@ const useContactForm = () => {
   const validateForm = () => {
     const newErrors = {};
 
-    // Name validation
-    if (!formData.name.trim()) {
+    // First name validation (if firstName is used)
+    if (formData.firstName !== undefined && !formData.firstName.trim()) {
+      newErrors.firstName = 'Bitte gib deinen Vornamen an.';
+    }
+
+    // Last name validation (if lastName is used)
+    if (formData.lastName !== undefined && !formData.lastName.trim()) {
+      newErrors.lastName = 'Bitte gib deinen Nachnamen an.';
+    }
+
+    // Name validation (if name is used instead of firstName/lastName)
+    if (formData.firstName === undefined && !formData.name.trim()) {
       newErrors.name = 'Bitte gib deinen Namen an.';
     }
 
@@ -34,10 +47,8 @@ const useContactForm = () => {
       newErrors.email = 'Bitte gib eine gültige E-Mail-Adresse an.';
     }
 
-    // Inquiry type validation
-    if (!formData.inquiryType) {
-      newErrors.inquiryType = 'Bitte wähle eine Art der Anfrage aus.';
-    }
+    // Inquiry type validation (optional)
+    // Removed required validation for inquiryType
 
     // Message validation
     if (!formData.message.trim()) {
@@ -84,8 +95,11 @@ const useContactForm = () => {
       // Success
       setSubmitSuccess(true);
       setFormData({
+        firstName: '',
+        lastName: '',
         name: '',
         email: '',
+        phone: '',
         inquiryType: '',
         preferredDate: '',
         location: '',
