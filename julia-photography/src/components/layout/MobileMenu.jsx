@@ -2,7 +2,6 @@ import { useEffect, useRef } from 'react';
 
 const MobileMenu = ({ isOpen, onClose, navItems, activeSection, onNavClick }) => {
   const menuRef = useRef(null);
-  const firstFocusableRef = useRef(null);
 
   // Handle escape key
   useEffect(() => {
@@ -20,10 +19,6 @@ const MobileMenu = ({ isOpen, onClose, navItems, activeSection, onNavClick }) =>
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
-      // Focus first focusable element
-      if (firstFocusableRef.current) {
-        firstFocusableRef.current.focus();
-      }
     } else {
       document.body.style.overflow = '';
     }
@@ -46,27 +41,13 @@ const MobileMenu = ({ isOpen, onClose, navItems, activeSection, onNavClick }) =>
       {/* Mobile Menu Panel - rendered immediately when open */}
       <div
         ref={menuRef}
-        className="fixed top-[64px] left-0 right-0 w-full h-[60vh] z-[101] md:hidden flex flex-col bg-offwhite/98 backdrop-blur-sm shadow-xl border-b border-border-soft"
+        className="fixed top-[64px] left-0 right-0 w-full h-[calc(50vh-64px)] z-[101] md:hidden flex flex-col bg-offwhite/98 backdrop-blur-sm shadow-xl border-b border-border-soft"
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation menu"
       >
-        {/* Header */}
-        <div className="flex items-center justify-end p-3 border-b border-border-soft flex-shrink-0">
-          <button
-            ref={firstFocusableRef}
-            onClick={onClose}
-            className="p-2 rounded-sm hover:bg-border-soft/50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-warm-accent"
-            aria-label="Close menu"
-          >
-            <svg className="w-6 h-6 text-anthracite" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-
         {/* Navigation Items */}
-        <nav className="flex-1 flex flex-col justify-center items-center px-4 py-4 overflow-y-auto min-h-0">
+        <nav className="flex-1 flex flex-col justify-start items-center px-4 pt-6 pb-6 overflow-y-auto min-h-0">
           <ul className="space-y-1.5 w-full max-w-xs">
             {navItems.map((item) => (
               <li key={item.id} className="w-full">
