@@ -175,13 +175,13 @@ const PaarePage = () => {
 
       {/* Page Header */}
       <PageHeader
-        headline="Paarfotografie, die sich anfühlt wie ihr."
-        subline="Natürlich, achtsam, authentisch"
-        imageSrc="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=2070&auto=format&fit=crop"
+        headline="Eure Verbindung, ehrlich festgehalten"
+        imageSrc="/HeroPaar.webp"
         imageAlt="Romantisches Paar beim Fotoshooting"
         overlayOpacity="medium"
         textPosition="center"
         minHeight="lg"
+        verticalPosition="lower-third"
       />
 
       {/* Intro Section with Animation */}

@@ -38,7 +38,7 @@ const Home = () => {
           <div className="mb-12 md:mb-16 lg:mb-20">
             <div className="flex flex-col lg:flex-row items-start lg:items-center lg:justify-between">
               {/* Bild */}
-              <div className="w-full lg:w-[45%] mb-6 lg:mb-0">
+              <div className="w-full lg:w-[45%] mb-6 lg:mb-0 order-2 lg:order-1">
                 <div className="relative overflow-hidden rounded-lg aspect-[2.5/2] shadow-xl">
                   <img
                     src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop"
@@ -48,7 +48,7 @@ const Home = () => {
                 </div>
               </div>
               {/* Text Block */}
-              <div className="w-full lg:w-[50%] lg:pl-8 xl:pl-12">
+              <div className="w-full lg:w-[50%] lg:pl-8 xl:pl-12 order-1 lg:order-2">
                 <p className="text-xs md:text-sm uppercase tracking-wider text-warm-accent font-medium mb-3 md:mb-4">
                   Natürlich, achtsam, authentisch
                 </p>
@@ -100,7 +100,7 @@ const Home = () => {
           <div className="mb-12 md:mb-16 lg:mb-20">
             <div className="flex flex-col lg:flex-row items-start lg:items-center lg:justify-between">
               {/* Bild */}
-              <div className="w-full lg:w-[45%] mb-6 lg:mb-0">
+              <div className="w-full lg:w-[45%] mb-6 lg:mb-0 order-2 lg:order-1">
                 <div className="relative overflow-hidden rounded-lg aspect-[2.5/2] shadow-xl">
                   <img
                     src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop"
@@ -110,7 +110,7 @@ const Home = () => {
                 </div>
               </div>
               {/* Text Block */}
-              <div className="w-full lg:w-[50%] lg:pl-8 xl:pl-12">
+              <div className="w-full lg:w-[50%] lg:pl-8 xl:pl-12 order-1 lg:order-2 mb-8 md:mb-0">
                 <p className="text-xs md:text-sm uppercase tracking-wider text-warm-accent font-medium mb-3 md:mb-4">
                   Individuell, authentisch, natürlich
                 </p>

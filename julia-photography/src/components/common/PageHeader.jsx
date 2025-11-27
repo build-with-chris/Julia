@@ -1,16 +1,19 @@
 const PageHeader = ({
   headline,
+  mobileHeadline,
   subline,
   imageSrc,
   imageAlt = '',
   overlayOpacity = 'medium', // 'light', 'medium', 'dark'
   textPosition = 'center', // 'center', 'left', 'right'
   minHeight = 'lg', // 'sm', 'md', 'lg'
+  verticalPosition = 'bottom', // 'bottom', 'lower-third'
+  grayscale = false, // Apply grayscale filter to image
 }) => {
   const heightClasses = {
-    sm: 'h-[50vh] min-h-[400px]',
-    md: 'h-[60vh] min-h-[500px]',
-    lg: 'h-[70vh] min-h-[600px]',
+    sm: 'h-[40vh] md:h-[50vh] min-h-[320px] md:min-h-[400px]',
+    md: 'h-[48vh] md:h-[60vh] min-h-[400px] md:min-h-[500px]',
+    lg: 'h-[56vh] md:h-[70vh] min-h-[480px] md:min-h-[600px]',
   };
 
   const overlayClasses = {
@@ -25,11 +28,17 @@ const PageHeader = ({
     right: 'text-right items-end',
   };
 
+  // Padding classes based on vertical position
+  // For lower-third: Hero is 70vh, lower third is ~23.33vh, center of lower third is ~11.67vh from bottom
+  const paddingClasses = verticalPosition === 'lower-third' 
+    ? 'pb-[12vh] md:pb-[12vh] lg:pb-[12vh]' 
+    : 'pb-16 md:pb-20 lg:pb-24';
+
   return (
-    <section className={`relative w-full ${heightClasses[minHeight]} flex items-end overflow-hidden`}>
+    <section className={`relative w-full ${heightClasses[minHeight]} flex items-end justify-center overflow-hidden`}>
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className={`absolute inset-0 bg-cover bg-center bg-no-repeat ${grayscale ? 'grayscale' : ''}`}
         style={{ backgroundImage: `url(${imageSrc})` }}
         role="img"
         aria-label={imageAlt}
@@ -39,11 +48,11 @@ const PageHeader = ({
       <div className={`absolute inset-0 ${overlayClasses[overlayOpacity]}`} />
 
       {/* Content */}
-      <div className="relative z-10 w-full pb-16 md:pb-20 lg:pb-24 px-4 md:px-0">
+      <div className={`relative z-10 w-full ${paddingClasses} px-4 md:px-0`}>
         <div className="container-custom">
           <div className={`flex flex-col ${textAlignClasses[textPosition]} max-w-4xl ${textPosition === 'center' ? 'mx-auto' : ''}`}>
             {/* Headline */}
-            <h1 className="text-white mb-6 md:mb-8 drop-shadow-lg">
+            <h1 className="text-white text-2xl md:text-4xl lg:text-5xl mb-6 md:mb-8 drop-shadow-lg">
               {headline}
             </h1>
 

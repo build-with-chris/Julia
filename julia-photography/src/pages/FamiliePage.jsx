@@ -163,13 +163,13 @@ const FamiliePage = () => {
 
       {/* Page Header */}
       <PageHeader
-        headline="Familienshootings voller Leben & Emotion."
-        subline="Ehrlich, lebendig, authentisch"
-        imageSrc="https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=2070&auto=format&fit=crop"
+        headline="Eure Bande in Bildern"
+        imageSrc="/HeroFamilie.webp"
         imageAlt="Glückliche Familie beim Fotoshooting"
         overlayOpacity="medium"
         textPosition="center"
         minHeight="lg"
+        verticalPosition="lower-third"
       />
 
       {/* Intro Section with Animation */}

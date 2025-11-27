@@ -41,19 +41,19 @@ const MobileMenu = ({ isOpen, onClose, navItems, activeSection, onNavClick }) =>
       {/* Mobile Menu Panel - rendered immediately when open */}
       <div
         ref={menuRef}
-        className="fixed top-[64px] left-0 right-0 w-full h-[calc(50vh-64px)] z-[101] md:hidden flex flex-col bg-offwhite/98 backdrop-blur-sm shadow-xl border-b border-border-soft"
+        className="fixed top-[64px] left-0 right-0 w-full h-[calc(55vh-64px)] z-[101] md:hidden flex flex-col bg-offwhite/98 backdrop-blur-sm shadow-xl border-b border-border-soft"
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation menu"
       >
         {/* Navigation Items */}
         <nav className="flex-1 flex flex-col justify-start items-center px-4 pt-6 pb-6 overflow-y-auto min-h-0">
-          <ul className="space-y-1.5 w-full max-w-xs">
+          <ul className="space-y-2 w-full max-w-xs">
             {navItems.map((item) => (
               <li key={item.id} className="w-full">
                 <button
                   onClick={() => handleNavItemClick(item)}
-                  className={`w-full text-center px-4 py-2.5 rounded-sm text-base font-semibold transition-all duration-200 uppercase ${
+                  className={`w-full text-center px-4 py-3 rounded-sm text-base transition-all duration-200 ${
                     activeSection === item.id
                       ? 'bg-warm-accent text-white'
                       : 'text-anthracite hover:bg-border-soft/50 hover:text-warm-accent'

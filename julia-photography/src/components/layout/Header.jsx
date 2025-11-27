@@ -93,7 +93,7 @@ const Header = () => {
 
           {/* Navigation Links */}
           <ul className="hidden md:flex items-center gap-10">
-            {navItems.map((item) => (
+            {navItems.filter(item => item.id !== 'home').map((item) => (
               <li key={item.id}>
                 <button
                   onClick={() => handleNavClick(item)}

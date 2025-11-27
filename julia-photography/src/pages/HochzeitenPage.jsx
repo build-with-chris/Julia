@@ -324,13 +324,14 @@ const HochzeitenPage = () => {
 
       {/* Page Header */}
       <PageHeader
-        headline="Eure Hochzeitsgeschichte in Bildern, die bleiben."
-        subline="Cinematisch, emotional, echt"
-        imageSrc="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2070&auto=format&fit=crop"
+        headline="Authentische Hochzeitsmomente"
+        imageSrc="/HeroHochzeit.webp"
         imageAlt="Emotionale Hochzeitsfeier"
         overlayOpacity="medium"
         textPosition="center"
         minHeight="lg"
+        verticalPosition="lower-third"
+        grayscale={true}
       />
 
       {/* Intro Section with Animation */}
