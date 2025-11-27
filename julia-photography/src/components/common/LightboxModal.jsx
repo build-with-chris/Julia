@@ -55,21 +55,24 @@ const LightboxModal = ({ image, onClose, onNext, onPrev, currentIndex, totalImag
       aria-modal="true"
       aria-label="Image lightbox"
     >
-      {/* Close Button */}
+      {/* Close Button - Dezent platziert, höchste z-index */}
       <button
         ref={closeButtonRef}
-        onClick={onClose}
-        className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/50"
-        aria-label="Close lightbox"
+        onClick={(e) => {
+          e.stopPropagation();
+          onClose();
+        }}
+        className="absolute top-6 right-6 z-[110] p-3 rounded-full bg-white/25 hover:bg-white/35 text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/50 backdrop-blur-md shadow-lg"
+        aria-label="Schließen"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
 
       {/* Image Counter */}
       {totalImages > 1 && (
-        <div className="absolute top-4 left-4 z-10 px-3 py-1 rounded-full bg-white/10 text-white text-sm font-medium">
+        <div className="absolute top-4 left-4 z-[105] px-3 py-1 rounded-full bg-white/10 text-white text-sm font-medium">
           {currentIndex + 1} / {totalImages}
         </div>
       )}
@@ -77,8 +80,11 @@ const LightboxModal = ({ image, onClose, onNext, onPrev, currentIndex, totalImag
       {/* Previous Button */}
       {onPrev && (
         <button
-          onClick={onPrev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/50"
+          onClick={(e) => {
+            e.stopPropagation();
+            onPrev();
+          }}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-[105] p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/50"
           aria-label="Previous image"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -90,8 +96,11 @@ const LightboxModal = ({ image, onClose, onNext, onPrev, currentIndex, totalImag
       {/* Next Button */}
       {onNext && (
         <button
-          onClick={onNext}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/50"
+          onClick={(e) => {
+            e.stopPropagation();
+            onNext();
+          }}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-[105] p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/50"
           aria-label="Next image"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
