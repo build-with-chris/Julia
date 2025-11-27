@@ -41,7 +41,7 @@ const Home = () => {
               <div className="w-full lg:w-[45%] mb-6 lg:mb-0 order-2 lg:order-1">
                 <div className="relative overflow-hidden rounded-lg aspect-[2.5/2] shadow-xl">
                   <img
-                    src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop"
+                    src="/Lp_Paar.webp"
                     alt="Paarshooting"
                     className="w-full h-full object-cover"
                   />
@@ -87,7 +87,7 @@ const Home = () => {
               <div className="w-full lg:w-[45%]">
                 <div className="relative overflow-hidden rounded-lg aspect-[2.5/2] shadow-xl">
                   <img
-                    src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop"
+                    src="/LP_Hochzeit.webp"
                     alt="Hochzeitsfotografie"
                     className="w-full h-full object-cover"
                   />
@@ -103,7 +103,7 @@ const Home = () => {
               <div className="w-full lg:w-[45%] mb-6 lg:mb-0 order-2 lg:order-1">
                 <div className="relative overflow-hidden rounded-lg aspect-[2.5/2] shadow-xl">
                   <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop"
+                    src="/LP_Portrait.webp"
                     alt="Portrait-Shooting"
                     className="w-full h-full object-cover"
                   />
@@ -149,7 +149,7 @@ const Home = () => {
               <div className="w-full lg:w-[45%]">
                 <div className="relative overflow-hidden rounded-lg aspect-[2.5/2] shadow-xl">
                   <img
-                    src="https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=1200&auto=format&fit=crop"
+                    src="/LP_Family.webp"
                     alt="Familienshooting"
                     className="w-full h-full object-cover"
                   />
