@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react';
 import Layout from '../components/layout/Layout';
 import FactCard from '../components/common/FactCard';
 import CTASection from '../components/sections/CTASection';
@@ -37,32 +38,104 @@ const AboutPage = () => {
     },
   ];
 
+  // Refs for scroll effect
+  const heroRef = useRef(null);
+  const storySectionRef = useRef(null);
+  const missionBoxRef = useRef(null);
+  const heroMissionBoxRef = useRef(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!heroRef.current || !storySectionRef.current) return;
+
+      const scrollY = window.scrollY;
+      const heroRect = heroRef.current.getBoundingClientRect();
+      const storyRect = storySectionRef.current.getBoundingClientRect();
+      const heroBottom = heroRect.bottom;
+      const storyTop = storyRect.top;
+      const windowHeight = window.innerHeight;
+
+      // Calculate scroll progress from hero end to story section start
+      const heroEnd = heroBottom;
+      const storyStart = storyTop;
+      const scrollRange = storyStart - heroEnd;
+
+      if (scrollY < heroEnd) {
+        // Still in hero section
+        setScrollProgress(0);
+        setIsSticky(false);
+      } else if (scrollY >= heroEnd && scrollY < storyStart) {
+        // Scrolling between hero and story section
+        const progress = Math.min((scrollY - heroEnd) / scrollRange, 1);
+        setScrollProgress(progress);
+        setIsSticky(false);
+      } else {
+        // In story section - make sticky
+        setScrollProgress(1);
+        setIsSticky(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial check
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <Layout>
       {/* Hero Section with Portrait */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-offwhite to-[#F5F0EA]">
+      <section ref={heroRef} className="py-16 md:py-24 bg-gradient-to-br from-offwhite to-[#F5F0EA] relative">
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start">
               {/* Portrait Image */}
               <div className="order-2 md:order-1">
                 <div className="relative overflow-hidden rounded-lg aspect-[3/4] shadow-xl">
                   <img
                     src="/About.webp"
                     alt="Julia Mayr Portrait"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover grayscale"
                   />
                 </div>
               </div>
 
-              {/* Headline */}
+              {/* Text and Mission Box Column */}
               <div className="order-1 md:order-2 text-center md:text-left">
-                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-anthracite mb-6 leading-tight">
-                  Hey, ich bin Julia
-                </h1>
-                <p className="text-xl md:text-2xl text-anthracite leading-relaxed">
-                  Fotografin aus dem Herzen Bayerns, verliebt in echte Momente und natürliches Licht.
-                </p>
+                {/* Headline */}
+                <div className="mb-12 md:mb-16">
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl text-anthracite mb-6 leading-tight">
+                    Hey, ich bin Julia
+                  </h1>
+                  <p className="text-xl md:text-2xl text-anthracite leading-relaxed">
+                    Fotografin aus dem Herzen Bayerns, verliebt in echte Momente und natürliches Licht.
+                  </p>
+                </div>
+
+                {/* Mission Box in Hero - smooth layout integration, fades out when scrolling, hidden on mobile */}
+                <div 
+                  ref={heroMissionBoxRef}
+                  className="hidden lg:block bg-warm-accent/10 border-2 border-warm-accent/30 rounded-lg p-8 transition-opacity duration-300"
+                  style={{ 
+                    opacity: scrollProgress < 0.3 ? 1 - scrollProgress * 2 : 0,
+                    pointerEvents: scrollProgress < 0.3 ? 'auto' : 'none',
+                    display: scrollProgress > 0.3 ? 'none' : 'block'
+                  }}
+                >
+                  <div className="mb-6">
+                    <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-2">
+                      Meine Mission
+                    </p>
+                    <h3 className="text-2xl text-anthracite">
+                      Unverstellt. Echt. Du.
+                    </h3>
+                  </div>
+                  <p className="text-base text-anthracite/90 leading-relaxed">
+                    Ich fotografiere dich so, wie du bist – ohne steife Anweisungen, dafür mit viel Leichtigkeit, Humor und Feingefühl. Egal ob Hochzeitsreportage, Paar- oder Portraitshooting: Mir ist wichtig, dass du dich wohlfühlst und wir gemeinsam Bilder schaffen, die deine Persönlichkeit und eure Verbindung sichtbar machen.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -70,24 +143,24 @@ const AboutPage = () => {
       </section>
 
       {/* Story & Mission Section */}
-      <section className="py-20 md:py-28 bg-offwhite">
+      <section ref={storySectionRef} className="py-20 md:py-28 bg-offwhite relative">
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 md:gap-16">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 md:gap-16 items-start">
               {/* Story (2 columns) */}
               <div className="lg:col-span-2">
                 <div className="mb-8">
                   <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
                     Meine Geschichte
                   </p>
-                  <h2 className="text-3xl md:text-4xl font-bold text-anthracite mb-6">
-                    Wie alles begann
+                  <h2 className="text-3xl md:text-4xl text-anthracite mb-6">
+                    Warum ich heute lieber Licht einfange als Stempelzeiten
                   </h2>
                 </div>
 
                 <div className="prose prose-lg max-w-none space-y-6">
                   <p className="text-base md:text-lg text-anthracite/90 leading-relaxed">
-                    Meine Geschichte beginnt mit einem Ende. Das bedeutet, ich habe sehr viele verschiedene Jobs ausprobiert und mich nirgendwo 'angekommen' gefühlt. Von der Arbeit in einem Industrieunternehmen bis zur Fitnesstrainerin. Ich habe mit Kindern zusammen gearbeitet und gekellnert.
+                    Meine Geschichte beginnt mit einem Ende. Das bedeutet, ich habe sehr viele verschiedene Jobs ausprobiert und mich nirgendwo 'angekommen' gefühlt.
                   </p>
                   <p className="text-base md:text-lg text-anthracite/90 leading-relaxed">
                     Das einzige was ich immer wusste war, ich wollte die Freiheit haben meine Stunden selbst einzuteilen, nach draußen zu gehen wann ich wollte und in irgendeiner Hinsicht etwas schönes für die Welt erschaffen.
@@ -96,24 +169,31 @@ const AboutPage = () => {
                     Seit ich mit 16 meine erste Spiegelreflexkamera bekommen habe, träume ich davon mit Fotografie Geld zu verdienen. Nach jahrelangen gescheiterten Versuchen einen Job für mich zu finden, der zu mir passt, bin ich für ein Studium an die Bayerische Akademie für Fernsehen und Digitale Medien gegangen und habe mich danach endlich selbstständig gemacht und bisher keinen Tag davon bereut.
                   </p>
                   <p className="text-base md:text-lg text-anthracite/90 leading-relaxed">
-                    Ich möchte die Welt ein kleines bisschen besser machen – wenn ich Menschen mit meiner Arbeit ein Lächeln aufs Gesicht zaubern kann, komme ich diesem Ziel schon ein großes Stück näher.
+                    Ich möchte die Welt ein kleines bisschen besser machen – wenn ich Menschen mit meiner Arbeit ein Lächeln aufs Gesicht zaubern kann, komme ich diesem Ziel schon ein großes Stück näher
                   </p>
                 </div>
               </div>
 
-              {/* Mission Box (1 column) */}
-              <div className="lg:col-span-1">
-                <div className="sticky top-24 bg-warm-accent/10 border-2 border-warm-accent/30 rounded-lg p-8">
+              {/* Mission Box (1 column) - Sticky positioned, appears when scrolling */}
+              <div className="lg:col-span-1 flex">
+                <div 
+                  ref={missionBoxRef}
+                  className={`${isSticky ? 'sticky top-24' : 'relative'} bg-warm-accent/10 border-2 border-warm-accent/30 rounded-lg p-8 transition-all duration-300 w-full self-start`}
+                  style={{ 
+                    opacity: scrollProgress > 0.3 ? 1 : 0,
+                    transform: scrollProgress > 0.3 ? 'translateY(0)' : 'translateY(20px)'
+                  }}
+                >
                   <div className="mb-6">
                     <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-2">
                       Meine Mission
                     </p>
-                    <h3 className="text-2xl font-bold text-anthracite">
-                      Deine Geschichte erzählen
+                    <h3 className="text-2xl text-anthracite">
+                      Unverstellt. Echt. Du.
                     </h3>
                   </div>
                   <p className="text-base text-anthracite/90 leading-relaxed">
-                    Ob Hochzeitsreportage, Paar- oder Portraitshooting. Mir ist es wichtig so authentisch, persönlich und mit so viel Freude und Leidenschaft wie möglich deine Geschichte zu erzählen – denn jeder von uns hat eine eigene und individuelle, die es verdient hat gesehen und festgehalten zu werden.
+                    Ich fotografiere dich so, wie du bist – ohne steife Anweisungen, dafür mit viel Leichtigkeit, Humor und Feingefühl. Egal ob Hochzeitsreportage, Paar- oder Portraitshooting: Mir ist wichtig, dass du dich wohlfühlst und wir gemeinsam Bilder schaffen, die deine Persönlichkeit und eure Verbindung sichtbar machen.
                   </p>
                 </div>
               </div>
@@ -129,7 +209,7 @@ const AboutPage = () => {
             <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
               5 Dinge über mich
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl text-anthracite mb-6">
               Was mich ausmacht
             </h2>
           </div>
@@ -156,14 +236,14 @@ const AboutPage = () => {
               <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
                 Q & A
               </p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl text-anthracite mb-6">
                 Ein paar Fragen an Julia
               </h2>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
               <div className="bg-white p-6 rounded-lg border border-border-soft/50">
-                <h3 className="text-lg font-semibold text-anthracite mb-3">
+                <h3 className="text-lg text-anthracite mb-3">
                   Wenn du nur eine Sache essen könntest für eine Woche, was wäre das?
                 </h3>
                 <p className="text-anthracite/90 italic">
@@ -172,7 +252,7 @@ const AboutPage = () => {
               </div>
 
               <div className="bg-white p-6 rounded-lg border border-border-soft/50">
-                <h3 className="text-lg font-semibold text-anthracite mb-3">
+                <h3 className="text-lg text-anthracite mb-3">
                   Top 3 Destinationen, die du immer wieder besuchen würdest?
                 </h3>
                 <p className="text-anthracite/90 italic">
@@ -181,7 +261,7 @@ const AboutPage = () => {
               </div>
 
               <div className="bg-white p-6 rounded-lg border border-border-soft/50">
-                <h3 className="text-lg font-semibold text-anthracite mb-3">
+                <h3 className="text-lg text-anthracite mb-3">
                   Eines Tages will ich...?
                 </h3>
                 <p className="text-anthracite/90 italic">
@@ -190,7 +270,7 @@ const AboutPage = () => {
               </div>
 
               <div className="bg-white p-6 rounded-lg border border-border-soft/50">
-                <h3 className="text-lg font-semibold text-anthracite mb-3">
+                <h3 className="text-lg text-anthracite mb-3">
                   Was magst du an Menschen besonders gerne?
                 </h3>
                 <p className="text-anthracite/90 italic">
@@ -199,7 +279,7 @@ const AboutPage = () => {
               </div>
 
               <div className="bg-white p-6 rounded-lg border border-border-soft/50">
-                <h3 className="text-lg font-semibold text-anthracite mb-3">
+                <h3 className="text-lg text-anthracite mb-3">
                   Was ist deine große Leidenschaft?
                 </h3>
                 <p className="text-anthracite/90 italic">
@@ -208,7 +288,7 @@ const AboutPage = () => {
               </div>
 
               <div className="bg-white p-6 rounded-lg border border-border-soft/50">
-                <h3 className="text-lg font-semibold text-anthracite mb-3">
+                <h3 className="text-lg text-anthracite mb-3">
                   Was inspiriert dich am meisten?
                 </h3>
                 <p className="text-anthracite/90 italic">

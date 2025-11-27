@@ -76,8 +76,8 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-[102] bg-offwhite/95 backdrop-blur-sm border-b border-border-soft shadow-sm relative">
-      <nav className="container-custom py-3 md:py-4 relative z-[102]">
-        <div className="flex items-center justify-between relative">
+      <nav className="w-full py-3 md:py-4 relative z-[102]">
+        <div className="flex items-center justify-between relative w-[80%] mx-auto">
           {/* Logo */}
           <button
             onClick={() => handleNavClick({ id: 'home', path: '/', isPage: true })}

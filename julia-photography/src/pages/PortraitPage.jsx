@@ -26,7 +26,6 @@ const PortraitPage = () => {
         'Ca. 45 Minuten Shooting-Zeit',
         'Mindestens 20 bearbeitete Bilder',
         'Online-Galerie zum Download',
-        'Nutzungsrechte für private Zwecke',
       ],
       buttonLabel: 'Essential anfragen',
     },
@@ -41,7 +40,6 @@ const PortraitPage = () => {
         'Mindestens 40 bearbeitete Bilder',
         '1-2 Locations eurer Wahl',
         'Outfit-Wechsel möglich',
-        'Print-Release für Social Media',
       ],
       highlight: true,
       buttonLabel: 'Extended anfragen',
@@ -190,7 +188,7 @@ const PortraitPage = () => {
               <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
                 Was euch erwartet
               </p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-8">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl text-anthracite mb-8">
                 Eure Persönlichkeit, festgehalten
               </h2>
             </motion.div>
@@ -229,7 +227,7 @@ const PortraitPage = () => {
             <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
               Portfolio
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl text-anthracite mb-6">
               Bisherige Arbeiten
             </h2>
             <p className="text-lg md:text-xl text-anthracite/80 max-w-3xl mx-auto leading-relaxed">

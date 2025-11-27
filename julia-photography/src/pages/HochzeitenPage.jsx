@@ -54,7 +54,6 @@ const HochzeitenPage = () => {
         'Ca. 6 Stunden Reportage',
         'Mindestens 300 bearbeitete Bilder',
         'Online-Galerie zum Download',
-        'Druck- & Nutzungsrechte',
       ],
       buttonLabel: 'Halbtag anfragen',
     },
@@ -350,7 +349,7 @@ const HochzeitenPage = () => {
               <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
                 Eure Hochzeitsfotografin
               </p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-8">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl text-anthracite mb-8">
                 Aus München, Bayern und eigentlich der ganzen Welt
               </h2>
             </motion.div>
@@ -385,7 +384,7 @@ const HochzeitenPage = () => {
               <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
                 Portfolio
               </p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl text-anthracite mb-6">
                 Getting Ready
               </h2>
               <p className="text-lg md:text-xl text-anthracite/80 max-w-3xl mx-auto leading-relaxed">
@@ -407,7 +406,7 @@ const HochzeitenPage = () => {
               <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
                 Portfolio
               </p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl text-anthracite mb-6">
                 Die Zeremonie
               </h2>
               <p className="text-lg md:text-xl text-anthracite/80 max-w-3xl mx-auto leading-relaxed">
@@ -429,7 +428,7 @@ const HochzeitenPage = () => {
               <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
                 Portfolio
               </p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-6">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl text-anthracite mb-6">
                 Party & Feier
               </h2>
               <p className="text-lg md:text-xl text-anthracite/80 max-w-3xl mx-auto leading-relaxed">
@@ -476,7 +475,7 @@ const HochzeitenPage = () => {
               <p className="text-xs uppercase tracking-wider text-warm-accent font-medium mb-3">
                 Was euch erwartet
               </p>
-              <h3 className="text-xl md:text-2xl font-semibold text-anthracite mb-4">
+              <h3 className="text-xl md:text-2xl text-anthracite mb-4">
                 So arbeite ich an eurem Hochzeitstag
               </h3>
             </div>

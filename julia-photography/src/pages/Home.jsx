@@ -135,7 +135,7 @@ const Home = () => {
 
       {/* Kontakt Section - Graustufen, breit, ohne Box */}
       <section id="kontakt" className="pt-16 md:pt-24 lg:pt-32 pb-16 md:pb-24 bg-[#2a2a2a]">
-        <div className="w-full px-4 md:px-6 lg:px-8 xl:px-12 max-w-7xl mx-auto">
+        <div className="w-[80%] mx-auto px-4 md:px-6 lg:px-8 xl:px-12">
           <div className="flex justify-end mb-8 md:mb-12">
             <h2 className="text-[#e8e8e8] text-3xl md:text-4xl lg:text-5xl font-bold">
               Jetzt kontaktieren.
