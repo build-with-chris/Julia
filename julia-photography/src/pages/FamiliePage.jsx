@@ -8,6 +8,7 @@ import ShootingDetails from '../components/common/ShootingDetails';
 import TestimonialCarousel from '../components/sections/TestimonialCarousel';
 import CTASection from '../components/sections/CTASection';
 import InternalNavigation from '../components/common/InternalNavigation';
+import SEO from '../components/common/SEO';
 import { testimonialsData } from '../data/testimonialsData';
 
 const FamiliePage = () => {
@@ -200,6 +201,11 @@ const FamiliePage = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Familienshootings"
+        description="Ehrliche Familienshootings in München. Lebendig, authentisch und voller Emotionen. Familienbilder, die mit jedem Jahr wertvoller werden. Jetzt Shooting buchen!"
+        image="/HeroFamilie.webp"
+      />
       {/* Internal Navigation */}
       <InternalNavigation items={navItems} />
 

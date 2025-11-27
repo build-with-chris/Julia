@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
 import { Hero234 } from '../components/hero234';
+import SEO from '../components/common/SEO';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -15,6 +16,11 @@ const Home = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Julia Mayr Photography"
+        description="Authentische Hochzeits-, Paar- und Portraitshootings in München. Natürlich, achtsam und voller Emotionen. Jetzt Shooting buchen!"
+        image="/LP_Hochzeit.webp"
+      />
       {/* Hero Section - Hero234 Block */}
       <div className="mt-8 md:-mt-16 -mb-12 md:-mb-16">
         <Hero234

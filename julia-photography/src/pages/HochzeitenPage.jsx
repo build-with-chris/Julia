@@ -10,6 +10,7 @@ import FaqSection from '../components/common/FaqSection';
 import TestimonialCarousel from '../components/sections/TestimonialCarousel';
 import CTASection from '../components/sections/CTASection';
 import InternalNavigation from '../components/common/InternalNavigation';
+import SEO from '../components/common/SEO';
 import { testimonialsData } from '../data/testimonialsData';
 
 const HochzeitenPage = () => {
@@ -391,6 +392,11 @@ const HochzeitenPage = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Hochzeitsfotografie"
+        description="Authentische Hochzeitsreportagen in München und Umgebung. Cinematisch, emotional und echt. Von Getting Ready bis zur Party – eure Hochzeitsgeschichte in Bildern, die bleiben. Jetzt anfragen!"
+        image="/HeroHochzeit.webp"
+      />
       {/* Internal Navigation */}
       <InternalNavigation items={navItems} />
 

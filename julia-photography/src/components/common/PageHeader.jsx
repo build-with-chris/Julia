@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 const PageHeader = ({
   headline,
   mobileHeadline,
@@ -10,6 +12,26 @@ const PageHeader = ({
   verticalPosition = 'bottom', // 'bottom', 'lower-third'
   grayscale = false, // Apply grayscale filter to image
 }) => {
+  // Preload Hero-Bild für bessere SEO und Performance
+  useEffect(() => {
+    if (imageSrc) {
+      const link = document.createElement('link');
+      link.rel = 'preload';
+      link.as = 'image';
+      link.href = imageSrc;
+      link.fetchPriority = 'high';
+      link.setAttribute('data-hero-preload', 'true');
+      document.head.appendChild(link);
+
+      return () => {
+        // Cleanup: Remove preload link on unmount
+        const existingLink = document.querySelector(`link[data-hero-preload="true"][href="${imageSrc}"]`);
+        if (existingLink) {
+          document.head.removeChild(existingLink);
+        }
+      };
+    }
+  }, [imageSrc]);
   const heightClasses = {
     sm: 'h-[40vh] md:h-[50vh] min-h-[320px] md:min-h-[400px]',
     md: 'h-[48vh] md:h-[60vh] min-h-[400px] md:min-h-[500px]',

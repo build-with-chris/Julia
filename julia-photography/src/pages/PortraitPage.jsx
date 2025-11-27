@@ -8,6 +8,7 @@ import ShootingDetails from '../components/common/ShootingDetails';
 import TestimonialCarousel from '../components/sections/TestimonialCarousel';
 import CTASection from '../components/sections/CTASection';
 import InternalNavigation from '../components/common/InternalNavigation';
+import SEO from '../components/common/SEO';
 import { testimonialsData } from '../data/testimonialsData';
 
 const PortraitPage = () => {
@@ -158,6 +159,11 @@ const PortraitPage = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Portraitfotografie"
+        description="Individuelle Portraitshootings in München. Authentisch, natürlich und voller Persönlichkeit. Zeigt euch, wie schön ihr wirklich seid – ohne Maskerade. Jetzt Shooting buchen!"
+        image="/LP_Portrait.webp"
+      />
       {/* Internal Navigation */}
       <InternalNavigation items={navItems} />
 

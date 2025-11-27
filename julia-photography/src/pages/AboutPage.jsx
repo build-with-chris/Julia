@@ -1,6 +1,7 @@
 import Layout from '../components/layout/Layout';
 import FactCard from '../components/common/FactCard';
 import CTASection from '../components/sections/CTASection';
+import SEO from '../components/common/SEO';
 
 const AboutPage = () => {
   // Facts Data
@@ -39,6 +40,11 @@ const AboutPage = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Über mich"
+        description="Julia Mayr – Fotografin aus dem Herzen Bayerns, verliebt in echte Momente und natürliches Licht. Erfahre mehr über meine Geschichte, meine Vision und warum ich heute lieber Licht einfange als Stempelzeiten."
+        image="/About.webp"
+      />
       {/* Hero Section with Portrait */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-offwhite to-[#F5F0EA] relative">
         <div className="container-custom">

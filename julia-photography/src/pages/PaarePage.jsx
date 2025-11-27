@@ -8,6 +8,7 @@ import ShootingDetails from '../components/common/ShootingDetails';
 import TestimonialCarousel from '../components/sections/TestimonialCarousel';
 import CTASection from '../components/sections/CTASection';
 import InternalNavigation from '../components/common/InternalNavigation';
+import SEO from '../components/common/SEO';
 import { testimonialsData } from '../data/testimonialsData';
 
 const PaarePage = () => {
@@ -297,6 +298,11 @@ const PaarePage = () => {
 
   return (
     <Layout>
+      <SEO
+        title="Paarshootings"
+        description="Authentische Paarshootings in München und Umgebung. Natürlich, achtsam und voller Emotionen. Eure Verbindung in ehrlichen Bildern festgehalten. Jetzt Shooting buchen!"
+        image="/HeroPaar.webp"
+      />
       {/* Internal Navigation */}
       <InternalNavigation items={navItems} />
 
