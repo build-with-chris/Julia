@@ -45,27 +45,40 @@ const HochzeitenPage = () => {
   // Packages Data
   const packages = [
     {
+      title: 'Standesamt',
+      price: 'Ab 600€',
+      duration: '2-3 Stunden Begleitung',
+      description: 'Perfekt für eure Standesamt-Zeremonie – ich halte diesen besonderen Moment mit viel Liebe zum Detail fest.',
+      features: [
+        'Vorgespräch & Planung',
+        'Ca. 2-3 Stunden Reportage',
+        'Ca. 200-300 bearbeitete Bilder',
+        'Online-Galerie zum Download',
+      ],
+      buttonLabel: 'Standesamt anfragen',
+    },
+    {
       title: 'Halbtag',
-      price: 'Ab 1.200€',
+      price: 'Ab 1.800€',
       duration: '6 Stunden Begleitung',
       description: 'Perfekt für kleinere Feiern oder wenn ihr nur einen Teil des Tages festhalten möchtet.',
       features: [
         'Vorgespräch & Planung',
         'Ca. 6 Stunden Reportage',
-        'Mindestens 300 bearbeitete Bilder',
+        'Ca. 500-600 bearbeitete Bilder',
         'Online-Galerie zum Download',
       ],
       buttonLabel: 'Halbtag anfragen',
     },
     {
       title: 'Ganztag',
-      price: 'Ab 1.800€',
-      duration: '10+ Stunden Begleitung',
+      price: 'Ab 2.700€',
+      duration: '9 Stunden Begleitung',
       description: 'Von den Vorbereitungen bis zur Party – ich begleite euren gesamten Hochzeitstag.',
       features: [
         'Alles aus Halbtag',
-        'Ca. 10+ Stunden Reportage',
-        'Mindestens 500 bearbeitete Bilder',
+        'Ca. 9 Stunden Reportage',
+        'Ca. 800-900 bearbeitete Bilder',
         'Getting Ready & Zeremonie',
         'Empfang & Party',
         'Hochzeitsalbum optional',
@@ -73,32 +86,17 @@ const HochzeitenPage = () => {
       highlight: true,
       buttonLabel: 'Ganztag anfragen',
     },
-    {
-      title: 'Elopement',
-      price: 'Ab 800€',
-      duration: '3-4 Stunden',
-      description: 'Nur ihr zwei? Perfekt. Ich begleite eure intime Zeremonie mit viel Liebe zum Detail.',
-      features: [
-        'Persönliche Beratung',
-        'Ca. 3-4 Stunden Begleitung',
-        'Mindestens 150 bearbeitete Bilder',
-        'Location-Vorschläge',
-        'Online-Galerie',
-        'Schnelle Bearbeitung (1 Woche)',
-      ],
-      buttonLabel: 'Elopement anfragen',
-    },
   ];
 
   // FAQ Data
   const faqs = [
     {
       question: 'Wie viele Bilder bekommen wir?',
-      answer: 'Das hängt vom gewählten Package ab. Beim Halbtag sind es mindestens 300, beim Ganztag mindestens 500 professionell bearbeitete Bilder. Ich gebe euch alle Bilder, die ich für zeigenswert halte – oft sind es mehr als angegeben.',
+      answer: 'Das hängt vom gewählten Package ab. Ihr könnt mir ungefähr 100 bearbeiteten Bildern pro Stunde rechnen. Ich gebe euch alle Bilder, die ich für zeigenswert halte – oft sind es mehr als angegeben.',
     },
     {
       question: 'Wann bekommen wir die Bilder?',
-      answer: 'Innerhalb von 4-6 Wochen nach eurer Hochzeit erhaltet ihr eure fertig bearbeiteten Bilder in einer schönen Online-Galerie. Bei Elopements geht es oft schneller (1-2 Wochen). Einige Sneak Peeks bekommt ihr bereits nach wenigen Tagen.',
+      answer: 'Innerhalb von 4-6 Wochen nach eurer Hochzeit erhaltet ihr eure fertig bearbeiteten Bilder in einer schönen Online-Galerie. Bei Standesamt-Shootings geht es oft schneller (1-2 Wochen). Einige Sneak Peeks bekommt ihr bereits nach wenigen Tagen.',
     },
     {
       question: 'Können wir ein Kennenlernen vereinbaren?',

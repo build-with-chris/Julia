@@ -31,102 +31,129 @@ const Home = () => {
         />
       </div>
 
-      {/* Services - kompakte Übersicht */}
+      {/* Services - Anschauliche Kategorien */}
       <section id="services" className="pt-20 md:pt-28 lg:pt-32 pb-16 md:pb-24 lg:pb-32 bg-offwhite">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center mb-16 md:mb-20">
-            <h2 className="text-anthracite mb-8">
-              Für jeden Moment das richtige Shooting
-            </h2>
-            <p className="text-lg md:text-xl text-anthracite/80 leading-relaxed max-w-3xl mx-auto">
-              Ob romantisches Paarshooting, euer besonderer Hochzeitstag, ein persönliches Portrait oder ein Familienshooting – 
-              ich begleite euch mit meiner Kamera und halte die Momente fest, die euer Herz berühren.
-            </p>
+        <div className="w-[80%] mx-auto">
+          {/* Paarshootings - Bild links, Text rechts */}
+          <div className="mb-12 md:mb-16 lg:mb-20">
+            <div className="flex flex-col lg:flex-row items-start lg:items-center lg:justify-between">
+              {/* Bild */}
+              <div className="w-full lg:w-[45%] mb-6 lg:mb-0">
+                <div className="relative overflow-hidden rounded-lg aspect-[2.5/2] shadow-xl">
+                  <img
+                    src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop"
+                    alt="Paarshooting"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              {/* Text Block */}
+              <div className="w-full lg:w-[50%] lg:pl-8 xl:pl-12">
+                <p className="text-xs md:text-sm uppercase tracking-wider text-warm-accent font-medium mb-3 md:mb-4">
+                  Natürlich, achtsam, authentisch
+                </p>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl text-anthracite mb-6 md:mb-8">
+                  Paarshootings
+                </h2>
+                <button
+                  onClick={() => navigate('/paare')}
+                  className="px-5 md:px-6 py-2.5 md:py-3 border-2 border-anthracite text-anthracite uppercase tracking-wider text-xs md:text-sm font-medium hover:bg-anthracite hover:text-offwhite transition-all duration-200"
+                >
+                  Galerie Paare
+                </button>
+              </div>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
-            <div
-              onClick={() => navigate('/paare')}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  navigate('/paare');
-                }
-              }}
-              className="bg-white p-8 md:p-10 rounded-lg border border-border-soft/50 hover:shadow-lg transition-all duration-300 cursor-pointer group"
-            >
-              <h3 className="text-anthracite mb-4 group-hover:text-warm-accent transition-colors">Paarshootings</h3>
-              <p className="text-anthracite/75 leading-relaxed mb-6 text-base md:text-lg">
-                Echte Verbindung statt perfekte Posen. Ich halte eure Liebe und Intimität fest – 
-                natürlich, emotional und zeitlos.
-              </p>
-              <div className="text-warm-accent group-hover:text-anthracite font-medium transition-colors text-base md:text-lg">
-                Mehr erfahren →
+          {/* Hochzeiten - Text links, Bild rechts */}
+          <div className="mb-12 md:mb-16 lg:mb-20">
+            <div className="flex flex-col lg:flex-row items-start lg:items-center lg:justify-between">
+              {/* Text Block */}
+              <div className="w-full lg:w-[50%] mb-6 lg:mb-0 lg:pr-8 xl:pr-12">
+                <p className="text-xs md:text-sm uppercase tracking-wider text-warm-accent font-medium mb-3 md:mb-4">
+                  Eure wichtigsten Momente dokumentiert
+                </p>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl text-anthracite mb-6 md:mb-8">
+                  Hochzeiten
+                </h2>
+                <button
+                  onClick={() => navigate('/hochzeiten')}
+                  className="px-5 md:px-6 py-2.5 md:py-3 border-2 border-anthracite text-anthracite uppercase tracking-wider text-xs md:text-sm font-medium hover:bg-anthracite hover:text-offwhite transition-all duration-200"
+                >
+                  Galerie Hochzeiten
+                </button>
+              </div>
+              {/* Bild */}
+              <div className="w-full lg:w-[45%]">
+                <div className="relative overflow-hidden rounded-lg aspect-[2.5/2] shadow-xl">
+                  <img
+                    src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop"
+                    alt="Hochzeitsfotografie"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
             </div>
-            <div
-              onClick={() => navigate('/hochzeiten')}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  navigate('/hochzeiten');
-                }
-              }}
-              className="bg-white p-8 md:p-10 rounded-lg border border-border-soft/50 hover:shadow-lg transition-all duration-300 cursor-pointer group"
-            >
-              <h3 className="text-anthracite mb-4 group-hover:text-warm-accent transition-colors">Hochzeiten</h3>
-              <p className="text-anthracite/75 leading-relaxed mb-6 text-base md:text-lg">
-                Eure wichtigsten Momente dokumentiert – zeitlos, emotional, ehrlich. 
-                Von den Vorbereitungen bis zum letzten Tanz.
-              </p>
-              <div className="text-warm-accent group-hover:text-anthracite font-medium transition-colors text-base md:text-lg">
-                Mehr erfahren →
+          </div>
+
+          {/* Portraitshootings - Bild links, Text rechts */}
+          <div className="mb-12 md:mb-16 lg:mb-20">
+            <div className="flex flex-col lg:flex-row items-start lg:items-center lg:justify-between">
+              {/* Bild */}
+              <div className="w-full lg:w-[45%] mb-6 lg:mb-0">
+                <div className="relative overflow-hidden rounded-lg aspect-[2.5/2] shadow-xl">
+                  <img
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop"
+                    alt="Portrait-Shooting"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              {/* Text Block */}
+              <div className="w-full lg:w-[50%] lg:pl-8 xl:pl-12">
+                <p className="text-xs md:text-sm uppercase tracking-wider text-warm-accent font-medium mb-3 md:mb-4">
+                  Individuell, authentisch, natürlich
+                </p>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl text-anthracite mb-6 md:mb-8">
+                  Portraitshootings
+                </h2>
+                <button
+                  onClick={() => navigate('/portrait')}
+                  className="px-5 md:px-6 py-2.5 md:py-3 border-2 border-anthracite text-anthracite uppercase tracking-wider text-xs md:text-sm font-medium hover:bg-anthracite hover:text-offwhite transition-all duration-200"
+                >
+                  Galerie Portrait
+                </button>
               </div>
             </div>
-            <div
-              onClick={() => navigate('/portrait')}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  navigate('/portrait');
-                }
-              }}
-              className="bg-white p-8 md:p-10 rounded-lg border border-border-soft/50 hover:shadow-lg transition-all duration-300 cursor-pointer group"
-            >
-              <h3 className="text-anthracite mb-4 group-hover:text-warm-accent transition-colors">Portraitshootings</h3>
-              <p className="text-anthracite/75 leading-relaxed mb-6 text-base md:text-lg">
-                Individuell, authentisch und voller Persönlichkeit. Ich zeige euch, wie schön ihr seid – 
-                natürlich und ohne Maskerade.
-              </p>
-              <div className="text-warm-accent group-hover:text-anthracite font-medium transition-colors text-base md:text-lg">
-                Mehr erfahren →
+          </div>
+
+          {/* Familienshootings - Text links, Bild rechts */}
+          <div>
+            <div className="flex flex-col lg:flex-row items-start lg:items-center lg:justify-between">
+              {/* Text Block */}
+              <div className="w-full lg:w-[50%] mb-6 lg:mb-0 lg:pr-8 xl:pr-12">
+                <p className="text-xs md:text-sm uppercase tracking-wider text-warm-accent font-medium mb-3 md:mb-4">
+                  Familienbilder, die mit jedem Jahr wertvoller werden
+                </p>
+                <h2 className="text-2xl md:text-3xl lg:text-4xl text-anthracite mb-6 md:mb-8">
+                  Familienshootings
+                </h2>
+                <button
+                  onClick={() => navigate('/familie')}
+                  className="px-5 md:px-6 py-2.5 md:py-3 border-2 border-anthracite text-anthracite uppercase tracking-wider text-xs md:text-sm font-medium hover:bg-anthracite hover:text-offwhite transition-all duration-200"
+                >
+                  Galerie Familie
+                </button>
               </div>
-            </div>
-            <div
-              onClick={() => navigate('/familie')}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  navigate('/familie');
-                }
-              }}
-              className="bg-white p-8 md:p-10 rounded-lg border border-border-soft/50 hover:shadow-lg transition-all duration-300 cursor-pointer group"
-            >
-              <h3 className="text-anthracite mb-4 group-hover:text-warm-accent transition-colors">Familienshootings</h3>
-              <p className="text-anthracite/75 leading-relaxed mb-6 text-base md:text-lg">
-                Die besonderen Momente eurer Familie festgehalten – ehrlich, lebendig und voller Emotion. 
-                Für Erinnerungen, die ein Leben lang halten.
-              </p>
-              <div className="text-warm-accent group-hover:text-anthracite font-medium transition-colors text-base md:text-lg">
-                Mehr erfahren →
+              {/* Bild */}
+              <div className="w-full lg:w-[45%]">
+                <div className="relative overflow-hidden rounded-lg aspect-[2.5/2] shadow-xl">
+                  <img
+                    src="https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=1200&auto=format&fit=crop"
+                    alt="Familienshooting"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>

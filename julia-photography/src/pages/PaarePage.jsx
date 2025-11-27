@@ -7,7 +7,6 @@ import { Gallery25 } from '../components/gallery25';
 import ShootingDetails from '../components/common/ShootingDetails';
 import TestimonialCarousel from '../components/sections/TestimonialCarousel';
 import CTASection from '../components/sections/CTASection';
-import FaqSection from '../components/common/FaqSection';
 import InternalNavigation from '../components/common/InternalNavigation';
 import { testimonialsData } from '../data/testimonialsData';
 
@@ -167,7 +166,6 @@ const PaarePage = () => {
   const navItems = [
     { id: 'gallery', label: 'Gallery' },
     { id: 'angebot', label: 'Angebot' },
-    { id: 'faq', label: 'Häufige Fragen' },
   ];
 
   return (
@@ -269,15 +267,6 @@ const PaarePage = () => {
             onButtonClick={handlePackageClick}
           />
         </motion.div>
-      </section>
-
-      {/* FAQ Section */}
-      <section id="faq" className="scroll-mt-24">
-        <FaqSection
-          title="Häufige Fragen"
-          description="Alles, was ihr wissen müsst"
-          faqs={faqs}
-        />
       </section>
 
       {/* Testimonials */}

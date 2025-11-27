@@ -1,4 +1,3 @@
-import { useState, useEffect, useRef } from 'react';
 import Layout from '../components/layout/Layout';
 import FactCard from '../components/common/FactCard';
 import CTASection from '../components/sections/CTASection';
@@ -21,8 +20,8 @@ const AboutPage = () => {
     {
       icon: '⛸️',
       iconLabel: 'Eiskunstlauf',
-      title: 'Eiskunst & Eiskunsttanz',
-      description: 'Seit 2020 laufe ich Eiskunst und seit 2025 Eiskunsttanz. Die Disziplin und Leidenschaft nehme ich bis heute mit.',
+      title: 'Eiskunst & Eistanz',
+      description: 'Seit 2020 laufe ich Eiskunst und seit 2025 Eistanz. Die Disziplin und Leidenschaft nehme ich bis heute mit.',
     },
     {
       icon: '🧘',
@@ -38,56 +37,10 @@ const AboutPage = () => {
     },
   ];
 
-  // Refs for scroll effect
-  const heroRef = useRef(null);
-  const storySectionRef = useRef(null);
-  const missionBoxRef = useRef(null);
-  const heroMissionBoxRef = useRef(null);
-  const [scrollProgress, setScrollProgress] = useState(0);
-  const [isSticky, setIsSticky] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!heroRef.current || !storySectionRef.current) return;
-
-      const scrollY = window.scrollY;
-      const heroRect = heroRef.current.getBoundingClientRect();
-      const storyRect = storySectionRef.current.getBoundingClientRect();
-      const heroBottom = heroRect.bottom;
-      const storyTop = storyRect.top;
-      const windowHeight = window.innerHeight;
-
-      // Calculate scroll progress from hero end to story section start
-      const heroEnd = heroBottom;
-      const storyStart = storyTop;
-      const scrollRange = storyStart - heroEnd;
-
-      if (scrollY < heroEnd) {
-        // Still in hero section
-        setScrollProgress(0);
-        setIsSticky(false);
-      } else if (scrollY >= heroEnd && scrollY < storyStart) {
-        // Scrolling between hero and story section
-        const progress = Math.min((scrollY - heroEnd) / scrollRange, 1);
-        setScrollProgress(progress);
-        setIsSticky(false);
-      } else {
-        // In story section - make sticky
-        setScrollProgress(1);
-        setIsSticky(true);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial check
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <Layout>
       {/* Hero Section with Portrait */}
-      <section ref={heroRef} className="py-16 md:py-24 bg-gradient-to-br from-offwhite to-[#F5F0EA] relative">
+      <section className="py-16 md:py-24 bg-gradient-to-br from-offwhite to-[#F5F0EA] relative">
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start">
@@ -102,7 +55,7 @@ const AboutPage = () => {
                 </div>
               </div>
 
-              {/* Text and Mission Box Column */}
+              {/* Text and Vision Box Column */}
               <div className="order-1 md:order-2 text-center md:text-left">
                 {/* Headline */}
                 <div className="mb-12 md:mb-16">
@@ -114,26 +67,18 @@ const AboutPage = () => {
                   </p>
                 </div>
 
-                {/* Mission Box in Hero - smooth layout integration, fades out when scrolling, hidden on mobile */}
-                <div 
-                  ref={heroMissionBoxRef}
-                  className="hidden lg:block bg-warm-accent/10 border-2 border-warm-accent/30 rounded-lg p-8 transition-opacity duration-300"
-                  style={{ 
-                    opacity: scrollProgress < 0.3 ? 1 - scrollProgress * 2 : 0,
-                    pointerEvents: scrollProgress < 0.3 ? 'auto' : 'none',
-                    display: scrollProgress > 0.3 ? 'none' : 'block'
-                  }}
-                >
+                {/* Vision Box in Hero - hidden on mobile */}
+                <div className="hidden lg:block bg-warm-accent/10 border-2 border-warm-accent/30 rounded-lg p-8">
                   <div className="mb-6">
                     <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-2">
-                      Meine Mission
+                      Meine Vision
                     </p>
-                    <h3 className="text-2xl text-anthracite">
-                      Unverstellt. Echt. Du.
+                    <h3 className="text-2xl text-anthracite mb-4">
+                      Mehr Selbstliebe durch echte Fotografie
                     </h3>
                   </div>
                   <p className="text-base text-anthracite/90 leading-relaxed">
-                    Ich fotografiere dich so, wie du bist – ohne steife Anweisungen, dafür mit viel Leichtigkeit, Humor und Feingefühl. Egal ob Hochzeitsreportage, Paar- oder Portraitshooting: Mir ist wichtig, dass du dich wohlfühlst und wir gemeinsam Bilder schaffen, die deine Persönlichkeit und eure Verbindung sichtbar machen.
+                    Ich glaube daran, dass Fotografie ein Weg zu mehr Selbstannahme sein kann. Meine Vision ist es, Menschen zu zeigen, wie schön sie in ihrer Echtheit sind – fern von Filtern, Idealen und Perfektionsdruck. Wenn jemand durch meine Bilder liebevoller auf sich selbst schaut, bin ich meinem Ziel ein Stück näher.
                   </p>
                 </div>
               </div>
@@ -143,10 +88,10 @@ const AboutPage = () => {
       </section>
 
       {/* Story & Mission Section */}
-      <section ref={storySectionRef} className="py-20 md:py-28 bg-offwhite relative">
+      <section className="py-20 md:py-28 bg-offwhite relative">
         <div className="container-custom">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 md:gap-16 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 md:gap-16 items-center">
               {/* Story (2 columns) */}
               <div className="lg:col-span-2">
                 <div className="mb-8">
@@ -174,16 +119,9 @@ const AboutPage = () => {
                 </div>
               </div>
 
-              {/* Mission Box (1 column) - Sticky positioned, appears when scrolling */}
-              <div className="lg:col-span-1 flex">
-                <div 
-                  ref={missionBoxRef}
-                  className={`${isSticky ? 'sticky top-24' : 'relative'} bg-warm-accent/10 border-2 border-warm-accent/30 rounded-lg p-8 transition-all duration-300 w-full self-start`}
-                  style={{ 
-                    opacity: scrollProgress > 0.3 ? 1 : 0,
-                    transform: scrollProgress > 0.3 ? 'translateY(0)' : 'translateY(20px)'
-                  }}
-                >
+              {/* Mission Box (1 column) - Sticky positioned, vertically centered */}
+              <div className="lg:col-span-1 flex items-center">
+                <div className="sticky top-24 bg-warm-accent/10 border-2 border-warm-accent/30 rounded-lg p-8 w-full">
                   <div className="mb-6">
                     <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-2">
                       Meine Mission
@@ -296,20 +234,6 @@ const AboutPage = () => {
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Closing Text */}
-      <section className="py-16 md:py-20 bg-white">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-lg md:text-xl text-anthracite/90 leading-relaxed mb-6">
-              Du findest hier einen Einblick in meine Arbeit und vielleicht ja auch ein paar Inspirationen! :)
-            </p>
-            <p className="text-lg md:text-xl text-anthracite/90 leading-relaxed">
-              Danke für's Vorbeischauen und für deine Unterstützung!!
-            </p>
           </div>
         </div>
       </section>
