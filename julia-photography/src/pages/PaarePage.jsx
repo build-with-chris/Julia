@@ -88,54 +88,181 @@ const PaarePage = () => {
   const galleryImages = [
     {
       id: 1,
-      src: 'https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Paar beim Sonnenuntergang',
-      orientation: 'portrait',
+      src: '/Paarshooting(1)/A7_07644.webp',
+      alt: 'Paarshooting',
       priority: true,
     },
     {
       id: 2,
-      src: 'https://images.unsplash.com/photo-1522673607167-38967e70f98e?q=80&w=1887&auto=format&fit=crop',
+      src: '/Paarshooting(1)/A7_07688-2.webp',
       alt: 'Romantischer Moment',
-      orientation: 'portrait',
       priority: true,
     },
     {
       id: 3,
-      src: 'https://images.unsplash.com/photo-1518568814500-bf0f8d125f46?q=80&w=1887&auto=format&fit=crop',
+      src: '/Paarshooting(1)/A7_07862.webp',
       alt: 'Verliebtes Paar',
-      orientation: 'portrait',
       priority: true,
     },
     {
       id: 4,
-      src: 'https://images.unsplash.com/photo-1524617205305-99f76f178c81?q=80&w=1887&auto=format&fit=crop',
+      src: '/Paarshooting(1)/Adrian und Iarina-3.webp',
       alt: 'Inniger Moment',
-      orientation: 'landscape',
     },
     {
       id: 5,
-      src: 'https://images.unsplash.com/photo-1512163143273-bde2e3595b1e?q=80&w=1887&auto=format&fit=crop',
+      src: '/Paarshooting(1)/Adrian und Iarina.webp',
       alt: 'Natürliches Lachen',
-      orientation: 'portrait',
     },
     {
       id: 6,
-      src: 'https://images.unsplash.com/photo-1544928147-79a2dbc1f389?q=80&w=1887&auto=format&fit=crop',
+      src: '/Paarshooting(1)/untitled-12.webp',
       alt: 'Gemeinsamer Spaziergang',
-      orientation: 'portrait',
     },
     {
       id: 7,
-      src: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=1887&auto=format&fit=crop',
+      src: '/Paarshooting(1)/untitled-17 2.webp',
       alt: 'Zärtliche Umarmung',
-      orientation: 'portrait',
     },
     {
       id: 8,
-      src: 'https://images.unsplash.com/photo-1606216794079-c6273cbdee1a?q=80&w=1887&auto=format&fit=crop',
+      src: '/Paarshooting(1)/untitled-17.webp',
       alt: 'Glückliches Paar',
-      orientation: 'landscape',
+    },
+    {
+      id: 9,
+      src: '/Paarshooting(1)/untitled-2 2.webp',
+      alt: 'Paarshooting',
+    },
+    {
+      id: 10,
+      src: '/Paarshooting(1)/untitled-2.webp',
+      alt: 'Romantischer Moment',
+    },
+    {
+      id: 11,
+      src: '/Paarshooting(1)/untitled-20.webp',
+      alt: 'Verliebtes Paar',
+    },
+    {
+      id: 12,
+      src: '/Paarshooting(1)/untitled-21.webp',
+      alt: 'Inniger Moment',
+    },
+    {
+      id: 13,
+      src: '/Paarshooting(1)/untitled-22.webp',
+      alt: 'Natürliches Lachen',
+    },
+    {
+      id: 14,
+      src: '/Paarshooting(1)/untitled-23.webp',
+      alt: 'Gemeinsamer Spaziergang',
+    },
+    {
+      id: 15,
+      src: '/Paarshooting(1)/untitled-25.webp',
+      alt: 'Zärtliche Umarmung',
+    },
+    {
+      id: 16,
+      src: '/Paarshooting(1)/untitled-26.webp',
+      alt: 'Glückliches Paar',
+    },
+    {
+      id: 17,
+      src: '/Paarshooting(1)/untitled-31.webp',
+      alt: 'Paarshooting',
+    },
+    {
+      id: 18,
+      src: '/Paarshooting(1)/untitled-34.webp',
+      alt: 'Romantischer Moment',
+    },
+    {
+      id: 19,
+      src: '/Paarshooting(1)/untitled-36.webp',
+      alt: 'Verliebtes Paar',
+    },
+    {
+      id: 20,
+      src: '/Paarshooting(1)/untitled-38 2.webp',
+      alt: 'Inniger Moment',
+    },
+    {
+      id: 21,
+      src: '/Paarshooting(1)/untitled-38.webp',
+      alt: 'Natürliches Lachen',
+    },
+    {
+      id: 22,
+      src: '/Paarshooting(1)/untitled-41.webp',
+      alt: 'Gemeinsamer Spaziergang',
+    },
+    {
+      id: 23,
+      src: '/Paarshooting(1)/untitled-49-2.webp',
+      alt: 'Zärtliche Umarmung',
+    },
+    {
+      id: 24,
+      src: '/Paarshooting(1)/untitled-5 2.webp',
+      alt: 'Glückliches Paar',
+    },
+    {
+      id: 25,
+      src: '/Paarshooting(1)/untitled-5.webp',
+      alt: 'Paarshooting',
+    },
+    {
+      id: 26,
+      src: '/Paarshooting(1)/untitled-52.webp',
+      alt: 'Romantischer Moment',
+    },
+    {
+      id: 27,
+      src: '/Paarshooting(1)/untitled-57.webp',
+      alt: 'Verliebtes Paar',
+    },
+    {
+      id: 28,
+      src: '/Paarshooting(1)/untitled-64.webp',
+      alt: 'Inniger Moment',
+    },
+    {
+      id: 29,
+      src: '/Paarshooting(1)/untitled-67.webp',
+      alt: 'Natürliches Lachen',
+    },
+    {
+      id: 30,
+      src: '/Paarshooting(1)/untitled-68.webp',
+      alt: 'Gemeinsamer Spaziergang',
+    },
+    {
+      id: 31,
+      src: '/Paarshooting(1)/untitled-7.webp',
+      alt: 'Zärtliche Umarmung',
+    },
+    {
+      id: 32,
+      src: '/Paarshooting(1)/untitled-74.webp',
+      alt: 'Glückliches Paar',
+    },
+    {
+      id: 33,
+      src: '/Paarshooting(1)/untitled-81.webp',
+      alt: 'Paarshooting',
+    },
+    {
+      id: 34,
+      src: '/Paarshooting(1)/untitled-85-2.webp',
+      alt: 'Romantischer Moment',
+    },
+    {
+      id: 35,
+      src: '/Paarshooting(1)/untitled-90.webp',
+      alt: 'Verliebtes Paar',
     },
   ];
 

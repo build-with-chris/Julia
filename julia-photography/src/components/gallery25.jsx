@@ -4,54 +4,29 @@ import { motion } from "framer-motion";
 import React, { useState } from "react";
 import LightboxModal from "./common/LightboxModal";
 
+/**
+ * Gallery25 - Masonry Gallery Component
+ * 
+ * Verwendet CSS-Columns für ein automatisches Masonry-Layout (Pinterest-Style).
+ * 
+ * Änderungen:
+ * - CSS-Columns statt Grid: `columns-2 md:columns-4` für automatische Spaltenverteilung
+ * - Keine festen Höhen mehr: Bilder behalten ihr natürliches Seitenverhältnis
+ * - Einheitliche Abstände: `gap-4` für Spalten, `mb-4` für vertikale Abstände zwischen Bildern
+ * - `break-inside-avoid` verhindert, dass Bilder zwischen Spalten geteilt werden
+ * 
+ * Neue Bilder hinzufügen:
+ * - Einfach das `images`-Array erweitern mit Objekten: { src: '/path/to/image.webp', alt: 'Beschreibung' }
+ * - Optional: { id: 1, src: '...', alt: '...', priority: true } für frühes Laden
+ * - Keine Höhen oder Orientierungen mehr nötig - das Layout passt sich automatisch an
+ */
 const Gallery25 = ({ images = [], enableLightbox = false }) => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
-  // Distribute images across 4 columns with masonry layout
-  const distributeImages = (images) => {
-    const columns = [[], [], [], []];
-    const heights = [0, 0, 0, 0];
-    
-    images.forEach((image, index) => {
-      // Find column with minimum height
-      const minHeightIndex = heights.indexOf(Math.min(...heights));
-      
-      // Estimate height based on orientation or use provided height
-      let estimatedHeight;
-      if (image.height) {
-        // Convert rem to number for calculation
-        estimatedHeight = parseFloat(image.height) * 16; // 1rem = 16px
-      } else if (image.orientation === 'portrait') {
-        estimatedHeight = 450; // ~28rem
-      } else {
-        estimatedHeight = 300; // ~18rem
-      }
-      
-      columns[minHeightIndex].push({
-        ...image,
-        height: image.height || (image.orientation === 'portrait' ? '28rem' : '18rem'),
-        estimatedHeight,
-      });
-      heights[minHeightIndex] += estimatedHeight;
-    });
-    
-    return columns;
-  };
-
-  const columns = images.length > 0 ? distributeImages(images) : [[], [], [], []];
-
-  const handleImageClick = (columnIndex, imageIndex) => {
+  const handleImageClick = (imageIndex) => {
     if (!enableLightbox) return;
-    
-    // Calculate global index
-    let globalIndex = 0;
-    for (let i = 0; i < columnIndex; i++) {
-      globalIndex += columns[i].length;
-    }
-    globalIndex += imageIndex;
-    
-    setSelectedImageIndex(globalIndex);
+    setSelectedImageIndex(imageIndex);
     setLightboxOpen(true);
   };
 
@@ -72,47 +47,56 @@ const Gallery25 = ({ images = [], enableLightbox = false }) => {
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-        {columns.map((columnImages, columnIndex) => (
-          <div key={columnIndex} className="grid gap-4">
-            {columnImages.map((image, imageIndex) => {
-              const height = image.height || (image.orientation === 'portrait' ? '28rem' : '18rem');
-              
-              return (
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    scale: 0.9,
-                    y: columnIndex % 2 === 0 ? 50 : -50,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    scale: 1,
-                    y: 0,
-                  }}
-                  transition={{
-                    duration: 0.5,
-                    delay: (columnIndex * 0.1) + (imageIndex * 0.1),
-                  }}
-                  viewport={{ once: true, margin: '-50px' }}
-                  key={image.id || imageIndex}
-                  className={`bg-muted w-full overflow-hidden rounded-2xl ${
-                    enableLightbox ? 'cursor-pointer hover:opacity-90 transition-opacity' : ''
-                  }`}
-                  style={{ height }}
-                  onClick={() => handleImageClick(columnIndex, imageIndex)}
-                >
-                  <img
-                    className="h-full w-full rounded-2xl object-cover"
-                    src={getImageSrc(image)}
-                    alt={getImageAlt(image)}
-                    loading={image.priority ? 'eager' : 'lazy'}
-                  />
-                </motion.div>
-              );
-            })}
-          </div>
-        ))}
+      {/* 
+        CSS-Columns Masonry Layout:
+        - columns-2: 2 Spalten auf Mobile
+        - md:columns-4: 4 Spalten auf Desktop
+        - gap-4: Einheitlicher Abstand zwischen Spalten
+      */}
+      <div className="columns-2 md:columns-4 gap-4">
+        {images.map((image, imageIndex) => {
+          const imageSrc = getImageSrc(image);
+          const imageAlt = getImageAlt(image);
+          
+          return (
+            <motion.div
+              key={image.id || imageIndex}
+              initial={{
+                opacity: 0,
+                scale: 0.9,
+                y: 50,
+              }}
+              whileInView={{
+                opacity: 1,
+                scale: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 0.5,
+                delay: imageIndex * 0.1,
+              }}
+              viewport={{ once: true, margin: '-50px' }}
+              className={`
+                break-inside-avoid mb-4 w-full overflow-hidden rounded-2xl bg-muted
+                ${enableLightbox ? 'cursor-pointer hover:opacity-90 transition-opacity' : ''}
+              `}
+              onClick={() => handleImageClick(imageIndex)}
+            >
+              {/* 
+                Bild behält natürliches Seitenverhältnis:
+                - w-full: Volle Breite der Spalte
+                - h-auto: Automatische Höhe basierend auf Seitenverhältnis
+                - object-cover: Füllt den Container, behält Seitenverhältnis
+              */}
+              <img
+                className="w-full h-auto rounded-2xl object-cover"
+                src={imageSrc}
+                alt={imageAlt}
+                loading={image.priority ? 'eager' : 'lazy'}
+              />
+            </motion.div>
+          );
+        })}
       </div>
 
       {enableLightbox && lightboxOpen && allImages[selectedImageIndex] && (

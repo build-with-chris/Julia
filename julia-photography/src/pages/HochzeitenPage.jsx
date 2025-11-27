@@ -116,125 +116,197 @@ const HochzeitenPage = () => {
   const gettingReadyImages = [
     {
       id: 1,
-      src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1887&auto=format&fit=crop',
+      src: '/GettingReady/Annika & Markus-52.webp',
       alt: 'Getting Ready Moment',
-      orientation: 'portrait',
       priority: true,
     },
     {
       id: 2,
-      src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1887&auto=format&fit=crop',
+      src: '/GettingReady/Annika & Markus-77.webp',
       alt: 'Braut beim Anziehen',
-      orientation: 'portrait',
       priority: true,
     },
     {
       id: 3,
-      src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1887&auto=format&fit=crop',
+      src: '/GettingReady/Martin und Melli_Paarshooting-140.webp',
       alt: 'Details',
-      orientation: 'landscape',
     },
     {
       id: 4,
-      src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1887&auto=format&fit=crop',
+      src: '/GettingReady/Restaurant-25.webp',
       alt: 'Emotionale Momente',
-      orientation: 'portrait',
     },
     {
       id: 5,
-      src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1887&auto=format&fit=crop',
+      src: '/GettingReady/untitled-117-2.webp',
       alt: 'Vorbereitungen',
-      orientation: 'portrait',
     },
     {
       id: 6,
-      src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1887&auto=format&fit=crop',
+      src: '/GettingReady/untitled-129-2.webp',
       alt: 'Intime Momente',
-      orientation: 'landscape',
+    },
+    {
+      id: 7,
+      src: '/GettingReady/untitled-151-2.webp',
+      alt: 'Getting Ready',
+    },
+    {
+      id: 8,
+      src: '/GettingReady/untitled-160-2.webp',
+      alt: 'Vorbereitungen',
+    },
+    {
+      id: 9,
+      src: '/GettingReady/untitled-361.webp',
+      alt: 'Getting Ready Moment',
     },
   ];
 
   // Gallery Images - Zeremonie
   const ceremonyImages = [
     {
-      id: 7,
-      src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Hochzeitszeremonie',
-      orientation: 'portrait',
-      priority: true,
-    },
-    {
-      id: 8,
-      src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Ringwechsel',
-      orientation: 'portrait',
-      priority: true,
-    },
-    {
-      id: 9,
-      src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Emotionale Momente',
-      orientation: 'landscape',
-    },
-    {
       id: 10,
-      src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Brautpaar',
-      orientation: 'portrait',
+      src: '/Zeremonie/Annika & Markus-182.webp',
+      alt: 'Hochzeitszeremonie',
+      priority: true,
     },
     {
       id: 11,
-      src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Zeremonie Details',
-      orientation: 'portrait',
+      src: '/Zeremonie/Annika & Markus-216.webp',
+      alt: 'Ringwechsel',
+      priority: true,
     },
     {
       id: 12,
-      src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Hochzeitsfeier',
-      orientation: 'landscape',
+      src: '/Zeremonie/Annika & Markus-33.webp',
+      alt: 'Emotionale Momente',
     },
-  ];
-
-  // Gallery Images - Party & Feier
-  const partyImages = [
     {
       id: 13,
-      src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Hochzeitsfeier',
-      orientation: 'portrait',
-      priority: true,
+      src: '/Zeremonie/Hochzeit Regina und Irmo-35.webp',
+      alt: 'Brautpaar',
     },
     {
       id: 14,
-      src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Erster Tanz',
-      orientation: 'portrait',
-      priority: true,
+      src: '/Zeremonie/Martin und Melli_Kirche-20.webp',
+      alt: 'Zeremonie Details',
     },
     {
       id: 15,
-      src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Party',
-      orientation: 'landscape',
+      src: '/Zeremonie/Sektempfang-Restaurant.webp',
+      alt: 'Hochzeitsfeier',
     },
     {
       id: 16,
-      src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Feier',
-      orientation: 'portrait',
+      src: '/Zeremonie/untitled-126-2.webp',
+      alt: 'Zeremonie',
     },
     {
       id: 17,
-      src: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Tanz',
-      orientation: 'portrait',
+      src: '/Zeremonie/untitled-127-2.webp',
+      alt: 'Hochzeitszeremonie',
     },
     {
       id: 18,
-      src: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Hochzeitsfeier',
-      orientation: 'landscape',
+      src: '/Zeremonie/untitled-133-2.webp',
+      alt: 'Zeremonie Moment',
+    },
+    {
+      id: 19,
+      src: '/Zeremonie/untitled-133.webp',
+      alt: 'Hochzeitszeremonie',
+    },
+    {
+      id: 20,
+      src: '/Zeremonie/HeroHochzeit.webp',
+      alt: 'Hochzeitszeremonie',
+    },
+  ];
+
+  // Gallery Images - Paarshooting
+  const paarshootingImages = [
+    {
+      id: 20,
+      src: '/Paarshooting/Annika & Markus-114.webp',
+      alt: 'Paarshooting',
+      priority: true,
+    },
+    {
+      id: 21,
+      src: '/Paarshooting/Annika & Markus-78.webp',
+      alt: 'Paarshooting Moment',
+      priority: true,
+    },
+    {
+      id: 22,
+      src: '/Paarshooting/Hochzeit Regina und Irmo-18.webp',
+      alt: 'Hochzeitspaar',
+    },
+    {
+      id: 23,
+      src: '/Paarshooting/Hochzeit Regina und Irmo-6 Kopie.webp',
+      alt: 'Paarshooting',
+    },
+    {
+      id: 24,
+      src: '/Paarshooting/Martin und Melli_Paarshooting-80.webp',
+      alt: 'Paarshooting',
+    },
+    {
+      id: 25,
+      src: '/Paarshooting/Paarshooting-28.webp',
+      alt: 'Hochzeitspaar',
+    },
+    {
+      id: 26,
+      src: '/Paarshooting/Paarshooting-51.webp',
+      alt: 'Paarshooting',
+    },
+    {
+      id: 27,
+      src: '/Paarshooting/Paarshooting-55.webp',
+      alt: 'Hochzeitspaar',
+    },
+    {
+      id: 28,
+      src: '/Paarshooting/Ramona und Basti Hochzeit-271.webp',
+      alt: 'Paarshooting',
+    },
+    {
+      id: 29,
+      src: '/Paarshooting/untitled-108.webp',
+      alt: 'Hochzeitspaar',
+    },
+    {
+      id: 30,
+      src: '/Paarshooting/untitled-3.webp',
+      alt: 'Paarshooting',
+    },
+    {
+      id: 31,
+      src: '/Paarshooting/untitled-4 2.webp',
+      alt: 'Hochzeitspaar',
+    },
+    {
+      id: 32,
+      src: '/Paarshooting/untitled-4.webp',
+      alt: 'Paarshooting',
+    },
+    {
+      id: 33,
+      src: '/Paarshooting/untitled-57.webp',
+      alt: 'Hochzeitspaar',
+    },
+    {
+      id: 34,
+      src: '/Paarshooting/untitled-74-2.webp',
+      alt: 'Paarshooting',
+    },
+    {
+      id: 35,
+      src: '/Paarshooting/untitled-89-2.webp',
+      alt: 'Hochzeitspaar',
     },
   ];
 
@@ -415,7 +487,7 @@ const HochzeitenPage = () => {
             <Gallery25 images={ceremonyImages} enableLightbox={true} />
           </div>
 
-          {/* Gallery - Party & Feier */}
+          {/* Gallery - Brautpaarfotos */}
           <div>
             <motion.div 
               className="text-center mb-12 md:mb-16"
@@ -428,13 +500,13 @@ const HochzeitenPage = () => {
                 Portfolio
               </p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl text-anthracite mb-6">
-                Party & Feier
+                Brautpaarfotos
               </h2>
               <p className="text-lg md:text-xl text-anthracite/80 max-w-3xl mx-auto leading-relaxed">
-                Der erste Tanz, die Torte, die Feier – unvergessliche Momente voller Freude
+                Intime Momente zu zweit – eure Verbindung in authentischen Bildern festgehalten
               </p>
             </motion.div>
-            <Gallery25 images={partyImages} enableLightbox={true} />
+            <Gallery25 images={paarshootingImages} enableLightbox={true} />
           </div>
         </div>
       </section>
