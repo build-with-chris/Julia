@@ -1,40 +1,46 @@
+import { motion } from 'framer-motion';
 import Layout from '../components/layout/Layout';
-import FactCard from '../components/common/FactCard';
 import CTASection from '../components/sections/CTASection';
 import SEO from '../components/common/SEO';
+import { cn } from '@/lib/utils';
 
 const AboutPage = () => {
   // Facts Data
   const facts = [
     {
-      icon: '🏡',
-      iconLabel: 'Tiny House',
+      id: 1,
       title: 'Leben im Tiny House',
       description: 'Seit 2 Jahren lebe ich in meinem eigenen Tiny House – minimalistisch, nachhaltig und mitten in der Natur.',
+      bgColor: 'bg-warm-accent/10',
+      numberPosition: 'left-[40%] lg:left-[30%]',
     },
     {
-      icon: '🐺',
-      iconLabel: 'Husky',
+      id: 2,
       title: 'Husky-Mama',
       description: 'Mein treuer Begleiter Askara ist überall dabei. Sie liebt die Natur genauso wie ich. (Sie wird beim Shooting aber nicht dabei sein.)',
+      bgColor: 'bg-warm-accent/15',
+      numberPosition: 'left-[52%] lg:left-[42%]',
     },
     {
-      icon: '⛸️',
-      iconLabel: 'Eiskunstlauf',
+      id: 3,
       title: 'Eiskunst & Eistanz',
       description: 'Seit 2020 laufe ich Eiskunst und seit 2025 Eistanz. Die Disziplin und Leidenschaft nehme ich bis heute mit.',
+      bgColor: 'bg-warm-accent/20',
+      numberPosition: 'left-[62%] lg:left-[58%]',
     },
     {
-      icon: '🧘',
-      iconLabel: 'Achtsamkeit',
+      id: 4,
       title: 'Achtsamkeit & Yoga',
       description: 'Morgenroutinen, Meditation und Yoga helfen mir, im Moment zu bleiben – auch während eurer Shootings.',
+      bgColor: 'bg-warm-accent/25',
+      numberPosition: 'left-[75%] lg:left-[72%]',
     },
     {
-      icon: '🌲',
-      iconLabel: 'Natur',
+      id: 5,
       title: 'Naturliebhaberin',
       description: 'Die Berge, Wälder und Seen Bayerns sind meine Inspiration. Hier fühle ich mich zuhause.',
+      bgColor: 'bg-warm-accent/30',
+      numberPosition: 'left-[85%] lg:left-[82%]',
     },
   ];
 
@@ -146,34 +152,61 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Facts Section */}
-      <section className="py-20 md:py-28 bg-white">
+      {/* Facts Section - Process3 Layout */}
+      <section
+        className="bg-white pt-20 md:pt-32 pb-0"
+        style={{
+          "--font-mono": "ui-monospace, monospace"
+        }}
+      >
         <div className="container-custom">
-          <div className="text-center mb-12 md:mb-16">
-            <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
-              5 Dinge über mich
-            </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl text-anthracite mb-6">
-              Was mich ausmacht
-            </h2>
+          <div className="flex justify-center">
+            <div className="w-full max-w-3xl px-2 text-center">
+              <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
+                5 Dinge über mich
+              </p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight text-anthracite">
+                Was mich ausmacht
+              </h2>
+            </div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto mb-16">
+          <ul className="mt-20">
             {facts.map((fact, index) => (
-              <FactCard
-                key={index}
-                icon={fact.icon}
-                iconLabel={fact.iconLabel}
-                title={fact.title}
-                description={fact.description}
-              />
+              <motion.li
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 20,
+                  delay: index * 0.1,
+                }}
+                key={fact.id}
+                className="relative flex w-full min-h-[140px] md:min-h-[160px] lg:min-h-[180px] items-center"
+              >
+                <div
+                  className={cn("absolute left-1/2 w-screen -translate-x-1/2 h-full", fact.bgColor)}
+                ></div>
+                <div className="relative z-10 flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-12 w-full px-6 md:px-8 py-8 md:py-10">
+                  <div className="lg:min-w-[300px] lg:pt-1">
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl font-normal tracking-tight text-anthracite leading-tight">
+                      {fact.title}
+                    </h3>
+                  </div>
+                  {fact.description && (
+                    <p className="text-base md:text-lg lg:text-xl text-anthracite/80 max-w-2xl leading-relaxed font-light lg:pt-1">
+                      {fact.description}
+                    </p>
+                  )}
+                </div>
+              </motion.li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
       {/* Q&A Section */}
-      <section className="py-20 md:py-28 bg-gradient-to-br from-offwhite to-[#F5F0EA]">
+      <section className="pt-20 md:pt-32 pb-20 md:pb-28 bg-gradient-to-br from-offwhite to-[#F5F0EA]">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12 md:mb-16">

@@ -87,9 +87,9 @@ const Hero234 = ({
         ))}
       </div>
       {/* Left side masks */}
-      <div className="from-offwhite absolute left-0 top-0 z-10 h-full w-[160px] bg-gradient-to-r to-transparent md:w-[200px]" />
+      <div className="from-offwhite absolute left-0 top-0 z-10 h-full w-[80px] bg-gradient-to-r to-transparent md:w-[200px]" />
       {/* Right side masks */}
-      <div className="from-offwhite absolute right-0 top-0 z-10 h-full w-[160px] bg-gradient-to-l to-transparent md:w-[200px]" />
+      <div className="from-offwhite absolute right-0 top-0 z-10 h-full w-[80px] bg-gradient-to-l to-transparent md:w-[200px]" />
       <div className="relative z-20 flex h-full md:min-h-screen items-center justify-center px-4">
         <motion.div
           className="hidden md:block rounded-lg bg-anthracite/85 backdrop-blur-md p-8 md:p-10 lg:p-12 max-w-lg w-full"

@@ -85,3 +85,4 @@ const SEO = ({ title, description, image }) => {
 
 export default SEO;
 
+

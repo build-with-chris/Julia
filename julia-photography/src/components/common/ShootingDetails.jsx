@@ -1,26 +1,30 @@
+import { useState } from 'react';
+
 const ShootingDetails = () => {
-  const details = [
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const faqs = [
     {
-      icon: '📍',
-      title: 'Der Ort',
-      description: 'Gemeinsam wählen wir einen Ort, der euch entspricht – Natur, Stadt oder Studio. Alles ist möglich.',
+      question: 'Wo findet das Shooting statt?',
+      answer: 'Gemeinsam wählen wir einen Ort, der euch entspricht – Natur, Stadt oder Studio. Alles ist möglich.',
     },
     {
-      icon: '👗',
-      title: 'Outfit-Wahl',
-      description: 'Ich berate euch gerne. Wichtig ist nur: Wählt etwas, in dem ihr euch wohlfühlt.',
+      question: 'Was sollen wir anziehen?',
+      answer: 'Ich berate euch gerne bei der Outfit-Wahl. Wichtig ist nur: Wählt etwas, in dem ihr euch wohlfühlt.',
     },
     {
-      icon: '📸',
-      title: 'Das Shooting',
-      description: 'Stressfrei und entspannt. Ich fotografiere euch natürlich in Bewegung – authentisch und mit viel Spaß.',
+      question: 'Wie läuft das Shooting ab?',
+      answer: 'Stressfrei und entspannt. Ich fotografiere euch natürlich in Bewegung – authentisch und mit viel Spaß.',
     },
     {
-      icon: '🖼️',
-      title: 'Eure Bilder',
-      description: 'Innerhalb von 1-2 Wochen erhaltet ihr eure bearbeiteten Bilder in einer Online-Galerie zum Download.',
+      question: 'Wann bekommen wir unsere Bilder?',
+      answer: 'Innerhalb von 1-2 Wochen erhaltet ihr eure bearbeiteten Bilder in einer Online-Galerie zum Download.',
     },
   ];
+
+  const handleToggle = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   return (
     <section className="py-16 md:py-20 bg-white">
@@ -32,19 +36,45 @@ const ShootingDetails = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {details.map((detail, index) => (
-              <div
-                key={index}
-                className="bg-offwhite p-5 md:p-6 rounded-lg border border-border-soft/30 hover:border-warm-accent/50 transition-colors duration-200 text-center"
-              >
-                <div className="text-3xl md:text-4xl mb-3">{detail.icon}</div>
-                <h3 className="text-base md:text-lg font-semibold text-anthracite mb-2">
-                  {detail.title}
-                </h3>
-                <p className="text-sm md:text-base text-anthracite/90 leading-relaxed">
-                  {detail.description}
-                </p>
+          <div className="space-y-0">
+            {faqs.map((faq, index) => (
+              <div key={index} className="border-b border-border-soft last:border-b-0">
+                <button
+                  type="button"
+                  onClick={() => handleToggle(index)}
+                  className="w-full py-5 md:py-6 flex items-center justify-between gap-4 text-left hover:text-warm-accent transition-colors duration-200"
+                  aria-expanded={openIndex === index}
+                >
+                  <h3 className="text-lg md:text-xl font-semibold text-anthracite pr-4">
+                    {faq.question}
+                  </h3>
+                  <svg
+                    className={`w-6 h-6 flex-shrink-0 text-warm-accent transform transition-transform duration-300 ${
+                      openIndex === index ? 'rotate-180' : ''
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+
+                <div
+                  className={`overflow-hidden transition-all duration-300 ${
+                    openIndex === index ? 'max-h-96 pb-6 md:pb-8' : 'max-h-0'
+                  }`}
+                >
+                  <div className="text-base md:text-lg text-anthracite/80 leading-relaxed">
+                    {faq.answer}
+                  </div>
+                </div>
               </div>
             ))}
           </div>

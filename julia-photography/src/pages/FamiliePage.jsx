@@ -257,9 +257,6 @@ const FamiliePage = () => {
         </div>
       </motion.section>
 
-      {/* Shooting Details */}
-      <ShootingDetails />
-
       {/* Gallery Section */}
       <section id="gallery" className="py-20 md:py-32 bg-white scroll-mt-24">
         <div className="container-custom">
@@ -308,15 +305,8 @@ const FamiliePage = () => {
       {/* Testimonials */}
       <TestimonialCarousel testimonials={[testimonialsData[0], testimonialsData[1], testimonialsData[3]]} />
 
-      {/* CTA Section */}
-      <div className="pb-20 lg:pb-0">
-        <CTASection
-          eyebrow="Familien-Shooting buchen"
-          headline="Bereit für lebendige & authentische Familienbilder?"
-          subline="Lasst uns gemeinsam eure Familie festhalten – ehrlich, lebendig und voller Emotion."
-          buttonLabel="Shooting anfragen"
-        />
-      </div>
+      {/* Shooting Details */}
+      <ShootingDetails />
     </Layout>
   );
 };

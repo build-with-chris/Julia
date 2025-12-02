@@ -58,13 +58,17 @@ const Gallery25 = ({ images = [], enableLightbox = false }) => {
           const imageSrc = getImageSrc(image);
           const imageAlt = getImageAlt(image);
           
+          // Berechne Spaltenposition für Delay (0, 1, 2, 3 für 4 Spalten)
+          const columns = 4; // Desktop Spalten
+          const columnIndex = imageIndex % columns;
+          
           return (
             <motion.div
               key={image.id || imageIndex}
               initial={{
                 opacity: 0,
                 scale: 0.9,
-                y: 50,
+                y: -50,
               }}
               whileInView={{
                 opacity: 1,
@@ -73,7 +77,7 @@ const Gallery25 = ({ images = [], enableLightbox = false }) => {
               }}
               transition={{
                 duration: 0.5,
-                delay: imageIndex * 0.1,
+                delay: columnIndex * 0.1,
               }}
               viewport={{ once: true, margin: '-50px' }}
               className={`

@@ -215,9 +215,6 @@ const PortraitPage = () => {
         </div>
       </motion.section>
 
-      {/* Shooting Details */}
-      <ShootingDetails />
-
       {/* Gallery Section */}
       <section id="gallery" className="py-20 md:py-32 bg-white scroll-mt-24">
         <div className="container-custom">
@@ -266,15 +263,8 @@ const PortraitPage = () => {
       {/* Testimonials */}
       <TestimonialCarousel testimonials={[testimonialsData[2], testimonialsData[4]]} />
 
-      {/* CTA Section */}
-      <div className="pb-20 lg:pb-0">
-        <CTASection
-          eyebrow="Portrait-Shooting buchen"
-          headline="Bereit für authentische & natürliche Portraits?"
-          subline="Lasst uns gemeinsam eure Persönlichkeit festhalten – ohne Maskerade, nur euch."
-          buttonLabel="Shooting anfragen"
-        />
-      </div>
+      {/* Shooting Details */}
+      <ShootingDetails />
     </Layout>
   );
 };
