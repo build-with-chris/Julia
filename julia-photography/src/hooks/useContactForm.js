@@ -87,10 +87,29 @@ const useContactForm = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate API call (replace with actual submission logic)
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      // Prepare form data for API
+      const payload = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phone: formData.phone || '',
+        message: formData.message,
+      };
 
-      console.log('Form submitted:', formData);
+      // Call API endpoint
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Ein Fehler ist aufgetreten');
+      }
 
       // Success
       setSubmitSuccess(true);
@@ -114,7 +133,7 @@ const useContactForm = () => {
     } catch (error) {
       console.error('Submission error:', error);
       setErrors({
-        submit: 'Ein Fehler ist aufgetreten. Bitte versuche es später erneut.',
+        submit: error.message || 'Ein Fehler ist aufgetreten. Bitte versuche es später erneut.',
       });
     } finally {
       setIsSubmitting(false);
