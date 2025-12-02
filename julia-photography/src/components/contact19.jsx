@@ -44,7 +44,7 @@ const Contact19 = () => {
                       <h3 className="font-semibold text-anthracite mb-1">
                         Vielen Dank für deine Nachricht!
                       </h3>
-                      <p className="text-muted text-sm">
+                      <p className="text-anthracite/90 text-sm">
                         Ich habe deine Anfrage erhalten und melde mich so schnell wie möglich bei dir.
                       </p>
                     </div>

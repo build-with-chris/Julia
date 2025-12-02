@@ -60,19 +60,97 @@ Nachricht:
 ${message}
     `.trim();
 
+    // Escape HTML to prevent XSS
+    const escapeHtml = (text) => {
+      const map = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#039;'
+      };
+      return text.replace(/[&<>"']/g, m => map[m]);
+    };
+
     const emailHtml = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2 style="color: #333;">Neue Kontaktanfrage von der Website</h2>
-        <div style="background-color: #f5f5f5; padding: 20px; border-radius: 5px; margin: 20px 0;">
-          <p><strong>Name:</strong> ${firstName} ${lastName}</p>
-          <p><strong>E-Mail:</strong> <a href="mailto:${email}">${email}</a></p>
-          ${phone ? `<p><strong>Telefon:</strong> ${phone}</p>` : ''}
-        </div>
-        <div style="margin: 20px 0;">
-          <h3 style="color: #333;">Nachricht:</h3>
-          <p style="white-space: pre-wrap; line-height: 1.6;">${message}</p>
-        </div>
-      </div>
+      <!DOCTYPE html>
+      <html lang="de">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      </head>
+      <body style="margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background-color: #f5f5f5; line-height: 1.6; color: #333;">
+        <table role="presentation" style="width: 100%; border-collapse: collapse; background-color: #f5f5f5; padding: 20px;">
+          <tr>
+            <td align="center">
+              <table role="presentation" style="max-width: 600px; width: 100%; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <!-- Header -->
+                <tr>
+                  <td style="background: linear-gradient(135deg, #8B7355 0%, #6B5844 100%); padding: 40px 30px; text-align: center;">
+                    <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 600; letter-spacing: 0.5px;">
+                      Neue Kontaktanfrage
+                    </h1>
+                    <p style="margin: 10px 0 0 0; color: #ffffff; opacity: 0.9; font-size: 14px;">
+                      Julia Mayr Photography
+                    </p>
+                  </td>
+                </tr>
+                
+                <!-- Content -->
+                <tr>
+                  <td style="padding: 40px 30px;">
+                    <!-- Contact Information -->
+                    <div style="background-color: #fafafa; border-left: 4px solid #8B7355; padding: 20px; margin-bottom: 30px; border-radius: 4px;">
+                      <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                          <td style="padding: 8px 0;">
+                            <strong style="color: #2D2A26; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 4px;">Name</strong>
+                            <span style="color: #2D2A26; font-size: 16px;">${escapeHtml(firstName)} ${escapeHtml(lastName)}</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="padding: 8px 0;">
+                            <strong style="color: #2D2A26; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 4px;">E-Mail</strong>
+                            <a href="mailto:${escapeHtml(email)}" style="color: #8B7355; text-decoration: none; font-size: 16px;">${escapeHtml(email)}</a>
+                          </td>
+                        </tr>
+                        ${phone ? `
+                        <tr>
+                          <td style="padding: 8px 0;">
+                            <strong style="color: #2D2A26; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 4px;">Telefon</strong>
+                            <span style="color: #2D2A26; font-size: 16px;">${escapeHtml(phone)}</span>
+                          </td>
+                        </tr>
+                        ` : ''}
+                      </table>
+                    </div>
+                    
+                    <!-- Message -->
+                    <div style="margin-top: 30px;">
+                      <h2 style="margin: 0 0 15px 0; color: #2D2A26; font-size: 18px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
+                        Nachricht
+                      </h2>
+                      <div style="background-color: #fafafa; padding: 20px; border-radius: 4px; border: 1px solid #e5e5e5;">
+                        <p style="margin: 0; color: #2D2A26; font-size: 15px; white-space: pre-wrap; line-height: 1.8;">${escapeHtml(message)}</p>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                
+                <!-- Footer -->
+                <tr>
+                  <td style="background-color: #fafafa; padding: 20px 30px; text-align: center; border-top: 1px solid #e5e5e5;">
+                    <p style="margin: 0; color: #888; font-size: 12px;">
+                      Diese E-Mail wurde automatisch über das Kontaktformular auf juliamayr.photo gesendet.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </body>
+      </html>
     `;
 
     // Send email

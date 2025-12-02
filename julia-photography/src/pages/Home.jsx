@@ -2,9 +2,18 @@ import { useNavigate } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
 import { Hero234 } from '../components/hero234';
 import SEO from '../components/common/SEO';
+import useContactForm from '../hooks/useContactForm';
 
 const Home = () => {
   const navigate = useNavigate();
+  const {
+    formData,
+    errors,
+    isSubmitting,
+    submitSuccess,
+    handleChange,
+    handleSubmit,
+  } = useContactForm();
 
   const handleBookingClick = () => {
     // Scroll to contact form
@@ -231,7 +240,36 @@ const Home = () => {
             </h2>
           </div>
           
-          <form className="space-y-6 md:space-y-8">
+          {/* Success Message */}
+          {submitSuccess && (
+            <div className="mb-8 p-6 bg-white/10 border-2 border-[#b0b0b0] rounded-lg">
+              <div className="flex items-start gap-3">
+                <svg
+                  className="w-6 h-6 text-[#b0b0b0] flex-shrink-0 mt-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <div>
+                  <h3 className="font-semibold text-[#e8e8e8] mb-1">
+                    Vielen Dank für deine Nachricht!
+                  </h3>
+                  <p className="text-[#e8e8e8] text-sm">
+                    Ich habe deine Anfrage erhalten und melde mich so schnell wie möglich bei dir.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="space-y-6 md:space-y-8" noValidate>
             {/* Vorname / Nachname - 2 Spalten */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
               <div>
@@ -242,24 +280,46 @@ const Home = () => {
                   type="text"
                   id="firstName"
                   name="firstName"
-                  className="w-full bg-transparent border-b-2 border-[#666666] text-[#e8e8e8] placeholder-[#888888] focus:outline-none focus:border-[#b0b0b0] transition-colors duration-200 pb-2 text-base md:text-lg"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  className={`w-full bg-transparent border-b-2 text-[#e8e8e8] placeholder-[#888888] focus:outline-none transition-colors duration-200 pb-2 text-base md:text-lg ${
+                    errors.firstName
+                      ? 'border-[#b0b0b0] focus:border-[#b0b0b0]'
+                      : 'border-[#666666] focus:border-[#b0b0b0]'
+                  }`}
                   placeholder=""
-                  required
+                  aria-required="true"
                 />
+                {errors.firstName && (
+                  <p className="mt-2 text-sm text-[#b0b0b0]" role="alert">
+                    {errors.firstName}
+                  </p>
+                )}
               </div>
               <div>
                 <label htmlFor="lastName" className="block text-[#d0d0d0] mb-2 text-sm md:text-base">
                   Nachname*
-                  </label>
-                  <input
-                    type="text"
+                </label>
+                <input
+                  type="text"
                   id="lastName"
                   name="lastName"
-                  className="w-full bg-transparent border-b-2 border-[#666666] text-[#e8e8e8] placeholder-[#888888] focus:outline-none focus:border-[#b0b0b0] transition-colors duration-200 pb-2 text-base md:text-lg"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  className={`w-full bg-transparent border-b-2 text-[#e8e8e8] placeholder-[#888888] focus:outline-none transition-colors duration-200 pb-2 text-base md:text-lg ${
+                    errors.lastName
+                      ? 'border-[#b0b0b0] focus:border-[#b0b0b0]'
+                      : 'border-[#666666] focus:border-[#b0b0b0]'
+                  }`}
                   placeholder=""
-                  required
-                  />
-                </div>
+                  aria-required="true"
+                />
+                {errors.lastName && (
+                  <p className="mt-2 text-sm text-[#b0b0b0]" role="alert">
+                    {errors.lastName}
+                  </p>
+                )}
+              </div>
             </div>
 
             {/* E-Mail / Telefon - 2 Spalten */}
@@ -267,15 +327,26 @@ const Home = () => {
               <div>
                 <label htmlFor="email" className="block text-[#d0d0d0] mb-2 text-sm md:text-base">
                   E-Mail*
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
+                </label>
+                <input
+                  type="email"
+                  id="email"
                   name="email"
-                  className="w-full bg-transparent border-b-2 border-[#666666] text-[#e8e8e8] placeholder-[#888888] focus:outline-none focus:border-[#b0b0b0] transition-colors duration-200 pb-2 text-base md:text-lg"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className={`w-full bg-transparent border-b-2 text-[#e8e8e8] placeholder-[#888888] focus:outline-none transition-colors duration-200 pb-2 text-base md:text-lg ${
+                    errors.email
+                      ? 'border-[#b0b0b0] focus:border-[#b0b0b0]'
+                      : 'border-[#666666] focus:border-[#b0b0b0]'
+                  }`}
                   placeholder=""
-                  required
+                  aria-required="true"
                 />
+                {errors.email && (
+                  <p className="mt-2 text-sm text-[#b0b0b0]" role="alert">
+                    {errors.email}
+                  </p>
+                )}
               </div>
               <div>
                 <label htmlFor="phone" className="block text-[#d0d0d0] mb-2 text-sm md:text-base">
@@ -285,26 +356,39 @@ const Home = () => {
                   type="tel"
                   id="phone"
                   name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
                   className="w-full bg-transparent border-b-2 border-[#666666] text-[#e8e8e8] placeholder-[#888888] focus:outline-none focus:border-[#b0b0b0] transition-colors duration-200 pb-2 text-base md:text-lg"
                   placeholder=""
-                  />
-                </div>
+                />
+              </div>
             </div>
 
             {/* Nachricht - volle Breite */}
             <div>
               <label htmlFor="message" className="block text-[#d0d0d0] mb-2 text-sm md:text-base">
                 Nachricht*
-                  </label>
-                  <textarea
-                    id="message"
+              </label>
+              <textarea
+                id="message"
                 name="message"
+                value={formData.message}
+                onChange={handleChange}
                 rows="4"
-                className="w-full bg-transparent border-b-2 border-[#666666] text-[#e8e8e8] placeholder-[#888888] focus:outline-none focus:border-[#b0b0b0] transition-colors duration-200 pb-2 resize-none text-base md:text-lg"
+                className={`w-full bg-transparent border-b-2 text-[#e8e8e8] placeholder-[#888888] focus:outline-none transition-colors duration-200 pb-2 resize-none text-base md:text-lg ${
+                  errors.message
+                    ? 'border-[#b0b0b0] focus:border-[#b0b0b0]'
+                    : 'border-[#666666] focus:border-[#b0b0b0]'
+                }`}
                 placeholder=""
-                required
-                  />
-                </div>
+                aria-required="true"
+              />
+              {errors.message && (
+                <p className="mt-2 text-sm text-[#b0b0b0]" role="alert">
+                  {errors.message}
+                </p>
+              )}
+            </div>
 
             {/* Checkbox für Datenschutz */}
             <div className="flex items-start gap-3 pt-2">
@@ -323,14 +407,21 @@ const Home = () => {
             {/* Pflichtfeld Hinweis */}
             <p className="text-[#888888] text-xs md:text-sm">*Pflichtfeld</p>
 
+            {errors.submit && (
+              <div className="p-4 bg-white/10 border border-[#b0b0b0] rounded-sm">
+                <p className="text-sm text-[#b0b0b0]">{errors.submit}</p>
+              </div>
+            )}
+
             {/* Submit Button */}
             <div className="pt-4">
-                <button
-                  type="submit"
-                className="px-8 md:px-12 py-3 md:py-4 border-2 border-[#b0b0b0] text-[#d0d0d0] uppercase tracking-wider font-medium hover:bg-[#b0b0b0] hover:text-[#2a2a2a] transition-all duration-200 text-sm md:text-base"
-                >
-                SENDEN
-                </button>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="px-8 md:px-12 py-3 md:py-4 border-2 border-[#b0b0b0] text-[#d0d0d0] uppercase tracking-wider font-medium hover:bg-[#b0b0b0] hover:text-[#2a2a2a] transition-all duration-200 text-sm md:text-base disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? 'WIRD GESENDET...' : 'SENDEN'}
+              </button>
             </div>
           </form>
         </div>
