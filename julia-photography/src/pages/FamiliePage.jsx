@@ -120,12 +120,12 @@ const FamiliePage = () => {
     });
   };
 
-  // Gallery Images - from Familien folder
+  // Gallery Images - from Familien folder - use .webp optimized versions
   const familienFilenames = [
-    '1-1.jpg', '1-2.jpg', '1-3.jpg', '1-4.jpg', '1-5.jpg',
-    '2-1.jpg', '2-2.jpg', '2-3.jpg', '2-4.jpg', '2-5.jpg',
-    '3-1.jpg', '3-2.jpg', '3-3.jpg', '3-4.jpg',
-    '4-1.jpg', '4-2.jpg', '4-3.jpg', '4-4.jpg',
+    '1-1.jpg.webp', '1-2.jpg.webp', '1-3.jpg.webp', '1-4.jpg.webp', '1-5.jpg.webp',
+    '2-1.jpg.webp', '2-2.jpg.webp', '2-3.jpg.webp', '2-4.jpg.webp', '2-5.jpg.webp',
+    '3-1.jpg.webp', '3-2.jpg.webp', '3-3.jpg.webp', '3-4.jpg.webp',
+    '4-1.jpg.webp', '4-2.jpg.webp', '4-3.jpg.webp', '4-4.jpg.webp',
   ];
 
   const galleryImages = sortByFilename(

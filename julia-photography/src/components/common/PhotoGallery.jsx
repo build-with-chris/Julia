@@ -85,6 +85,8 @@ const PhotoGallery = ({
                 src={image.src}
                 alt={image.alt || `Gallery image ${index + 1}`}
                 loading={isPriority ? 'eager' : 'lazy'}
+                decoding="async"
+                fetchpriority={isPriority ? 'high' : 'auto'}
                 className={`w-full h-full object-cover transition-transform duration-500 ${
                   enableLightbox ? 'cursor-pointer group-hover:scale-105' : ''
                 }`}

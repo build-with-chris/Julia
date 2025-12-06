@@ -97,6 +97,8 @@ const Gallery25 = ({ images = [], enableLightbox = false }) => {
                 src={imageSrc}
                 alt={imageAlt}
                 loading={image.priority ? 'eager' : 'lazy'}
+                decoding="async"
+                fetchpriority={image.priority ? 'high' : 'auto'}
               />
             </motion.div>
           );

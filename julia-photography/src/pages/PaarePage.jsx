@@ -121,12 +121,12 @@ const PaarePage = () => {
     });
   };
 
-  // Generate gallery images from Paare folder
+  // Generate gallery images from Paare folder - use .webp optimized versions
   const paareFilenames = [
-    '1-1.jpg', '1-2.jpg', '1-3.JPG', '1-4.jpg', '1-5.jpg', '1-6.jpg', '1-7.jpg',
-    '2-1.jpg', '2-2.jpg', '2-3.jpg', '2-4.jpg', '2-5 + dieses bild als Paarshooting Bild auf die Landiungpage.JPG', '2-6.jpg', '2-7.JPG',
-    '3-1.jpg', '3-2.jpg', '3-3.jpg', '3-4.jpg', '3-5.jpg', '3-6.jpg', '3-7.jpg',
-    '4-1.jpg', '4-2.jpg', '4-3.jpg', '4-4.jpg', '4-5.jpg', '4-6.JPG', '4-7.JPG',
+    '1-1.jpg.webp', '1-2.jpg.webp', '1-3.JPG.webp', '1-4.jpg.webp', '1-5.jpg.webp', '1-6.jpg.webp', '1-7.jpg.webp',
+    '2-1.jpg.webp', '2-2.jpg.webp', '2-3.jpg.webp', '2-4.jpg.webp', '2-5 + dieses bild als Paarshooting Bild auf die Landiungpage.JPG.webp', '2-6.jpg.webp', '2-7.JPG.webp',
+    '3-1.jpg.webp', '3-2.jpg.webp', '3-3.jpg.webp', '3-4.jpg.webp', '3-5.jpg.webp', '3-6.jpg.webp', '3-7.jpg.webp',
+    '4-1.jpg.webp', '4-2.jpg.webp', '4-3.jpg.webp', '4-4.jpg.webp', '4-5.jpg.webp', '4-6.JPG.webp', '4-7.JPG.webp',
   ];
 
   const galleryImages = sortByFilename(
