@@ -3,6 +3,7 @@ import Layout from '../components/layout/Layout';
 import { Hero234 } from '../components/hero234';
 import SEO from '../components/common/SEO';
 import useContactForm from '../hooks/useContactForm';
+import VoiceMemos from '../components/sections/VoiceMemos';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -62,9 +63,10 @@ const Home = () => {
                   {/* Bild mit Hover-Effekt */}
                   <div className="absolute inset-0">
                     <img
-                      src="/Lp_Paar.webp"
+                      src="/LP_Paar.JPG"
                       alt="Paarshooting"
                       className="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105 group-hover:brightness-90 group-active:scale-105 group-active:brightness-90"
+                      style={{ objectPosition: 'center top' }}
                     />
                   </div>
                   
@@ -230,6 +232,9 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Voice Memos Section */}
+      <VoiceMemos />
 
       {/* Kontakt Section - Graustufen, breit, ohne Box */}
       <section id="kontakt" className="pt-16 md:pt-24 lg:pt-32 pb-16 md:pb-24 bg-[#2a2a2a]">

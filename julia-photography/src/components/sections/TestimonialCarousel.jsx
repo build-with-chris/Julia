@@ -1,26 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { testimonialsData } from '../../data/testimonialsData';
 
 const TestimonialCarousel = ({ testimonials = testimonialsData }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [itemsPerView, setItemsPerView] = useState(1);
-
-  // Responsive items per view
-  useEffect(() => {
-    const updateItemsPerView = () => {
-      if (window.innerWidth >= 1024) {
-        setItemsPerView(3);
-      } else if (window.innerWidth >= 768) {
-        setItemsPerView(2);
-      } else {
-        setItemsPerView(1);
-      }
-    };
-
-    updateItemsPerView();
-    window.addEventListener('resize', updateItemsPerView);
-    return () => window.removeEventListener('resize', updateItemsPerView);
-  }, []);
+  // Always show only one card at a time
+  const itemsPerView = 1;
 
   const maxIndex = Math.max(0, testimonials.length - itemsPerView);
 
@@ -57,46 +41,34 @@ const TestimonialCarousel = ({ testimonials = testimonialsData }) => {
             <div
               className="flex transition-transform duration-500 ease-out"
               style={{ 
-                transform: `translateX(-${currentIndex * (100 / itemsPerView)}%)`,
+                transform: `translateX(-${currentIndex * 100}%)`,
               }}
             >
               {testimonials.map((testimonial, index) => {
-                const itemWidth = 100 / itemsPerView;
-                
                 return (
                   <div
                     key={testimonial.id}
-                    className="flex-shrink-0 px-2 md:px-3"
-                    style={{ width: `${itemWidth}%` }}
+                    className="flex-shrink-0 w-full flex justify-center px-4"
                   >
-                    <div className="bg-offwhite h-full overflow-hidden border border-border-soft/50 rounded-lg shadow-sm">
-                      <div className="flex h-full flex-col">
-                        {/* Image Placeholder - kleiner */}
-                        <div className="h-[120px] md:h-[160px] lg:h-[180px] bg-gradient-to-br from-warm-accent/20 to-warm-accent/10 flex items-center justify-center">
-                          <div className="text-center">
-                            <div className="w-12 h-12 md:w-16 md:h-16 mx-auto rounded-full bg-warm-accent/30 flex items-center justify-center">
-                              <svg className="w-6 h-6 md:w-8 md:h-8 text-warm-accent" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                              </svg>
-                            </div>
+                    <div className="w-2/3 max-w-3xl mx-auto">
+                      {/* Quote Section - 2/3 of card (top) */}
+                      <div className="mb-6 md:mb-8">
+                        <blockquote className="text-anthracite text-lg md:text-xl lg:text-2xl leading-relaxed font-light italic">
+                          "{testimonial.quote}"
+                        </blockquote>
+                      </div>
+                      
+                      {/* Author Info Section - 1/3 of card (bottom) */}
+                      <div className="pt-4 border-t border-border-soft/30">
+                        <div className="space-y-1">
+                          <div className="text-sm md:text-base font-semibold text-anthracite">
+                            {testimonial.author}
                           </div>
-                        </div>
-                        
-                        {/* Content - kompakter */}
-                        <div className="flex flex-1 flex-col justify-between gap-4 p-4 md:p-5 bg-white">
-                          <blockquote className="text-anthracite text-sm md:text-base font-medium leading-relaxed line-clamp-4">
-                            "{testimonial.quote}"
-                          </blockquote>
-                          <div className="space-y-0.5 pt-2 border-t border-border-soft/30">
-                            <div className="text-xs md:text-sm font-semibold text-anthracite">
-                              {testimonial.author}
+                          {testimonial.location && (
+                            <div className="text-anthracite/70 text-xs md:text-sm">
+                              {testimonial.location}
                             </div>
-                            {testimonial.location && (
-                              <div className="text-anthracite/65 text-xs">
-                                {testimonial.location}
-                              </div>
-                            )}
-                          </div>
+                          )}
                         </div>
                       </div>
                     </div>

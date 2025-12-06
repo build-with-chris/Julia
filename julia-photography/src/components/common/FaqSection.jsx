@@ -9,7 +9,7 @@ const FaqItem = ({ question, answer, isOpen, onToggle }) => {
         className="w-full py-5 md:py-6 flex items-center justify-between gap-4 text-left hover:text-warm-accent transition-colors duration-200"
         aria-expanded={isOpen}
       >
-        <h3 className="text-lg md:text-xl font-semibold text-anthracite pr-4">
+        <h3 className="text-lg md:text-xl font-normal text-anthracite pr-4">
           {question}
         </h3>
         <svg
