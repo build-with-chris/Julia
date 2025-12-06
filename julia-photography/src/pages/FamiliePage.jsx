@@ -85,90 +85,61 @@ const FamiliePage = () => {
     },
   ];
 
-  // Gallery Images
-  const galleryImages = [
-    {
-      id: 1,
-      src: '/Gallery_Family/Ucci-2.webp',
-      alt: 'Familienmoment',
-      orientation: 'portrait',
-      priority: true,
-    },
-    {
-      id: 2,
-      src: '/Gallery_Family/Ucci-6.webp',
-      alt: 'Glückliche Familie',
-      orientation: 'landscape',
-      priority: true,
-    },
-    {
-      id: 3,
-      src: '/Gallery_Family/Ucci-8.webp',
-      alt: 'Familie in der Natur',
-      orientation: 'portrait',
-      priority: true,
-    },
-    {
-      id: 4,
-      src: '/Gallery_Family/Ucci-12.webp',
-      alt: 'Zusammenhalt',
-      orientation: 'landscape',
-    },
-    {
-      id: 5,
-      src: '/Gallery_Family/Ucci-14.webp',
-      alt: 'Familienliebe',
-      orientation: 'portrait',
-    },
-    {
-      id: 6,
-      src: '/Gallery_Family/Ucci-21.webp',
-      alt: 'Natürliche Familienmomente',
-      orientation: 'landscape',
-    },
-    {
-      id: 7,
-      src: '/Gallery_Family/untitled-2.webp',
-      alt: 'Familienportrait',
-      orientation: 'portrait',
-    },
-    {
-      id: 8,
-      src: '/Gallery_Family/untitled-3.webp',
-      alt: 'Familienzeit',
-      orientation: 'landscape',
-    },
-    {
-      id: 9,
-      src: '/Gallery_Family/untitled-5-3.webp',
-      alt: 'Familienmoment',
-      orientation: 'portrait',
-    },
-    {
-      id: 10,
-      src: '/Gallery_Family/untitled-14-2.webp',
-      alt: 'Glückliche Familie',
-      orientation: 'landscape',
-    },
-    {
-      id: 11,
-      src: '/Gallery_Family/untitled-30-2.webp',
-      alt: 'Familienliebe',
-      orientation: 'portrait',
-    },
-    {
-      id: 12,
-      src: '/Gallery_Family/untitled-33-2.webp',
-      alt: 'Zusammenhalt',
-      orientation: 'landscape',
-    },
-    {
-      id: 13,
-      src: '/Gallery_Family/untitled-36-2.webp',
-      alt: 'Natürliche Familienmomente',
-      orientation: 'portrait',
-    },
+  // Sort function to order images by column (first number) then row (second number)
+  const sortByFilename = (images) => {
+    return images.sort((a, b) => {
+      const getFilename = (src) => {
+        const parts = src.split('/');
+        return parts[parts.length - 1];
+      };
+      
+      const filenameA = getFilename(a.src);
+      const filenameB = getFilename(b.src);
+      
+      // Extract column and row numbers from filename (format: "spalte-zeile.jpg")
+      const parseFilename = (filename) => {
+        const nameWithoutExt = filename.replace(/\.(jpg|jpeg|JPG|JPEG|webp|WEBP)$/i, '');
+        const match = nameWithoutExt.match(/^(\d+)-(\d+)/);
+        if (match) {
+          return {
+            column: parseInt(match[1], 10),
+            row: parseInt(match[2], 10),
+          };
+        }
+        return { column: 999, row: 999 };
+      };
+      
+      const { column: colA, row: rowA } = parseFilename(filenameA);
+      const { column: colB, row: rowB } = parseFilename(filenameB);
+      
+      // Sort: first by column, then by row
+      if (colA !== colB) {
+        return colA - colB;
+      }
+      return rowA - rowB;
+    });
+  };
+
+  // Gallery Images - from Familien folder
+  const familienFilenames = [
+    '1-1.jpg', '1-2.jpg', '1-3.jpg', '1-4.jpg', '1-5.jpg',
+    '2-1.jpg', '2-2.jpg', '2-3.jpg', '2-4.jpg', '2-5.jpg',
+    '3-1.jpg', '3-2.jpg', '3-3.jpg', '3-4.jpg',
+    '4-1.jpg', '4-2.jpg', '4-3.jpg', '4-4.jpg',
   ];
+
+  const galleryImages = sortByFilename(
+    familienFilenames.map((filename, index) => {
+      const src = `/Familien/${filename}`;
+      return {
+        id: index + 1,
+        src,
+        alt: `Familienmoment ${index + 1}`,
+        orientation: 'portrait',
+        priority: index < 4,
+      };
+    })
+  );
 
   const handlePackageClick = () => {
     // Navigate to contact page

@@ -85,187 +85,62 @@ const PaarePage = () => {
     },
   ];
 
-  // Gallery Images
-  const galleryImages = [
-    {
-      id: 1,
-      src: '/Paarshooting(1)/A7_07644.webp',
-      alt: 'Paarshooting',
-      priority: true,
-    },
-    {
-      id: 2,
-      src: '/Paarshooting(1)/A7_07688-2.webp',
-      alt: 'Romantischer Moment',
-      priority: true,
-    },
-    {
-      id: 3,
-      src: '/Paarshooting(1)/A7_07862.webp',
-      alt: 'Verliebtes Paar',
-      priority: true,
-    },
-    {
-      id: 4,
-      src: '/Paarshooting(1)/Adrian und Iarina-3.webp',
-      alt: 'Inniger Moment',
-    },
-    {
-      id: 5,
-      src: '/Paarshooting(1)/Adrian und Iarina.webp',
-      alt: 'Natürliches Lachen',
-    },
-    {
-      id: 6,
-      src: '/Paarshooting(1)/untitled-12.webp',
-      alt: 'Gemeinsamer Spaziergang',
-    },
-    {
-      id: 7,
-      src: '/Paarshooting(1)/untitled-17 2.webp',
-      alt: 'Zärtliche Umarmung',
-    },
-    {
-      id: 8,
-      src: '/Paarshooting(1)/untitled-17.webp',
-      alt: 'Glückliches Paar',
-    },
-    {
-      id: 9,
-      src: '/Paarshooting(1)/untitled-2 2.webp',
-      alt: 'Paarshooting',
-    },
-    {
-      id: 10,
-      src: '/Paarshooting(1)/untitled-2.webp',
-      alt: 'Romantischer Moment',
-    },
-    {
-      id: 11,
-      src: '/Paarshooting(1)/untitled-20.webp',
-      alt: 'Verliebtes Paar',
-    },
-    {
-      id: 12,
-      src: '/Paarshooting(1)/untitled-21.webp',
-      alt: 'Inniger Moment',
-    },
-    {
-      id: 13,
-      src: '/Paarshooting(1)/untitled-22.webp',
-      alt: 'Natürliches Lachen',
-    },
-    {
-      id: 14,
-      src: '/Paarshooting(1)/untitled-23.webp',
-      alt: 'Gemeinsamer Spaziergang',
-    },
-    {
-      id: 15,
-      src: '/Paarshooting(1)/untitled-25.webp',
-      alt: 'Zärtliche Umarmung',
-    },
-    {
-      id: 16,
-      src: '/Paarshooting(1)/untitled-26.webp',
-      alt: 'Glückliches Paar',
-    },
-    {
-      id: 17,
-      src: '/Paarshooting(1)/untitled-31.webp',
-      alt: 'Paarshooting',
-    },
-    {
-      id: 18,
-      src: '/Paarshooting(1)/untitled-34.webp',
-      alt: 'Romantischer Moment',
-    },
-    {
-      id: 19,
-      src: '/Paarshooting(1)/untitled-36.webp',
-      alt: 'Verliebtes Paar',
-    },
-    {
-      id: 20,
-      src: '/Paarshooting(1)/untitled-38 2.webp',
-      alt: 'Inniger Moment',
-    },
-    {
-      id: 21,
-      src: '/Paarshooting(1)/untitled-38.webp',
-      alt: 'Natürliches Lachen',
-    },
-    {
-      id: 22,
-      src: '/Paarshooting(1)/untitled-41.webp',
-      alt: 'Gemeinsamer Spaziergang',
-    },
-    {
-      id: 23,
-      src: '/Paarshooting(1)/untitled-49-2.webp',
-      alt: 'Zärtliche Umarmung',
-    },
-    {
-      id: 24,
-      src: '/Paarshooting(1)/untitled-5 2.webp',
-      alt: 'Glückliches Paar',
-    },
-    {
-      id: 25,
-      src: '/Paarshooting(1)/untitled-5.webp',
-      alt: 'Paarshooting',
-    },
-    {
-      id: 26,
-      src: '/Paarshooting(1)/untitled-52.webp',
-      alt: 'Romantischer Moment',
-    },
-    {
-      id: 27,
-      src: '/Paarshooting(1)/untitled-57.webp',
-      alt: 'Verliebtes Paar',
-    },
-    {
-      id: 28,
-      src: '/Paarshooting(1)/untitled-64.webp',
-      alt: 'Inniger Moment',
-    },
-    {
-      id: 29,
-      src: '/Paarshooting(1)/untitled-67.webp',
-      alt: 'Natürliches Lachen',
-    },
-    {
-      id: 30,
-      src: '/Paarshooting(1)/untitled-68.webp',
-      alt: 'Gemeinsamer Spaziergang',
-    },
-    {
-      id: 31,
-      src: '/Paarshooting(1)/untitled-7.webp',
-      alt: 'Zärtliche Umarmung',
-    },
-    {
-      id: 32,
-      src: '/Paarshooting(1)/untitled-74.webp',
-      alt: 'Glückliches Paar',
-    },
-    {
-      id: 33,
-      src: '/Paarshooting(1)/untitled-81.webp',
-      alt: 'Paarshooting',
-    },
-    {
-      id: 34,
-      src: '/Paarshooting(1)/untitled-85-2.webp',
-      alt: 'Romantischer Moment',
-    },
-    {
-      id: 35,
-      src: '/Paarshooting(1)/untitled-90.webp',
-      alt: 'Verliebtes Paar',
-    },
+  // Gallery Images - sorted by filename pattern (spalte-zeile)
+  // Sort function to order images by column (first number) then row (second number)
+  const sortByFilename = (images) => {
+    return images.sort((a, b) => {
+      const getFilename = (src) => {
+        const parts = src.split('/');
+        return parts[parts.length - 1];
+      };
+      
+      const filenameA = getFilename(a.src);
+      const filenameB = getFilename(b.src);
+      
+      // Extract column and row numbers from filename (format: "spalte-zeile.jpg")
+      const parseFilename = (filename) => {
+        const nameWithoutExt = filename.replace(/\.(jpg|jpeg|JPG|JPEG|webp|WEBP)$/i, '');
+        const match = nameWithoutExt.match(/^(\d+)-(\d+)/);
+        if (match) {
+          return {
+            column: parseInt(match[1], 10),
+            row: parseInt(match[2], 10),
+          };
+        }
+        return { column: 999, row: 999 };
+      };
+      
+      const { column: colA, row: rowA } = parseFilename(filenameA);
+      const { column: colB, row: rowB } = parseFilename(filenameB);
+      
+      // Sort: first by column, then by row
+      if (colA !== colB) {
+        return colA - colB;
+      }
+      return rowA - rowB;
+    });
+  };
+
+  // Generate gallery images from Paare folder
+  const paareFilenames = [
+    '1-1.jpg', '1-2.jpg', '1-3.JPG', '1-4.jpg', '1-5.jpg', '1-6.jpg', '1-7.jpg',
+    '2-1.jpg', '2-2.jpg', '2-3.jpg', '2-4.jpg', '2-5 + dieses bild als Paarshooting Bild auf die Landiungpage.JPG', '2-6.jpg', '2-7.JPG',
+    '3-1.jpg', '3-2.jpg', '3-3.jpg', '3-4.jpg', '3-5.jpg', '3-6.jpg', '3-7.jpg',
+    '4-1.jpg', '4-2.jpg', '4-3.jpg', '4-4.jpg', '4-5.jpg', '4-6.JPG', '4-7.JPG',
   ];
+
+  const galleryImages = sortByFilename(
+    paareFilenames.map((filename, index) => {
+      const src = `/Paare/${filename}`;
+      const alt = `Paarshooting ${index + 1}`;
+      return {
+        id: index + 1,
+        src,
+        alt,
+        priority: index < 4,
+      };
+    })
+  );
 
   const handlePackageClick = () => {
     // Navigate to contact page

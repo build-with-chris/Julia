@@ -164,152 +164,81 @@ const HochzeitenPage = () => {
     },
   ];
 
-  // Gallery Images - Zeremonie
-  const ceremonyImages = [
-    {
-      id: 10,
-      src: '/Zeremonie/Annika & Markus-182.webp',
-      alt: 'Hochzeitszeremonie',
-      priority: true,
-    },
-    {
-      id: 11,
-      src: '/Zeremonie/Annika & Markus-216.webp',
-      alt: 'Ringwechsel',
-      priority: true,
-    },
-    {
-      id: 12,
-      src: '/Zeremonie/Annika & Markus-33.webp',
-      alt: 'Emotionale Momente',
-    },
-    {
-      id: 13,
-      src: '/Zeremonie/Hochzeit Regina und Irmo-35.webp',
-      alt: 'Brautpaar',
-    },
-    {
-      id: 14,
-      src: '/Zeremonie/Martin und Melli_Kirche-20.webp',
-      alt: 'Zeremonie Details',
-    },
-    {
-      id: 15,
-      src: '/Zeremonie/Sektempfang-Restaurant.webp',
-      alt: 'Hochzeitsfeier',
-    },
-    {
-      id: 16,
-      src: '/Zeremonie/untitled-126-2.webp',
-      alt: 'Zeremonie',
-    },
-    {
-      id: 17,
-      src: '/Zeremonie/untitled-127-2.webp',
-      alt: 'Hochzeitszeremonie',
-    },
-    {
-      id: 18,
-      src: '/Zeremonie/untitled-133-2.webp',
-      alt: 'Zeremonie Moment',
-    },
-    {
-      id: 19,
-      src: '/Zeremonie/untitled-133.webp',
-      alt: 'Hochzeitszeremonie',
-    },
-    {
-      id: 20,
-      src: '/Zeremonie/HeroHochzeit.webp',
-      alt: 'Hochzeitszeremonie',
-    },
+
+  // Sort function to order images by column (first number) then row (second number)
+  const sortByFilename = (images) => {
+    return images.sort((a, b) => {
+      const getFilename = (src) => {
+        const parts = src.split('/');
+        return parts[parts.length - 1];
+      };
+      
+      const filenameA = getFilename(a.src);
+      const filenameB = getFilename(b.src);
+      
+      // Extract column and row numbers from filename (format: "spalte-zeile.jpg")
+      const parseFilename = (filename) => {
+        const nameWithoutExt = filename.replace(/\.(jpg|jpeg|JPG|JPEG|webp|WEBP)$/i, '');
+        const match = nameWithoutExt.match(/^(\d+)-(\d+)/);
+        if (match) {
+          return {
+            column: parseInt(match[1], 10),
+            row: parseInt(match[2], 10),
+          };
+        }
+        return { column: 999, row: 999 };
+      };
+      
+      const { column: colA, row: rowA } = parseFilename(filenameA);
+      const { column: colB, row: rowB } = parseFilename(filenameB);
+      
+      // Sort: first by column, then by row
+      if (colA !== colB) {
+        return colA - colB;
+      }
+      return rowA - rowB;
+    });
+  };
+
+  // Gallery Images - Paarshooting (from Hochzeiten/Paarshooting folder)
+  const paarshootingFilenames = [
+    '1-1.jpg', '1-2.jpg', '1-3.jpg', '1-4.jpg',
+    '2-1.jpg', '2-2.jpg', '2-3.jpg', '2-4.jpg',
+    '3-1.jpg', '3-2.jpg', '3-3.jpg', '3-4.jpg',
+    '4-1.jpg', '4-2.jpg', '4-3.jpg', '4-4.JPG',
   ];
 
-  // Gallery Images - Paarshooting
-  const paarshootingImages = [
-    {
-      id: 20,
-      src: '/Paarshooting/Annika & Markus-114.webp',
-      alt: 'Paarshooting',
-      priority: true,
-    },
-    {
-      id: 21,
-      src: '/Paarshooting/Annika & Markus-78.webp',
-      alt: 'Paarshooting Moment',
-      priority: true,
-    },
-    {
-      id: 22,
-      src: '/Paarshooting/Hochzeit Regina und Irmo-18.webp',
-      alt: 'Hochzeitspaar',
-    },
-    {
-      id: 23,
-      src: '/Paarshooting/Hochzeit Regina und Irmo-6 Kopie.webp',
-      alt: 'Paarshooting',
-    },
-    {
-      id: 24,
-      src: '/Paarshooting/Martin und Melli_Paarshooting-80.webp',
-      alt: 'Paarshooting',
-    },
-    {
-      id: 25,
-      src: '/Paarshooting/Paarshooting-28.webp',
-      alt: 'Hochzeitspaar',
-    },
-    {
-      id: 26,
-      src: '/Paarshooting/Paarshooting-51.webp',
-      alt: 'Paarshooting',
-    },
-    {
-      id: 27,
-      src: '/Paarshooting/Paarshooting-55.webp',
-      alt: 'Hochzeitspaar',
-    },
-    {
-      id: 28,
-      src: '/Paarshooting/Ramona und Basti Hochzeit-271.webp',
-      alt: 'Paarshooting',
-    },
-    {
-      id: 29,
-      src: '/Paarshooting/untitled-108.webp',
-      alt: 'Hochzeitspaar',
-    },
-    {
-      id: 30,
-      src: '/Paarshooting/untitled-3.webp',
-      alt: 'Paarshooting',
-    },
-    {
-      id: 31,
-      src: '/Paarshooting/untitled-4 2.webp',
-      alt: 'Hochzeitspaar',
-    },
-    {
-      id: 32,
-      src: '/Paarshooting/untitled-4.webp',
-      alt: 'Paarshooting',
-    },
-    {
-      id: 33,
-      src: '/Paarshooting/untitled-57.webp',
-      alt: 'Hochzeitspaar',
-    },
-    {
-      id: 34,
-      src: '/Paarshooting/untitled-74-2.webp',
-      alt: 'Paarshooting',
-    },
-    {
-      id: 35,
-      src: '/Paarshooting/untitled-89-2.webp',
-      alt: 'Hochzeitspaar',
-    },
+  const paarshootingImages = sortByFilename(
+    paarshootingFilenames.map((filename, index) => {
+      const src = `/Hochzeiten/Paarshooting/${filename}`;
+      return {
+        id: index + 1,
+        src,
+        alt: `Brautpaarfotos ${index + 1}`,
+        priority: index < 4,
+      };
+    })
+  );
+
+  // Gallery Images - Zeremonie (from Hochzeiten/Zeremonie folder)
+  const zeremonieFilenames = [
+    '1-1.jpg', '1-2.jpg', '1-3.jpg',
+    '2-1.jpg', '2-2.jpg', '2-3.jpg',
+    '3-1.jpg', '3-2.jpg', '3-3.jpg',
+    '4-1.jpg', '4-2.jpg',
   ];
+
+  const ceremonyImages = sortByFilename(
+    zeremonieFilenames.map((filename, index) => {
+      const src = `/Hochzeiten/Zeremonie/${filename}`;
+      return {
+        id: index + 1,
+        src,
+        alt: `Hochzeitszeremonie ${index + 1}`,
+        priority: index < 4,
+      };
+    })
+  );
 
   // Process Steps for Pagination
   const processSteps = [

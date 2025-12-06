@@ -85,48 +85,61 @@ const PortraitPage = () => {
     },
   ];
 
-  // Gallery Images
-  const galleryImages = [
-    {
-      id: 1,
-      src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Portrait im natürlichen Licht',
-      orientation: 'portrait',
-      priority: true,
-    },
-    {
-      id: 2,
-      src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Authentisches Portrait',
-      orientation: 'portrait',
-      priority: true,
-    },
-    {
-      id: 3,
-      src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Natürliches Portrait',
-      orientation: 'portrait',
-      priority: true,
-    },
-    {
-      id: 4,
-      src: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Persönliches Portrait',
-      orientation: 'portrait',
-    },
-    {
-      id: 5,
-      src: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Individuelles Portrait',
-      orientation: 'portrait',
-    },
-    {
-      id: 6,
-      src: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1887&auto=format&fit=crop',
-      alt: 'Charaktervolles Portrait',
-      orientation: 'portrait',
-    },
+  // Sort function to order images by column (first number) then row (second number)
+  const sortByFilename = (images) => {
+    return images.sort((a, b) => {
+      const getFilename = (src) => {
+        const parts = src.split('/');
+        return parts[parts.length - 1];
+      };
+      
+      const filenameA = getFilename(a.src);
+      const filenameB = getFilename(b.src);
+      
+      // Extract column and row numbers from filename (format: "spalte-zeile.jpg")
+      const parseFilename = (filename) => {
+        const nameWithoutExt = filename.replace(/\.(jpg|jpeg|JPG|JPEG|webp|WEBP)$/i, '');
+        const match = nameWithoutExt.match(/^(\d+)-(\d+)/);
+        if (match) {
+          return {
+            column: parseInt(match[1], 10),
+            row: parseInt(match[2], 10),
+          };
+        }
+        return { column: 999, row: 999 };
+      };
+      
+      const { column: colA, row: rowA } = parseFilename(filenameA);
+      const { column: colB, row: rowB } = parseFilename(filenameB);
+      
+      // Sort: first by column, then by row
+      if (colA !== colB) {
+        return colA - colB;
+      }
+      return rowA - rowB;
+    });
+  };
+
+  // Gallery Images - from Portrait folder
+  const portraitFilenames = [
+    '1-1.jpg', '1-2.jpg', '1-3.JPG', '1-4.jpg',
+    '2-1.jpg', '2-2.jpg', '2-3.jpg', '2-4.jpg',
+    '3-1.JPG', '3-2.jpg', '3-3.JPG', '3-4.jpg',
+    '4-1.JPG', '4-2.jpg', '4-3.jpg', '4-4.jpg',
   ];
+
+  const galleryImages = sortByFilename(
+    portraitFilenames.map((filename, index) => {
+      const src = `/Portrait/${filename}`;
+      return {
+        id: index + 1,
+        src,
+        alt: `Portrait ${index + 1}`,
+        orientation: 'portrait',
+        priority: index < 4,
+      };
+    })
+  );
 
   const handlePackageClick = () => {
     // Navigate to contact page
