@@ -103,3 +103,4 @@ export function getSortedGalleryImages(filenames, folderPath, subfolder = '') {
   return images;
 }
 
+

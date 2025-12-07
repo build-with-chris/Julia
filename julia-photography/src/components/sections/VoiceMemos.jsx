@@ -120,10 +120,10 @@ const VoiceMemos = () => {
             {/* Header */}
             <div className="mb-8 md:mb-12">
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-anthracite mb-4">
-                Kundenstimmen - Voice Memos
+                Echte Worte statt Werbeversprechen
               </h2>
               <p className="text-base md:text-lg text-anthracite/80 leading-relaxed max-w-2xl mb-6">
-                Sound On! Höre, was Kundinnen nach dem Shooting sagen, indem Du auf den Playbutton drückst oder stöbere in über hundert 5-Sterne-Google-Bewertungen.
+                Mach den Sound an und hör rein, was Kundinnen unmittelbar nach ihrem Shooting berichten. Authentische Stimmen, echte Emotionen – direkt per Voice Memo.
               </p>
               <button
                 onClick={() => window.open('https://www.google.com/maps/place/...', '_blank')}

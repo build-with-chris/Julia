@@ -202,10 +202,10 @@ const HochzeitenPage = () => {
 
   // Gallery Images - Paarshooting (from Hochzeiten/Paarshooting folder) - use .webp optimized versions
   const paarshootingFilenames = [
-    '1-1.jpg.webp', '1-2.jpg.webp', '1-3.jpg.webp', '1-4.jpg.webp',
-    '2-1.jpg.webp', '2-2.jpg.webp', '2-3.jpg.webp', '2-4.jpg.webp',
-    '3-1.jpg.webp', '3-2.jpg.webp', '3-3.jpg.webp', '3-4.jpg.webp',
-    '4-1.jpg.webp', '4-2.jpg.webp', '4-3.jpg.webp', '4-4.JPG.webp',
+    '1-1.webp', '1-2.webp', '1-3.webp', '1-4.webp',
+    '2-1.webp', '2-2.webp', '2-3.webp', '2-4.webp',
+    '3-1.webp', '3-2.webp', '3-3.webp', '3-4.webp',
+    '4-1.webp', '4-2.webp', '4-3.webp', '4-4.JPG.webp',
   ];
 
   const paarshootingImages = sortByFilename(
@@ -222,10 +222,10 @@ const HochzeitenPage = () => {
 
   // Gallery Images - Zeremonie (from Hochzeiten/Zeremonie folder) - use .webp optimized versions
   const zeremonieFilenames = [
-    '1-1.jpg.webp', '1-2.jpg.webp', '1-3.jpg.webp',
-    '2-1.jpg.webp', '2-2.jpg.webp', '2-3.jpg.webp',
-    '3-1.jpg.webp', '3-2.jpg.webp', '3-3.jpg.webp',
-    '4-1.jpg.webp', '4-2.jpg.webp',
+    '1-1.webp', '1-2.webp', '1-3.webp',
+    '2-1.webp', '2-2.webp', '2-3.webp',
+    '3-1.webp', '3-2.webp', '3-3.webp',
+    '4-1.webp', '4-2.webp',
   ];
 
   const ceremonyImages = sortByFilename(
