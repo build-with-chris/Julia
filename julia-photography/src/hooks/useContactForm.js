@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
-const useContactForm = () => {
+const useContactForm = (initialMessage = '') => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -10,7 +10,7 @@ const useContactForm = () => {
     inquiryType: '',
     preferredDate: '',
     location: '',
-    message: '',
+    message: initialMessage,
   });
 
   const [errors, setErrors] = useState({});
@@ -140,6 +140,19 @@ const useContactForm = () => {
     }
   };
 
+  const setMessage = useCallback((message) => {
+    setFormData((prev) => {
+      // Only update if message actually changed
+      if (prev.message === message) {
+        return prev;
+      }
+      return {
+        ...prev,
+        message,
+      };
+    });
+  }, []);
+
   return {
     formData,
     errors,
@@ -147,6 +160,7 @@ const useContactForm = () => {
     submitSuccess,
     handleChange,
     handleSubmit,
+    setMessage,
   };
 };
 

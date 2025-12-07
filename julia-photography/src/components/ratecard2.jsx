@@ -75,7 +75,7 @@ const Ratecard2 = ({
                   </h1>
                 </div>
                 <Button
-                  onClick={() => onButtonClick && onButtonClick()}
+                  onClick={() => onButtonClick && onButtonClick(plan)}
                   className={`w-full px-5 md:px-6 py-3 md:py-4 rounded-sm font-medium text-sm md:text-base transition-all duration-300 min-h-[44px] md:min-h-[48px] ${
                     plan.highlight
                       ? 'bg-warm-accent text-white hover:bg-warm-accent-dark shadow-md hover:shadow-lg'

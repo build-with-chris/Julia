@@ -1,6 +1,36 @@
+import { useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import useContactForm from "../hooks/useContactForm";
 
 const Contact19 = () => {
+  const [searchParams] = useSearchParams();
+  
+  // Generate pre-filled message based on URL parameters
+  const generatePrefilledMessage = () => {
+    const packageName = searchParams.get('package');
+    const serviceType = searchParams.get('service');
+    
+    if (!packageName || !serviceType) {
+      return '';
+    }
+    
+    // Map service types to German names
+    const serviceNames = {
+      'hochzeiten': 'Hochzeitsfotografie',
+      'paare': 'Paarshooting',
+      'portrait': 'Portraitshooting',
+      'familie': 'Familienshooting',
+    };
+    
+    const serviceName = serviceNames[serviceType.toLowerCase()] || serviceType;
+    
+    return `Hallo Julia,\n\nich interessiere mich für das "${packageName}" Package für ${serviceName}.\n\nBitte melde dich gerne bei mir, damit wir die Details besprechen können.\n\n[Weitere Details, z.B. gewünschtes Datum, Location, besondere Wünsche...]\n\nViele Grüße`;
+  };
+
+  // Extract URL parameters once
+  const packageName = searchParams.get('package');
+  const serviceType = searchParams.get('service');
+
   const {
     formData,
     errors,
@@ -8,7 +38,25 @@ const Contact19 = () => {
     submitSuccess,
     handleChange,
     handleSubmit,
-  } = useContactForm();
+    setMessage,
+  } = useContactForm(generatePrefilledMessage());
+
+  // Update message when URL parameters change
+  useEffect(() => {
+    if (packageName && serviceType) {
+      const serviceNames = {
+        'hochzeiten': 'Hochzeitsfotografie',
+        'paare': 'Paarshooting',
+        'portrait': 'Portraitshooting',
+        'familie': 'Familienshooting',
+      };
+      
+      const serviceName = serviceNames[serviceType.toLowerCase()] || serviceType;
+      const prefilledMessage = `Hallo Julia,\n\nich interessiere mich für das "${packageName}" Package für ${serviceName}.\n\nBitte melde dich gerne bei mir, damit wir die Details besprechen können.\n\n[Weitere Details, z.B. gewünschtes Datum, Location, besondere Wünsche...]\n\nViele Grüße`;
+      setMessage(prefilledMessage);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [packageName, serviceType]);
 
   return (
     <section className="min-h-[calc(90vh-64px)] md:min-h-[calc(90vh-72px)] lg:h-[calc(90vh-72px)] bg-offwhite relative overflow-hidden flex items-center py-8 md:py-12 lg:py-0">
@@ -158,8 +206,8 @@ const Contact19 = () => {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    rows="3"
-                    className={`w-full bg-offwhite border-b-2 text-anthracite placeholder-muted focus:outline-none transition-colors duration-200 pb-1.5 resize-none text-sm md:text-base ${
+                    rows="8"
+                    className={`w-full bg-offwhite border-b-2 text-anthracite placeholder-muted focus:outline-none transition-colors duration-200 pb-1.5 resize-y text-sm md:text-base min-h-[120px] ${
                       errors.message
                         ? 'border-warm-accent focus:border-warm-accent'
                         : 'border-border-soft focus:border-warm-accent'

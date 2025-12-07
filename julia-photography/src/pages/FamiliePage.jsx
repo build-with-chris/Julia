@@ -141,9 +141,13 @@ const FamiliePage = () => {
     })
   );
 
-  const handlePackageClick = () => {
-    // Navigate to contact page
-    navigate('/kontakt');
+  const handlePackageClick = (packageData) => {
+    // Navigate to contact page with package information
+    const params = new URLSearchParams({
+      package: packageData.title,
+      service: 'familie',
+    });
+    navigate(`/kontakt?${params.toString()}`);
   };
 
   // Animation variants
