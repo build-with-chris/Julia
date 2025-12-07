@@ -25,9 +25,11 @@ const ImpressumPage = () => {
                     Angaben gemäß § 5 TMG
                   </h2>
                   <div className="text-anthracite/90 space-y-2">
-                    <p className="font-semibold">Julia Mayr Fotografie</p>
-                    <p>Brucker Straße 6a</p>
-                    <p>82281 Egenhofen</p>
+                    <p className="font-semibold">Julia Mayr</p>
+                    <p>Einzelunternehmen</p>
+                    <p>Kiebitzweg 12a</p>
+                    <p>85464 Finsing</p>
+                    <p>Deutschland</p>
                   </div>
                 </div>
 
@@ -59,20 +61,6 @@ const ImpressumPage = () => {
                   </p>
                 </div>
 
-                {/* Quelle */}
-                <div className="pt-8 border-t border-border-soft">
-                  <p className="text-sm text-anthracite/90">
-                    Quelle:{' '}
-                    <a
-                      href="https://www.e-recht24.de/impressum-generator.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-warm-accent hover:text-warm-accent-dark transition-colors"
-                    >
-                      https://www.e-recht24.de/impressum-generator.html
-                    </a>
-                  </p>
-                </div>
               </div>
             </div>
           </div>
@@ -83,4 +71,3 @@ const ImpressumPage = () => {
 };
 
 export default ImpressumPage;
-

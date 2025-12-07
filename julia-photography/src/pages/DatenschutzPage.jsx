@@ -11,233 +11,358 @@ const DatenschutzPage = () => {
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-anthracite mb-4">
                 Datenschutzerklärung
               </h1>
-              <p className="text-lg md:text-xl text-anthracite/80">
-                Ihre Privatsphäre ist uns wichtig
-              </p>
             </div>
           </div>
           <div className="container-custom">
             <div className="max-w-4xl mx-auto prose prose-lg max-w-none">
               <div className="bg-white p-8 md:p-10 rounded-lg shadow-sm space-y-8">
-                {/* 1. Datenschutz auf einen Blick */}
+                
+                {/* 1. Verantwortliche Stelle */}
                 <div>
                   <h2 className="text-2xl md:text-3xl font-bold text-anthracite mb-4">
-                    1. Datenschutz auf einen Blick
-                  </h2>
-                  
-                  <h3 className="text-xl md:text-2xl font-semibold text-anthracite mb-3 mt-6">
-                    Allgemeine Hinweise
-                  </h3>
-                  <p className="text-anthracite/90">
-                    Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten Datenschutzerklärung.
-                  </p>
-
-                  <h3 className="text-xl md:text-2xl font-semibold text-anthracite mb-3 mt-6">
-                    Datenerfassung auf dieser Website
-                  </h3>
-
-                  <h4 className="text-lg md:text-xl font-semibold text-anthracite mb-2 mt-4">
-                    Wer ist verantwortlich für die Datenerfassung auf dieser Website?
-                  </h4>
-                  <p className="text-anthracite/90">
-                    Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Abschnitt „Hinweis zur Verantwortlichen Stelle" in dieser Datenschutzerklärung entnehmen.
-                  </p>
-
-                  <h4 className="text-lg md:text-xl font-semibold text-anthracite mb-2 mt-4">
-                    Wie erfassen wir Ihre Daten?
-                  </h4>
-                  <p className="text-anthracite/90">
-                    Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in ein Kontaktformular eingeben.
-                  </p>
-                  <p className="text-anthracite/90">
-                    Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.
-                  </p>
-
-                  <h4 className="text-lg md:text-xl font-semibold text-anthracite mb-2 mt-4">
-                    Wofür nutzen wir Ihre Daten?
-                  </h4>
-                  <p className="text-anthracite/90">
-                    Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.
-                  </p>
-
-                  <h4 className="text-lg md:text-xl font-semibold text-anthracite mb-2 mt-4">
-                    Welche Rechte haben Sie bezüglich Ihrer Daten?
-                  </h4>
-                  <p className="text-anthracite/90">
-                    Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.
-                  </p>
-                  <p className="text-anthracite/90">
-                    Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden.
-                  </p>
-                </div>
-
-                {/* 2. Hosting */}
-                <div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-anthracite mb-4">
-                    2. Hosting
+                    1. Verantwortliche Stelle
                   </h2>
                   <p className="text-anthracite/90 mb-4">
-                    Wir hosten unsere Website bei Wix.com Ltd., 40 Namal Tel Aviv St., Tel Aviv 6350671, Israel (nachfolgend „WIX").
+                    Verantwortliche im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:
                   </p>
-                  <p className="text-anthracite/90 mb-4">
-                    WIX ein Tool zum Erstellen und zum Hosten von Webseiten. Wenn Sie unsere Website besuchen, werden mit Hilfe von WIX das Nutzerverhalten, die Besucherquellen, die Region der Websitebesucher und die Besucherzahlen analysiert. WIX speichert Cookies auf Ihrem Browser, die für die Darstellung der Website und zur Gewährleistung der Sicherheit erforderlich sind (notwendige Cookies).
-                  </p>
-                  <p className="text-anthracite/90 mb-4">
-                    Die Daten werden auf den Servern von WIX in Israel gespeichert. Israel gilt als datenschutzrechtlich sicherer Drittstaat. Das bedeutet, dass Israel ein Datenschutzniveau aufweist, das dem Datenschutzniveau in der Europäischen Union entspricht.
-                  </p>
-                  <p className="text-anthracite/90 mb-4">
-                    Details entnehmen Sie der Datenschutzerklärung von WIX:{' '}
-                    <a
-                      href="https://de.wix.com/about/privacy"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-warm-accent hover:text-warm-accent-dark transition-colors"
-                    >
-                      https://de.wix.com/about/privacy
-                    </a>
-                  </p>
-                  <p className="text-anthracite/90">
-                    Die Verwendung von WIX erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Wir haben ein berechtigtes Interesse an einer möglichst zuverlässigen Darstellung unserer Website. Sofern eine entsprechende Einwilligung abgefragt wurde, erfolgt die Verarbeitung ausschließlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TTDSG, soweit die Einwilligung die Speicherung von Cookies oder den Zugriff auf Informationen im Endgerät des Nutzers (z. B. Device-Fingerprinting) im Sinne des TTDSG umfasst. Die Einwilligung ist jederzeit widerrufbar.
-                  </p>
-                </div>
-
-                {/* 3. Allgemeine Hinweise */}
-                <div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-anthracite mb-4">
-                    3. Allgemeine Hinweise und Pflichtinformationen
-                  </h2>
-                  
-                  <h3 className="text-xl md:text-2xl font-semibold text-anthracite mb-3 mt-6">
-                    Datenschutz
-                  </h3>
-                  <p className="text-anthracite/90">
-                    Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.
-                  </p>
-                  <p className="text-anthracite/90">
-                    Wenn Sie diese Website benutzen, werden verschiedene personenbezogene Daten erhoben. Personenbezogene Daten sind Daten, mit denen Sie persönlich identifiziert werden können. Die vorliegende Datenschutzerklärung erläutert, welche Daten wir erheben und wofür wir sie nutzen. Sie erläutert auch, wie und zu welchem Zweck das geschieht.
-                  </p>
-                  <p className="text-anthracite/90">
-                    Wir weisen darauf hin, dass die Datenübertragung im Internet (z. B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.
-                  </p>
-
-                  <h3 className="text-xl md:text-2xl font-semibold text-anthracite mb-3 mt-6">
-                    Hinweis zur verantwortlichen Stelle
-                  </h3>
-                  <div className="text-anthracite/90 space-y-2 mb-4">
-                    <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
-                    <div className="pl-4">
-                      <p className="font-semibold">Julia Mayr</p>
-                      <p>Brucker Straße 6a</p>
-                      <p>82281 Egenhofen</p>
-                      <p>Telefon: +49 172 7816052</p>
-                      <p>
-                        E-Mail:{' '}
-                        <a
-                          href="mailto:juliamayr.photo@gmail.com"
-                          className="text-warm-accent hover:text-warm-accent-dark transition-colors"
-                        >
-                          juliamayr.photo@gmail.com
-                        </a>
-                      </p>
-                    </div>
+                  <div className="text-anthracite/90 space-y-2 pl-4">
+                    <p className="font-semibold">Julia Mayr</p>
+                    <p>Einzelunternehmen</p>
+                    <p>Kiebitzweg 12a</p>
+                    <p>85464 Finsing</p>
+                    <p>Deutschland</p>
+                    <p>
+                      E-Mail:{' '}
+                      <a
+                        href="mailto:juliamayr.photo@gmail.com"
+                        className="text-warm-accent hover:text-warm-accent-dark transition-colors"
+                      >
+                        juliamayr.photo@gmail.com
+                      </a>
+                    </p>
                   </div>
+                </div>
+
+                {/* 2. Allgemeine Hinweise zur Datenverarbeitung */}
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-anthracite mb-4">
+                    2. Allgemeine Hinweise zur Datenverarbeitung
+                  </h2>
+                  
+                  <h3 className="text-xl md:text-2xl font-semibold text-anthracite mb-3 mt-6">
+                    2.1 Umfang der Verarbeitung
+                  </h3>
                   <p className="text-anthracite/90">
-                    Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.
+                    Personenbezogene Daten werden nur verarbeitet, soweit dies zur Bereitstellung einer funktionsfähigen Website sowie zur Bearbeitung von Anfragen und zur Durchführung vorvertraglicher bzw. vertraglicher Maßnahmen erforderlich ist.
                   </p>
 
                   <h3 className="text-xl md:text-2xl font-semibold text-anthracite mb-3 mt-6">
-                    Speicherdauer
+                    2.2 Rechtsgrundlagen
                   </h3>
-                  <p className="text-anthracite/90">
-                    Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt. Wenn Sie ein berechtigtes Löschersuchen geltend machen oder eine Einwilligung zur Datenverarbeitung widerrufen, werden Ihre Daten gelöscht, sofern wir keine anderen rechtlich zulässigen Gründe für die Speicherung Ihrer personenbezogenen Daten haben (z. B. steuer- oder handelsrechtliche Aufbewahrungsfristen); im letztgenannten Fall erfolgt die Löschung nach Fortfall dieser Gründe.
-                  </p>
-
-                  <h3 className="text-xl md:text-2xl font-semibold text-anthracite mb-3 mt-6">
-                    Allgemeine Hinweise zu den Rechtsgrundlagen der Datenverarbeitung auf dieser Website
-                  </h3>
-                  <p className="text-anthracite/90">
-                    Sofern Sie in die Datenverarbeitung eingewilligt haben, verarbeiten wir Ihre personenbezogenen Daten auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO bzw. Art. 9 Abs. 2 lit. a DSGVO, sofern besondere Datenkategorien nach Art. 9 Abs. 1 DSGVO verarbeitet werden. Im Falle einer ausdrücklichen Einwilligung in die Übertragung personenbezogener Daten in Drittstaaten erfolgt die Datenverarbeitung außerdem auf Grundlage von Art. 49 Abs. 1 lit. a DSGVO. Sofern Sie in die Speicherung von Cookies oder in den Zugriff auf Informationen in Ihr Endgerät (z. B. via Device-Fingerprinting) eingewilligt haben, erfolgt die Datenverarbeitung zusätzlich auf Grundlage von § 25 Abs. 1 TTDSG. Die Einwilligung ist jederzeit widerrufbar. Sind Ihre Daten zur Vertragserfüllung oder zur Durchführung vorvertraglicher Maßnahmen erforderlich, verarbeiten wir Ihre Daten auf Grundlage des Art. 6 Abs. 1 lit. b DSGVO. Des Weiteren verarbeiten wir Ihre Daten, sofern diese zur Erfüllung einer rechtlichen Verpflichtung erforderlich sind auf Grundlage von Art. 6 Abs. 1 lit. c DSGVO. Die Datenverarbeitung kann ferner auf Grundlage unseres berechtigten Interesses nach Art. 6 Abs. 1 lit. f DSGVO erfolgen. Über die jeweils im Einzelfall einschlägigen Rechtsgrundlagen wird in den folgenden Absätzen dieser Datenschutzerklärung informiert.
-                  </p>
-
-                  <h3 className="text-xl md:text-2xl font-semibold text-anthracite mb-3 mt-6">
-                    Widerruf Ihrer Einwilligung zur Datenverarbeitung
-                  </h3>
-                  <p className="text-anthracite/90">
-                    Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen Einwilligung möglich. Sie können eine bereits erteilte Einwilligung jederzeit widerrufen. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.
-                  </p>
-
-                  <h3 className="text-xl md:text-2xl font-semibold text-anthracite mb-3 mt-6">
-                    Widerspruchsrecht gegen die Datenerhebung in besonderen Fällen sowie gegen Direktwerbung (Art. 21 DSGVO)
-                  </h3>
-                  <p className="text-anthracite/90">
-                    WENN DIE DATENVERARBEITUNG AUF GRUNDLAGE VON ART. 6 ABS. 1 LIT. E ODER F DSGVO ERFOLGT, HABEN SIE JEDERZEIT DAS RECHT, AUS GRÜNDEN, DIE SICH AUS IHRER BESONDEREN SITUATION ERGEBEN, GEGEN DIE VERARBEITUNG IHRER PERSONENBEZOGENEN DATEN WIDERSPRUCH EINZULEGEN; DIES GILT AUCH FÜR EIN AUF DIESE BESTIMMUNGEN GESTÜTZTES PROFILING. DIE JEWEILIGE RECHTSGRUNDLAGE, AUF DENEN EINE VERARBEITUNG BERUHT, ENTNEHMEN SIE DIESER DATENSCHUTZERKLÄRUNG. WENN SIE WIDERSPRUCH EINLEGEN, WERDEN WIR IHRE BETROFFENEN PERSONENBEZOGENEN DATEN NICHT MEHR VERARBEITEN, ES SEI DENN, WIR KÖNNEN ZWINGENDE SCHUTZWÜRDIGE GRÜNDE FÜR DIE VERARBEITUNG NACHWEISEN, DIE IHRE INTERESSEN, RECHTE UND FREIHEITEN ÜBERWIEGEN ODER DIE VERARBEITUNG DIENT DER GELTENDMACHUNG, AUSÜBUNG ODER VERTEIDIGUNG VON RECHTSANSPRÜCHEN (WIDERSPRUCH NACH ART. 21 ABS. 1 DSGVO).
-                  </p>
-                  <p className="text-anthracite/90">
-                    WERDEN IHRE PERSONENBEZOGENEN DATEN VERARBEITET, UM DIREKTWERBUNG ZU BETREIBEN, SO HABEN SIE DAS RECHT, JEDERZEIT WIDERSPRUCH GEGEN DIE VERARBEITUNG SIE BETREFFENDER PERSONENBEZOGENER DATEN ZUM ZWECKE DERARTIGER WERBUNG EINZULEGEN; DIES GILT AUCH FÜR DAS PROFILING, SOWEIT ES MIT SOLCHER DIREKTWERBUNG IN VERBINDUNG STEHT. WENN SIE WIDERSPRECHEN, WERDEN IHRE PERSONENBEZOGENEN DATEN ANSCHLIESSEND NICHT MEHR ZUM ZWECKE DER DIREKTWERBUNG VERWENDET (WIDERSPRUCH NACH ART. 21 ABS. 2 DSGVO).
-                  </p>
-
-                  <h3 className="text-xl md:text-2xl font-semibold text-anthracite mb-3 mt-6">
-                    Beschwerderecht bei der zuständigen Aufsichtsbehörde
-                  </h3>
-                  <p className="text-anthracite/90">
-                    Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthalts, ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes zu. Das Beschwerderecht besteht unbeschadet anderweitiger verwaltungsrechtlicher oder gerichtlicher Rechtsbehelfe.
-                  </p>
-
-                  <h3 className="text-xl md:text-2xl font-semibold text-anthracite mb-3 mt-6">
-                    Recht auf Datenübertragbarkeit
-                  </h3>
-                  <p className="text-anthracite/90">
-                    Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags automatisiert verarbeiten, an sich oder an einen Dritten in einem gängigen, maschinenlesbaren Format aushändigen zu lassen. Sofern Sie die direkte Übertragung der Daten an einen anderen Verantwortlichen verlangen, erfolgt dies nur, soweit es technisch machbar ist.
-                  </p>
-
-                  <h3 className="text-xl md:text-2xl font-semibold text-anthracite mb-3 mt-6">
-                    SSL- bzw. TLS-Verschlüsselung
-                  </h3>
-                  <p className="text-anthracite/90">
-                    Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte, wie zum Beispiel Bestellungen oder Anfragen, die Sie an uns als Seitenbetreiber senden, eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.
-                  </p>
-                  <p className="text-anthracite/90">
-                    Wenn die SSL- bzw. TLS-Verschlüsselung aktiviert ist, können die Daten, die Sie an uns übermitteln, nicht von Dritten mitgelesen werden.
-                  </p>
-
-                  <h3 className="text-xl md:text-2xl font-semibold text-anthracite mb-3 mt-6">
-                    Auskunft, Löschung und Berichtigung
-                  </h3>
-                  <p className="text-anthracite/90">
-                    Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung und ggf. ein Recht auf Berichtigung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten können Sie sich jederzeit an uns wenden.
-                  </p>
-
-                  <h3 className="text-xl md:text-2xl font-semibold text-anthracite mb-3 mt-6">
-                    Recht auf Einschränkung der Verarbeitung
-                  </h3>
-                  <p className="text-anthracite/90">
-                    Sie haben das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Hierzu können Sie sich jederzeit an uns wenden. Das Recht auf Einschränkung der Verarbeitung besteht in folgenden Fällen:
+                  <p className="text-anthracite/90 mb-4">
+                    Soweit in dieser Datenschutzerklärung nicht ausdrücklich anders angegeben, erfolgt die Verarbeitung personenbezogener Daten auf Basis der folgenden Rechtsgrundlagen:
                   </p>
                   <ul className="text-anthracite/90 list-disc list-inside space-y-2 ml-4">
-                    <li>Wenn Sie die Richtigkeit Ihrer bei uns gespeicherten personenbezogenen Daten bestreiten, benötigen wir in der Regel Zeit, um dies zu überprüfen. Für die Dauer der Prüfung haben Sie das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</li>
-                    <li>Wenn die Verarbeitung Ihrer personenbezogenen Daten unrechtmäßig geschah/geschieht, können Sie statt der Löschung die Einschränkung der Datenverarbeitung verlangen.</li>
-                    <li>Wenn wir Ihre personenbezogenen Daten nicht mehr benötigen, Sie sie jedoch zur Ausübung, Verteidigung oder Geltendmachung von Rechtsansprüchen benötigen, haben Sie das Recht, statt der Löschung die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</li>
-                    <li>Wenn Sie einen Widerspruch nach Art. 21 Abs. 1 DSGVO eingelegt haben, muss eine Abwägung zwischen Ihren und unseren Interessen vorgenommen werden. Solange noch nicht feststeht, wessen Interessen überwiegen, haben Sie das Recht, die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen.</li>
+                    <li>Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung und vorvertragliche Maßnahmen)</li>
+                    <li>Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse, z. B. sichere und effiziente Bereitstellung der Website, Beantwortung von Anfragen)</li>
+                    <li>Art. 6 Abs. 1 lit. c DSGVO (Erfüllung gesetzlicher Pflichten)</li>
                   </ul>
                   <p className="text-anthracite/90 mt-4">
-                    Wenn Sie die Verarbeitung Ihrer personenbezogenen Daten eingeschränkt haben, dürfen diese Daten – von ihrer Speicherung abgesehen – nur mit Ihrer Einwilligung oder zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen oder zum Schutz der Rechte einer anderen natürlichen oder juristischen Person oder aus Gründen eines wichtigen öffentlichen Interesses der Europäischen Union oder eines Mitgliedstaats verarbeitet werden.
+                    Wenn im Einzelfall eine Einwilligung erforderlich ist, erfolgt die Verarbeitung zusätzlich auf Basis von Art. 6 Abs. 1 lit. a DSGVO.
+                  </p>
+
+                  <h3 className="text-xl md:text-2xl font-semibold text-anthracite mb-3 mt-6">
+                    2.3 Empfänger von Daten / Auftragsverarbeiter
+                  </h3>
+                  <p className="text-anthracite/90">
+                    Teilweise setzt die Verantwortliche Dienstleister (z. B. Hoster, E-Mail-Provider) ein, die personenbezogene Daten im Auftrag verarbeiten. Mit diesen wurden – soweit rechtlich erforderlich – Verträge zur Auftragsverarbeitung nach Art. 28 DSGVO geschlossen.
                   </p>
                 </div>
 
-                {/* Quelle */}
-                <div className="pt-8 border-t border-border-soft">
-                  <p className="text-sm text-anthracite/90">
-                    Quelle:{' '}
+                {/* 3. Hosting und Server-Logfiles */}
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-anthracite mb-4">
+                    3. Hosting und Server-Logfiles
+                  </h2>
+                  <p className="text-anthracite/90 mb-4">
+                    Diese Website wird über die Plattform des Anbieters Vercel Inc. bereitgestellt.
+                  </p>
+                  <div className="text-anthracite/90 space-y-2 pl-4 mb-4">
+                    <p className="font-semibold">Vercel Inc.</p>
+                    <p>440 N Barranca Ave #4133</p>
+                    <p>Covina, CA 91723</p>
+                    <p>USA</p>
+                  </div>
+                  <p className="text-anthracite/90 mb-4">
+                    Beim Aufruf der Website werden durch Vercel automatisch Informationen in sogenannten Server-Logfiles erfasst, die Ihr Browser automatisch übermittelt. Dies können insbesondere sein:
+                  </p>
+                  <ul className="text-anthracite/90 list-disc list-inside space-y-2 ml-4 mb-4">
+                    <li>IP-Adresse</li>
+                    <li>Datum und Uhrzeit der Anfrage</li>
+                    <li>Zeitzonendifferenz zur Greenwich Mean Time (GMT)</li>
+                    <li>Inhalt der Anforderung (konkrete Seite)</li>
+                    <li>Zugriffsstatus/HTTP-Statuscode</li>
+                    <li>jeweils übertragene Datenmenge</li>
+                    <li>Website, von der die Anforderung kommt (Referrer-URL)</li>
+                    <li>Browsertyp, inklusive Sprache und Version</li>
+                    <li>Betriebssystem</li>
+                  </ul>
+                  <p className="text-anthracite/90 mb-4">
+                    Die Verarbeitung dieser Daten erfolgt zum Zweck der sicheren und effizienten Bereitstellung der Website, zur Fehleranalyse und zur Gewährleistung der Systemsicherheit und -stabilität. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem sicheren und stabilen Betrieb der Website).
+                  </p>
+                  <p className="text-anthracite/90 mb-4">
+                    Eine Speicherung dieser Logdaten durch die Verantwortliche über die durch Vercel vorgesehenen Fristen hinaus erfolgt nicht.
+                  </p>
+                  <p className="text-anthracite/90 mb-4">
+                    Es kann nicht ausgeschlossen werden, dass Daten in die USA übertragen werden. Vercel trifft hierfür geeignete Garantien nach Art. 46 DSGVO (z. B. Standardvertragsklauseln). Weitere Informationen finden Sie in der Datenschutzerklärung von Vercel:{' '}
                     <a
-                      href="https://www.e-recht24.de"
+                      href="https://vercel.com/legal/privacy-policy"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-warm-accent hover:text-warm-accent-dark transition-colors"
                     >
-                      https://www.e-recht24.de
+                      https://vercel.com/legal/privacy-policy
                     </a>
                   </p>
                 </div>
+
+                {/* 4. Kontaktaufnahme */}
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-anthracite mb-4">
+                    4. Kontaktaufnahme
+                  </h2>
+                  
+                  <h3 className="text-xl md:text-2xl font-semibold text-anthracite mb-3 mt-6">
+                    4.1 Kontaktformular
+                  </h3>
+                  <p className="text-anthracite/90 mb-4">
+                    Auf der Website steht ein Kontaktformular zur Verfügung. Die dort abgefragten Pflichtfelder sind:
+                  </p>
+                  <ul className="text-anthracite/90 list-disc list-inside space-y-2 ml-4 mb-4">
+                    <li>Vorname*</li>
+                    <li>Nachname*</li>
+                    <li>E-Mail-Adresse*</li>
+                    <li>Nachricht*</li>
+                  </ul>
+                  <p className="text-anthracite/90 mb-4">
+                    Optional:
+                  </p>
+                  <ul className="text-anthracite/90 list-disc list-inside space-y-2 ml-4 mb-4">
+                    <li>Telefonnummer</li>
+                  </ul>
+                  <p className="text-anthracite/90 mb-4">
+                    Die über das Formular eingegebenen Daten werden per E-Mail an die Verantwortliche übermittelt und nicht auf dem Webserver dauerhaft gespeichert (außer in Logfiles, siehe oben).
+                  </p>
+                  <p className="text-anthracite/90 mb-4">
+                    <strong>Zwecke der Verarbeitung:</strong>
+                  </p>
+                  <ul className="text-anthracite/90 list-disc list-inside space-y-2 ml-4 mb-4">
+                    <li>Bearbeitung Ihrer Anfrage</li>
+                    <li>Angebotserstellung</li>
+                    <li>Vorbereitung und Durchführung von Fototerminen und Verträgen</li>
+                  </ul>
+                  <p className="text-anthracite/90 mb-4">
+                    <strong>Rechtsgrundlage:</strong>
+                  </p>
+                  <p className="text-anthracite/90">
+                    Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen / Vertragserfüllung) sowie ggf. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer effizienten Kommunikation).
+                  </p>
+
+                  <h3 className="text-xl md:text-2xl font-semibold text-anthracite mb-3 mt-6">
+                    4.2 Kontakt per E-Mail (mailto-Link)
+                  </h3>
+                  <p className="text-anthracite/90 mb-4">
+                    Wenn Sie die Verantwortliche direkt per E-Mail kontaktieren (z. B. über den im Footer angegebenen mailto-Link), werden die von Ihnen mitgeteilten Daten (z. B. Name, E-Mail-Adresse, Inhalt der Nachricht) zum Zweck der Bearbeitung der Anfrage verarbeitet.
+                  </p>
+                  <p className="text-anthracite/90 mb-4">
+                    Die E-Mails werden über den Dienst Gmail versendet und empfangen. Diensteanbieterin ist:
+                  </p>
+                  <div className="text-anthracite/90 space-y-2 pl-4 mb-4">
+                    <p className="font-semibold">Google Ireland Limited</p>
+                    <p>Gordon House, Barrow Street</p>
+                    <p>Dublin 4, D04 E5W5</p>
+                    <p>Irland</p>
+                  </div>
+                  <p className="text-anthracite/90 mb-4">
+                    Es ist möglich, dass Google Daten in Drittländer (insbesondere die USA) überträgt. Weitere Informationen zu der Datenverarbeitung durch Google finden Sie in der Datenschutzerklärung von Google:{' '}
+                    <a
+                      href="https://policies.google.com/privacy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-warm-accent hover:text-warm-accent-dark transition-colors"
+                    >
+                      https://policies.google.com/privacy
+                    </a>
+                  </p>
+                  <p className="text-anthracite/90">
+                    <strong>Rechtsgrundlage:</strong>
+                  </p>
+                  <p className="text-anthracite/90">
+                    Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung und vorvertragliche Maßnahmen) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer effizienten Kommunikation).
+                  </p>
+                </div>
+
+                {/* 5. Verwendung von Adobe Fonts */}
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-anthracite mb-4">
+                    5. Verwendung von Adobe Fonts
+                  </h2>
+                  <p className="text-anthracite/90 mb-4">
+                    Zur einheitlichen und ansprechenden Darstellung von Schriftarten werden auf dieser Website Adobe Fonts (früher „Typekit") verwendet. Dienstanbieter ist:
+                  </p>
+                  <div className="text-anthracite/90 space-y-2 pl-4 mb-4">
+                    <p className="font-semibold">Adobe Systems Software Ireland Limited</p>
+                    <p>4–6 Riverwalk</p>
+                    <p>Citywest Business Campus</p>
+                    <p>Dublin 24</p>
+                    <p>Irland</p>
+                  </div>
+                  <p className="text-anthracite/90 mb-4">
+                    Beim Aufruf der Website lädt Ihr Browser die benötigten Webfonts von den Servern von Adobe. Hierbei können u. a. folgende Daten verarbeitet werden:
+                  </p>
+                  <ul className="text-anthracite/90 list-disc list-inside space-y-2 ml-4 mb-4">
+                    <li>IP-Adresse des aufrufenden Endgerätes</li>
+                    <li>Informationen zum eingesetzten Browser und Betriebssystem</li>
+                    <li>Hostname und URL der aufrufenden Seite</li>
+                    <li>Zeitstempel der Anfrage</li>
+                  </ul>
+                  <p className="text-anthracite/90 mb-4">
+                    Adobe gibt an, dass die Fonts ohne Cookies bereitgestellt werden. Für die Bereitstellung des Dienstes kann die IP-Adresse jedoch verarbeitet werden.
+                  </p>
+                  <p className="text-anthracite/90 mb-4">
+                    Es kann nicht ausgeschlossen werden, dass in diesem Zusammenhang Daten in die USA übertragen werden. Adobe setzt hierfür datenschutzrechtliche Garantien (z. B. Standardvertragsklauseln, EU-U.S. Data Privacy Framework) ein. Weitere Informationen:{' '}
+                    <a
+                      href="https://www.adobe.com/privacy/policies/adobe-fonts.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-warm-accent hover:text-warm-accent-dark transition-colors"
+                    >
+                      https://www.adobe.com/privacy/policies/adobe-fonts.html
+                    </a>
+                  </p>
+                  <p className="text-anthracite/90">
+                    <strong>Rechtsgrundlage:</strong>
+                  </p>
+                  <p className="text-anthracite/90">
+                    Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer einheitlichen und ansprechenden Darstellung der Website).
+                  </p>
+                </div>
+
+                {/* 6. Cookies und lokale Speicherung */}
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-anthracite mb-4">
+                    6. Cookies und lokale Speicherung
+                  </h2>
+                  <p className="text-anthracite/90 mb-4">
+                    Auf der Website wird ein selbst entwickelter Cookie-Hinweis / Cookie-Banner eingesetzt.
+                  </p>
+                  <p className="text-anthracite/90 mb-4">
+                    Nach aktuellem Stand werden nur technisch notwendige Cookies bzw. vergleichbare Technologien verwendet, z. B.:
+                  </p>
+                  <ul className="text-anthracite/90 list-disc list-inside space-y-2 ml-4 mb-4">
+                    <li>zur Darstellung des Cookie-Hinweises bzw. zur Speicherung Ihrer Auswahl (Einblendung/ Ausblendung)</li>
+                  </ul>
+                  <p className="text-anthracite/90 mb-4">
+                    Soweit in Zukunft weitere, nicht technisch notwendige Dienste (z. B. Analyse- oder Marketing-Tools) ergänzt werden, ist ggf. eine vorherige Einwilligung über den Cookie-Banner erforderlich.
+                  </p>
+                  <p className="text-anthracite/90">
+                    <strong>Rechtsgrundlage für technisch notwendige Cookies:</strong>
+                  </p>
+                  <p className="text-anthracite/90">
+                    Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer technisch fehlerfreien Bereitstellung der Website) und ggf. § 25 Abs. 2 TTDSG / TDDDG.
+                  </p>
+                </div>
+
+                {/* 7. Einbindung externer Inhalte, Social Media */}
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-anthracite mb-4">
+                    7. Einbindung externer Inhalte, Social Media
+                  </h2>
+                  <ul className="text-anthracite/90 list-disc list-inside space-y-2 ml-4 mb-4">
+                    <li>Auf der Website werden derzeit keine Videos (z. B. YouTube, Vimeo), Karten (z. B. Google Maps) oder vergleichbare externe Inhalte eingebettet.</li>
+                    <li>Social-Media-Profile (z. B. Instagram) werden ausschließlich über einfache Links (Icons mit Verlinkung) eingebunden. Beim bloßen Aufruf der Website werden daher keine Daten an diese Dienste übertragen. Eine Datenverarbeitung findet erst statt, wenn Sie auf den entsprechenden Link klicken und die jeweilige Plattform in einem neuen Tab/Fenster öffnen.</li>
+                  </ul>
+                  <p className="text-anthracite/90">
+                    <strong>Rechtsgrundlage:</strong>
+                  </p>
+                  <p className="text-anthracite/90">
+                    Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer einfachen Auffindbarkeit der Social-Media-Profile).
+                  </p>
+                </div>
+
+                {/* 8. Analyse-Tools und Tracking */}
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-anthracite mb-4">
+                    8. Analyse-Tools und Tracking
+                  </h2>
+                  <p className="text-anthracite/90 mb-4">
+                    Es werden derzeit keine eigenständigen Analyse- oder Tracking-Tools wie z. B. Google Analytics, Matomo, Vercel Analytics oder vergleichbare Dienste eingesetzt.
+                  </p>
+                  <p className="text-anthracite/90">
+                    Es findet lediglich die unter Ziffer 3 beschriebene Verarbeitung von Server-Logfiles durch den Hosting-Anbieter statt.
+                  </p>
+                </div>
+
+                {/* 9. Speicherdauer */}
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-anthracite mb-4">
+                    9. Speicherdauer
+                  </h2>
+                  <ul className="text-anthracite/90 list-disc list-inside space-y-2 ml-4">
+                    <li><strong>Server-Logfiles:</strong> werden durch den Hosting-Anbieter für einen begrenzten Zeitraum gespeichert, um die Stabilität und Sicherheit der Website zu gewährleisten und danach automatisch gelöscht.</li>
+                    <li><strong>Kontaktanfragen:</strong> werden gespeichert, solange dies zur Bearbeitung der Anfrage erforderlich ist. Darüber hinaus können die Daten für die Dauer der gesetzlichen Verjährungsfristen (in der Regel bis zu 3 Jahre ab Ende des Jahres, in dem die Anfrage abschließend bearbeitet wurde) aufbewahrt werden, um rechtliche Ansprüche abzuwehren oder geltend zu machen.</li>
+                    <li>Gesetzliche Aufbewahrungsfristen (z. B. handels- und steuerrechtliche Aufbewahrungsfristen von bis zu 10 Jahren) bleiben unberührt.</li>
+                  </ul>
+                </div>
+
+                {/* 10. Ihre Rechte als betroffene Person */}
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-anthracite mb-4">
+                    10. Ihre Rechte als betroffene Person
+                  </h2>
+                  <p className="text-anthracite/90 mb-4">
+                    Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:
+                  </p>
+                  <ul className="text-anthracite/90 list-disc list-inside space-y-2 ml-4 mb-4">
+                    <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
+                    <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
+                    <li>Recht auf Löschung (Art. 17 DSGVO)</li>
+                    <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+                    <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
+                    <li>Widerspruchsrecht gegen die Verarbeitung (Art. 21 DSGVO), insbesondere gegen eine Verarbeitung auf Basis von Art. 6 Abs. 1 lit. f DSGVO</li>
+                    <li>Recht, eine erteilte Einwilligung jederzeit mit Wirkung für die Zukunft zu widerrufen (Art. 7 Abs. 3 DSGVO)</li>
+                  </ul>
+                  <p className="text-anthracite/90 mb-4">
+                    Zur Ausübung Ihrer Rechte können Sie sich jederzeit an die oben genannte verantwortliche Stelle wenden.
+                  </p>
+                  <p className="text-anthracite/90">
+                    Sie haben außerdem das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren, wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogenen Daten gegen die DSGVO verstößt (Art. 77 DSGVO). Zuständig ist insbesondere die Aufsichtsbehörde Ihres üblichen Aufenthaltsortes, Ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes.
+                  </p>
+                </div>
+
+                {/* 11. Pflicht zur Bereitstellung von Daten */}
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-anthracite mb-4">
+                    11. Pflicht zur Bereitstellung von Daten
+                  </h2>
+                  <p className="text-anthracite/90 mb-4">
+                    Die Bereitstellung personenbezogener Daten ist weder gesetzlich noch vertraglich vorgeschrieben. Für die Nutzung der Website ohne Kontaktaufnahme ist keine Angabe personenbezogener Daten erforderlich.
+                  </p>
+                  <p className="text-anthracite/90">
+                    Wenn Sie das Kontaktformular nutzen oder per E-Mail Kontakt aufnehmen, sind bestimmte Angaben (insbesondere Name, E-Mail-Adresse, Nachricht) erforderlich, um Ihre Anfrage sinnvoll bearbeiten zu können. Ohne diese Angaben ist eine Beantwortung in der Regel nicht möglich.
+                  </p>
+                </div>
+
+                {/* 12. Aktualität und Änderung dieser Datenschutzerklärung */}
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold text-anthracite mb-4">
+                    12. Aktualität und Änderung dieser Datenschutzerklärung
+                  </h2>
+                  <p className="text-anthracite/90">
+                    Diese Datenschutzerklärung kann an geänderte rechtliche Vorgaben, Änderungen der Website oder bei Einsatz neuer Technologien angepasst werden. Es gilt stets die auf dieser Website veröffentlichte aktuelle Fassung der Datenschutzerklärung.
+                  </p>
+                </div>
+
               </div>
             </div>
           </div>
@@ -248,4 +373,3 @@ const DatenschutzPage = () => {
 };
 
 export default DatenschutzPage;
-

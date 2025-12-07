@@ -170,9 +170,9 @@ const AboutPage = () => {
               </h2>
             </div>
           </div>
-          <ul className="mt-20">
+          <div className="mt-20">
             {facts.map((fact, index) => (
-              <motion.li
+              <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{
@@ -182,97 +182,29 @@ const AboutPage = () => {
                   delay: index * 0.1,
                 }}
                 key={fact.id}
-                className="relative flex w-full min-h-[140px] md:min-h-[160px] lg:min-h-[180px] items-center"
+                className="relative w-full mb-8 md:mb-12 last:mb-0"
               >
                 <div
                   className={cn("absolute left-1/2 w-screen -translate-x-1/2 h-full", fact.bgColor)}
                 ></div>
-                <div className="relative z-10 flex flex-col lg:flex-row lg:items-start gap-6 lg:gap-12 w-full px-6 md:px-8 py-8 md:py-10">
-                  <div className="lg:min-w-[300px] lg:pt-1">
+                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[350px_1fr] gap-6 lg:gap-12 w-full px-6 md:px-8 py-8 md:py-10">
+                  {/* Linke Spalte: Überschrift */}
+                  <div className="lg:flex lg:items-start">
                     <h3 className="text-2xl md:text-3xl lg:text-4xl font-normal tracking-tight text-anthracite leading-tight">
                       {fact.title}
                     </h3>
                   </div>
+                  {/* Rechte Spalte: Fließtext - beginnt immer an derselben vertikalen Linie */}
                   {fact.description && (
-                    <p className="text-base md:text-lg lg:text-xl text-anthracite/80 max-w-2xl leading-relaxed font-light lg:pt-1">
-                      {fact.description}
-                    </p>
+                    <div className="lg:flex lg:items-start">
+                      <p className="text-base md:text-lg lg:text-xl text-anthracite/80 leading-relaxed font-light">
+                        {fact.description}
+                      </p>
+                    </div>
                   )}
                 </div>
-              </motion.li>
+              </motion.div>
             ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* Q&A Section */}
-      <section className="pt-20 md:pt-32 pb-20 md:pb-28 bg-gradient-to-br from-offwhite to-[#F5F0EA]">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12 md:mb-16">
-              <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
-                Q & A
-              </p>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl text-anthracite mb-6">
-                Ein paar Fragen an Julia
-              </h2>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-white p-6 rounded-lg border border-border-soft/50">
-                <h3 className="text-lg text-anthracite mb-3">
-                  Wenn du nur eine Sache essen könntest für eine Woche, was wäre das?
-                </h3>
-                <p className="text-anthracite/90 italic">
-                  "Wahrscheinlich Porridge. Ohne das starte ich nicht in den Tag."
-                </p>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg border border-border-soft/50">
-                <h3 className="text-lg text-anthracite mb-3">
-                  Top 3 Destinationen, die du immer wieder besuchen würdest?
-                </h3>
-                <p className="text-anthracite/90 italic">
-                  "Hawai'i, den Wald, meinen eigenen Verstand"
-                </p>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg border border-border-soft/50">
-                <h3 className="text-lg text-anthracite mb-3">
-                  Eines Tages will ich...?
-                </h3>
-                <p className="text-anthracite/90 italic">
-                  "Einen Husky haben, in einem kleinen Haus mitten in der Natur wohnen, Fotografien auf einer Ausstellung zeigen"
-                </p>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg border border-border-soft/50">
-                <h3 className="text-lg text-anthracite mb-3">
-                  Was magst du an Menschen besonders gerne?
-                </h3>
-                <p className="text-anthracite/90 italic">
-                  "Ich liebe humorvolle Menschen und sympathisch sind mir die, die auch mal über sich selbst lachen können. Außerdem find ich es beeindruckend wenn Menschen wirklich zuhören können"
-                </p>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg border border-border-soft/50">
-                <h3 className="text-lg text-anthracite mb-3">
-                  Was ist deine große Leidenschaft?
-                </h3>
-                <p className="text-anthracite/90 italic">
-                  "Eiskunstlaufen. Dabei kann ich alles um mich herum vergessen, es gibt keine bessere Möglichkeit Stress abzubauen"
-                </p>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg border border-border-soft/50">
-                <h3 className="text-lg text-anthracite mb-3">
-                  Was inspiriert dich am meisten?
-                </h3>
-                <p className="text-anthracite/90 italic">
-                  "Sonnenuntergänge, das Meer, die Vielfältigkeit der Natur, ein kreatives Umfeld und ästhetische Räume oder Dinge."
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </section>

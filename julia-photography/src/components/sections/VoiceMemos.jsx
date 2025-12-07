@@ -126,7 +126,7 @@ const VoiceMemos = () => {
                 Mach den Sound an und hör rein, was Kundinnen unmittelbar nach ihrem Shooting berichten. Authentische Stimmen, echte Emotionen – direkt per Voice Memo.
               </p>
               <button
-                onClick={() => window.open('https://www.google.com/maps/place/...', '_blank')}
+                onClick={() => window.open('https://share.google/Xaa2l7kcxdswFrMTw', '_blank')}
                 className="px-6 py-3 border-2 border-anthracite text-anthracite uppercase tracking-wider text-xs md:text-sm font-medium hover:bg-anthracite hover:text-offwhite transition-all duration-200"
               >
                 GOOGLE BEWERTUNGEN
