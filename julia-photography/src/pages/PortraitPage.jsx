@@ -134,7 +134,7 @@ const PortraitPage = () => {
       return {
         id: index + 1,
         src,
-        alt: `Portrait ${index + 1}`,
+        alt: '',
         orientation: 'portrait',
         priority: index < 4,
       };
@@ -193,7 +193,7 @@ const PortraitPage = () => {
         overlayOpacity="medium"
         textPosition="center"
         minHeight="lg"
-        backgroundPosition="center 65%"
+        backgroundPosition="center 25%"
       />
 
       {/* Intro Section with Animation */}

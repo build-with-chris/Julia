@@ -134,7 +134,7 @@ const FamiliePage = () => {
       return {
         id: index + 1,
         src,
-        alt: `Familienmoment ${index + 1}`,
+        alt: '',
         orientation: 'portrait',
         priority: index < 4,
       };

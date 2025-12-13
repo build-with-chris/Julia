@@ -234,7 +234,7 @@ const HochzeitenPage = () => {
       return {
         id: index + 1,
         src,
-        alt: `Hochzeitszeremonie ${index + 1}`,
+        alt: '',
         priority: index < 4,
       };
     })

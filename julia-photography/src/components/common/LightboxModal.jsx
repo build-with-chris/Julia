@@ -27,13 +27,16 @@ const LightboxModal = ({ image, onClose, onNext, onPrev, currentIndex, totalImag
     }
   }, []);
 
-  // Prevent body scroll when modal is open
+  // Prevent body scroll when modal is open and hide header
   useEffect(() => {
     if (!image) return;
     
     document.body.style.overflow = 'hidden';
+    document.body.setAttribute('data-lightbox-open', 'true');
+    
     return () => {
       document.body.style.overflow = '';
+      document.body.removeAttribute('data-lightbox-open');
     };
   }, [image]);
 
@@ -55,21 +58,6 @@ const LightboxModal = ({ image, onClose, onNext, onPrev, currentIndex, totalImag
       aria-modal="true"
       aria-label="Image lightbox"
     >
-      {/* Close Button - Dezent platziert, höchste z-index */}
-      <button
-        ref={closeButtonRef}
-        onClick={(e) => {
-          e.stopPropagation();
-          onClose();
-        }}
-        className="absolute top-6 right-6 z-[110] p-3 rounded-full bg-white/25 hover:bg-white/35 text-white transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/50 backdrop-blur-md shadow-lg"
-        aria-label="Schließen"
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-
       {/* Image Counter */}
       {totalImages > 1 && (
         <div className="absolute top-4 left-4 z-[105] px-3 py-1 rounded-full bg-white/10 text-white text-sm font-medium">
@@ -109,22 +97,30 @@ const LightboxModal = ({ image, onClose, onNext, onPrev, currentIndex, totalImag
         </button>
       )}
 
-      {/* Image */}
-      <div className="max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center p-4 md:p-8">
+      {/* Image Container - Relative positioning for close button */}
+      <div className="relative max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center p-4 md:p-8">
+        {/* Close Button - Positioned at top-right corner of the image */}
+        <button
+          ref={closeButtonRef}
+          onClick={(e) => {
+            e.stopPropagation();
+            onClose();
+          }}
+          className="absolute top-2 right-2 md:top-4 md:right-4 z-[110] p-2 md:p-3 rounded-full bg-white/90 hover:bg-white text-anthracite transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/50 shadow-lg backdrop-blur-sm"
+          aria-label="Schließen"
+        >
+          <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
         <img
           src={image.src}
-          alt={image.alt}
+          alt={image.alt || ''}
           className="max-w-full max-h-full object-contain"
           loading="eager"
         />
       </div>
-
-      {/* Image Caption */}
-      {image.alt && (
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 max-w-2xl px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm text-center">
-          {image.alt}
-        </div>
-      )}
     </div>
   );
 };

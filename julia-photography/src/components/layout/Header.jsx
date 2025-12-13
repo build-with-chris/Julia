@@ -74,8 +74,31 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [location.pathname]);
 
+  // Check if lightbox is open
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+
+  useEffect(() => {
+    const checkLightbox = () => {
+      setLightboxOpen(document.body.hasAttribute('data-lightbox-open'));
+    };
+
+    // Check on mount and when body attribute changes
+    checkLightbox();
+    
+    // Use MutationObserver to watch for attribute changes
+    const observer = new MutationObserver(checkLightbox);
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['data-lightbox-open']
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <header className="sticky top-0 z-[102] bg-offwhite/95 backdrop-blur-sm border-b border-border-soft shadow-sm relative">
+    <header className={`sticky top-0 z-[102] bg-offwhite/95 backdrop-blur-sm border-b border-border-soft shadow-sm relative transition-transform duration-300 ${
+      lightboxOpen ? 'transform -translate-y-full' : ''
+    }`}>
       <nav className="w-full py-3 md:py-4 relative z-[102]">
         <div className="flex items-center justify-between relative w-[80%] mx-auto">
           {/* Logo */}

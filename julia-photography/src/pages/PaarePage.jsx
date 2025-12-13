@@ -97,9 +97,12 @@ const PaarePage = () => {
       const filenameA = getFilename(a.src);
       const filenameB = getFilename(b.src);
       
-      // Extract column and row numbers from filename (format: "spalte-zeile.jpg")
+      // Extract column and row numbers from filename (format: "spalte-zeile.jpg" or "spalte-zeile + text.jpg")
+      // The regex looks for digits at the start, then a dash, then more digits
       const parseFilename = (filename) => {
+        // Remove file extension first
         const nameWithoutExt = filename.replace(/\.(jpg|jpeg|JPG|JPEG|webp|WEBP)$/i, '');
+        // Match pattern: start of string, digits, dash, digits (may be followed by other text)
         const match = nameWithoutExt.match(/^(\d+)-(\d+)/);
         if (match) {
           return {
@@ -131,8 +134,10 @@ const PaarePage = () => {
 
   const galleryImages = sortByFilename(
     paareFilenames.map((filename, index) => {
+      // Use filename directly - Vite handles static assets from public folder
       const src = `/Paare/${filename}`;
-      const alt = `Paarshooting ${index + 1}`;
+      // Use empty alt text to avoid showing names in lightbox
+      const alt = '';
       return {
         id: index + 1,
         src,
