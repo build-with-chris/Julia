@@ -188,7 +188,7 @@ const PortraitPage = () => {
       <PageHeader
         headline="Portraitfotografie, die euch zeigt, wie schön ihr seid."
         subline="Individuell, authentisch, natürlich"
-        imageSrc="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2070&auto=format&fit=crop"
+        imageSrc="/Portrait/Hero_portrait.webp"
         imageAlt="Portrait im natürlichen Licht"
         overlayOpacity="medium"
         textPosition="center"
