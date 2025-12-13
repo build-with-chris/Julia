@@ -27,7 +27,7 @@ const TestimonialCarousel = ({ testimonials = testimonialsData }) => {
           <p className="text-sm uppercase tracking-wider text-warm-accent font-medium">
             Was meine Kunden sagen
           </p>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight text-anthracite">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl tracking-tight text-anthracite">
             Echte Stimmen
           </h2>
           <p className="text-anthracite/75 max-w-md text-sm md:text-base leading-relaxed">

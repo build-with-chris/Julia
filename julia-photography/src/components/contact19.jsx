@@ -265,7 +265,7 @@ const Contact19 = () => {
               src="/Kontakt.webp"
               alt="Julia Mayr - Fotografin"
               className="h-full w-full object-cover"
-              style={{ objectPosition: '50% 40%' }}
+              style={{ objectPosition: '50% 60%' }}
               loading="eager"
             />
           </div>

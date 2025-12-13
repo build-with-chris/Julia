@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown } from "lucide-react";
 import React from "react";
 
 import { cn } from "@/lib/utils";
@@ -53,17 +52,17 @@ const Process3 = () => {
       <div className="container-custom">
         <div className="flex justify-center">
           <div className="w-full max-w-3xl px-2 text-center">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-anthracite">
+            <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
               So läuft euer Shooting ab
-            </h1>
-            <p className="text-anthracite/70 mt-4 max-w-2xl mx-auto text-base md:text-lg">
-              Von der ersten Nachricht bis zu euren fertigen Bildern – ich begleite euch durch den gesamten Prozess.
             </p>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight text-anthracite">
+              Von der ersten Nachricht bis zu euren Bildern
+            </h1>
           </div>
         </div>
-        <ul className="mt-20">
+        <div className="mt-20">
           {processSteps.map((step, index) => (
-            <motion.li
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
@@ -73,25 +72,30 @@ const Process3 = () => {
                 delay: index * 0.1,
               }}
               key={step.id}
-              className="relative flex w-full min-h-[120px] md:min-h-[140px] lg:min-h-[160px] items-center">
+              className="relative w-full mb-8 md:mb-12 last:mb-0"
+            >
               <div
-                className={cn("absolute left-1/2 w-screen -translate-x-1/2 h-full", step.bgColor)}></div>
-              <div className="relative z-10 flex flex-col lg:flex-row lg:items-start gap-4 lg:gap-8 w-full px-6 md:px-8 py-6 md:py-8">
-                <div className="flex items-center gap-3 lg:min-w-[280px] lg:pt-1">
-                  <ArrowDown className="size-8 md:size-10 lg:size-12 text-anthracite flex-shrink-0" />
-                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-anthracite">
+                className={cn("absolute left-1/2 w-screen -translate-x-1/2 h-full", step.bgColor)}
+              ></div>
+              <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[350px_1fr] gap-6 lg:gap-12 w-full px-6 md:px-8 py-8 md:py-10">
+                {/* Linke Spalte: Überschrift */}
+                <div className="lg:flex lg:items-start">
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-normal tracking-tight text-anthracite leading-tight">
                     {step.title}
                   </h3>
                 </div>
+                {/* Rechte Spalte: Fließtext - beginnt immer an derselben vertikalen Linie */}
                 {step.description && (
-                  <p className="text-base md:text-lg lg:text-xl text-anthracite/90 max-w-2xl leading-relaxed font-medium lg:pt-1">
-                    {step.description}
-                  </p>
+                  <div className="lg:flex lg:items-start">
+                    <p className="text-base md:text-lg lg:text-xl text-anthracite/80 leading-relaxed font-light">
+                      {step.description}
+                    </p>
+                  </div>
                 )}
               </div>
-            </motion.li>
+            </motion.div>
           ))}
-        </ul>
+        </div>
       </div>
     </section>
   );

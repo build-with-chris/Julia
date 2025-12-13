@@ -31,7 +31,7 @@ const ShootingDetails = () => {
       <div className="container-custom">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-anthracite mb-4">
+            <h2 className="text-2xl md:text-3xl text-anthracite mb-4">
               Alles rund um euer Shooting
             </h2>
           </div>
@@ -45,7 +45,7 @@ const ShootingDetails = () => {
                   className="w-full py-5 md:py-6 flex items-center justify-between gap-4 text-left hover:text-warm-accent transition-colors duration-200"
                   aria-expanded={openIndex === index}
                 >
-                  <h3 className="text-lg md:text-xl font-semibold text-anthracite pr-4">
+                  <h3 className="text-lg md:text-xl text-anthracite pr-4">
                     {faq.question}
                   </h3>
                   <svg

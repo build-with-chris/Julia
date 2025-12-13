@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import GoogleReviews from '../common/GoogleReviews';
 
 const VoiceMemos = () => {
   // Audio data with real files
@@ -119,18 +120,13 @@ const VoiceMemos = () => {
           <div className="flex-1 w-full">
             {/* Header */}
             <div className="mb-8 md:mb-12">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading text-anthracite mb-4">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl text-anthracite mb-4">
                 Echte Worte statt Werbeversprechen
               </h2>
               <p className="text-base md:text-lg text-anthracite/80 leading-relaxed max-w-2xl mb-6">
                 Mach den Sound an und hör rein, was Kundinnen unmittelbar nach ihrem Shooting berichten. Authentische Stimmen, echte Emotionen – direkt per Voice Memo.
               </p>
-              <button
-                onClick={() => window.open('https://share.google/Xaa2l7kcxdswFrMTw', '_blank')}
-                className="px-6 py-3 border-2 border-anthracite text-anthracite uppercase tracking-wider text-xs md:text-sm font-medium hover:bg-anthracite hover:text-offwhite transition-all duration-200"
-              >
-                GOOGLE BEWERTUNGEN
-              </button>
+              <GoogleReviews />
             </div>
 
             {/* Audio Players - Show both at once */}

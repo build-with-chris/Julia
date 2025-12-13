@@ -12,6 +12,8 @@ const Header = () => {
     { id: 'home', label: 'Home', path: '/', isPage: true },
     { id: 'paare', label: 'Paare', path: '/paare', isPage: true },
     { id: 'hochzeiten', label: 'Hochzeiten', path: '/hochzeiten', isPage: true },
+    { id: 'portrait', label: 'Portrait', path: '/portrait', isPage: true },
+    { id: 'familie', label: 'Familie', path: '/familie', isPage: true },
     { id: 'about', label: 'Über mich', path: '/about', isPage: true },
     { id: 'kontakt', label: 'Kontakt', path: '/kontakt', isPage: true },
   ];
@@ -115,12 +117,12 @@ const Header = () => {
           </button>
 
           {/* Navigation Links */}
-          <ul className="hidden md:flex items-center gap-10">
+          <ul className="hidden md:flex items-center gap-6 lg:gap-8 xl:gap-10">
             {navItems.filter(item => item.id !== 'home').map((item) => (
               <li key={item.id}>
                 <button
                   onClick={() => handleNavClick(item)}
-                  className={`relative text-sm font-medium transition-colors duration-200 pb-2 tracking-wide uppercase
+                  className={`relative text-xs lg:text-sm font-medium transition-colors duration-200 pb-2 tracking-wide uppercase whitespace-nowrap
                     ${activeSection === item.id
                       ? 'text-warm-accent'
                       : 'text-anthracite hover:text-warm-accent'
