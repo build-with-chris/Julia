@@ -263,7 +263,7 @@ const Contact19 = () => {
           <div className="hidden lg:block h-full w-full overflow-hidden">
             <img
               src="/Kontakt.webp"
-              alt="Julia Mayr - Fotografin"
+              alt="Julia Mayr - Fotografin für Hochzeits-, Paar- und Portraitshootings in München"
               className="h-full w-full object-cover"
               style={{ objectPosition: '50% 60%' }}
               loading="eager"

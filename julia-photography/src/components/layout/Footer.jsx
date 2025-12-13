@@ -73,7 +73,7 @@ const Footer = () => {
             >
               <img
                 src={image.src}
-                alt={`Instagram post ${index + 1}`}
+                alt={`Instagram Portfolio ${index + 1} - Julia Mayr Photography auf Instagram`}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                 loading="lazy"
               />

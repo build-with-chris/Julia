@@ -27,8 +27,8 @@ const Home = () => {
   return (
     <Layout>
       <SEO
-        title="Julia Mayr Photography"
-        description="Authentische Hochzeits-, Paar- und Portraitshootings in München. Natürlich, achtsam und voller Emotionen. Jetzt Shooting buchen!"
+        title="Julia Mayr Photography - Hochzeits-, Paar- & Portraitshootings München"
+        description="Authentische Hochzeits-, Paar- und Portraitshootings in München und Umgebung. Cinematische, emotionale Fotografie mit natürlichem Licht. Jetzt unverbindliches Shooting buchen!"
         image="/LP_Hochzeit.webp"
       />
       {/* Hero Section - Hero234 Block */}
@@ -64,7 +64,7 @@ const Home = () => {
                   <div className="absolute inset-0">
                     <img
                       src="/LP_Paar.JPG"
-                      alt="Paarshooting"
+                      alt="Romantisches Paarshooting im goldenen Licht - Julia Mayr Photography"
                       className="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105 group-hover:brightness-90 group-active:scale-105 group-active:brightness-90"
                       style={{ objectPosition: 'center top' }}
                     />
@@ -125,7 +125,7 @@ const Home = () => {
                   <div className="absolute inset-0">
                     <img
                       src="/LP_Hochzeit.webp"
-                      alt="Hochzeitsfotografie"
+                      alt="Authentische Hochzeitsreportage - Emotionale Momente festgehalten"
                       className="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105 group-hover:brightness-90"
                     />
                   </div>
@@ -155,7 +155,7 @@ const Home = () => {
                   <div className="absolute inset-0">
                     <img
                       src="/LP_Portrait.webp"
-                      alt="Portrait-Shooting"
+                      alt="Individuelles Portraitshooting - Authentisch und natürlich"
                       className="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105 group-hover:brightness-90"
                     />
                   </div>
@@ -215,7 +215,7 @@ const Home = () => {
                   <div className="absolute inset-0">
                     <img
                       src="/LP_Family.webp"
-                      alt="Familienshooting"
+                      alt="Lebendiges Familienshooting - Echte Emotionen und Verbindungen"
                       className="w-full h-full object-cover transition-all duration-300 ease-out group-hover:scale-105 group-hover:brightness-90"
                     />
                   </div>

@@ -47,8 +47,8 @@ const AboutPage = () => {
   return (
     <Layout>
       <SEO
-        title="Über mich"
-        description="Julia Mayr – Fotografin aus dem Herzen Bayerns, verliebt in echte Momente und natürliches Licht. Erfahre mehr über meine Geschichte, meine Vision und warum ich heute lieber Licht einfange als Stempelzeiten."
+        title="Über mich - Julia Mayr Photography | Fotografin München"
+        description="Julia Mayr – Fotografin aus dem Herzen Bayerns, verliebt in echte Momente und natürliches Licht. Authentische Hochzeits-, Paar- und Portraitshootings. Erfahre mehr über meine Geschichte und Vision."
         image="/About.webp"
       />
       {/* Hero Section with Portrait */}

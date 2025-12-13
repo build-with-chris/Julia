@@ -155,7 +155,7 @@ const HochzeitenPage = () => {
     {
       id: 8,
       src: '/GettingReady/untitled-160-2.webp',
-      alt: 'Vorbereitungen',
+      alt: 'Hochzeitsvorbereitungen - Dokumentarischer Fotostil',
     },
     {
       id: 9,
@@ -214,7 +214,7 @@ const HochzeitenPage = () => {
       return {
         id: index + 1,
         src,
-        alt: `Brautpaarfotos ${index + 1}`,
+        alt: `Brautpaarfotos Portfolio ${index + 1} - Romantische Hochzeitsfotografie von Julia Mayr`,
         priority: index < 4,
       };
     })
@@ -234,7 +234,7 @@ const HochzeitenPage = () => {
       return {
         id: index + 1,
         src,
-        alt: '',
+        alt: `Hochzeitszeremonie Portfolio ${index + 1} - Emotionale Trauungsmomente dokumentiert`,
         priority: index < 4,
       };
     })
@@ -326,8 +326,8 @@ const HochzeitenPage = () => {
   return (
     <Layout>
       <SEO
-        title="Hochzeitsfotografie"
-        description="Authentische Hochzeitsreportagen in München und Umgebung. Cinematisch, emotional und echt. Von Getting Ready bis zur Party – eure Hochzeitsgeschichte in Bildern, die bleiben. Jetzt anfragen!"
+        title="Hochzeitsfotografie München - Authentische Reportagen | Julia Mayr"
+        description="Authentische Hochzeitsreportagen in München, Bayern und weltweit. Cinematische, emotionale Fotografie von Getting Ready bis zur Party. Packages ab 600€. Jetzt unverbindlich anfragen!"
         image="/HeroHochzeit.webp"
       />
       {/* Internal Navigation */}
@@ -337,7 +337,7 @@ const HochzeitenPage = () => {
       <PageHeader
         headline="Authentische Hochzeitsmomente"
         imageSrc="/HeroHochzeit.webp"
-        imageAlt="Emotionale Hochzeitsfeier"
+        imageAlt="Authentische Hochzeitsreportage - Emotionale Hochzeitsmomente dokumentiert"
         overlayOpacity="medium"
         textPosition="center"
         minHeight="lg"
@@ -413,15 +413,15 @@ const HochzeitenPage = () => {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6 }}
             >
-              <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
+            <p className="text-sm uppercase tracking-wider text-warm-accent font-medium mb-4">
                 Portfolio
-              </p>
+            </p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl text-anthracite mb-6">
                 Die Zeremonie
-              </h2>
+            </h2>
               <p className="text-lg md:text-xl text-anthracite/80 max-w-3xl mx-auto leading-relaxed">
                 Euer Ja-Wort – der Moment, auf den alles hinausläuft
-              </p>
+            </p>
             </motion.div>
             <Gallery25 images={ceremonyImages} enableLightbox={true} />
           </div>
@@ -479,11 +479,11 @@ const HochzeitenPage = () => {
 
       {/* FAQ Section */}
       <section id="faq" className="scroll-mt-24">
-        <FaqSection
-          title="Häufige Fragen"
-          description="Alles, was ihr wissen müsst"
-          faqs={faqs}
-        />
+      <FaqSection
+        title="Häufige Fragen"
+        description="Alles, was ihr wissen müsst"
+        faqs={faqs}
+      />
       </section>
 
       {/* Testimonials */}

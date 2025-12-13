@@ -134,7 +134,7 @@ const PortraitPage = () => {
       return {
         id: index + 1,
         src,
-        alt: '',
+        alt: `Portraitfotografie Portfolio ${index + 1} - Individuelle Portraits von Julia Mayr`,
         orientation: 'portrait',
         priority: index < 4,
       };
@@ -177,8 +177,8 @@ const PortraitPage = () => {
   return (
     <Layout>
       <SEO
-        title="Portraitfotografie"
-        description="Individuelle Portraitshootings in München. Authentisch, natürlich und voller Persönlichkeit. Zeigt euch, wie schön ihr wirklich seid – ohne Maskerade. Jetzt Shooting buchen!"
+        title="Portraitfotografie München - Individuelle Portraitshootings | Julia Mayr"
+        description="Individuelle Portraitshootings in München und Umgebung. Authentisch, natürlich und voller Persönlichkeit. Packages ab 200€. Zeigt euch, wie schön ihr wirklich seid. Jetzt Shooting buchen!"
         image="/LP_Portrait.webp"
       />
       {/* Internal Navigation */}
@@ -189,7 +189,7 @@ const PortraitPage = () => {
         headline="Portraitfotografie, die euch zeigt, wie schön ihr seid."
         subline="Individuell, authentisch, natürlich"
         imageSrc="/Portrait/Hero_portrait.webp"
-        imageAlt="Portrait im natürlichen Licht"
+        imageAlt="Individuelles Portraitshooting - Authentische Portraitfotografie München"
         overlayOpacity="medium"
         textPosition="center"
         minHeight="lg"

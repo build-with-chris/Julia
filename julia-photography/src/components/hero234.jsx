@@ -78,7 +78,7 @@ const Hero234 = ({
                 transition={{ duration: 0.3 }}>
                 <img
                   src={image}
-                  alt={`Gallery image ${imageIndex + 1}`}
+                  alt={`Portfolio Fotografie ${imageIndex + 1} - Cinematische und emotionale Bilder von Julia Mayr`}
                   className="h-full w-full object-cover"
                   loading={rowIndex === 0 && imageIndex < 6 ? "eager" : "lazy"} />
               </motion.div>

@@ -136,8 +136,8 @@ const PaarePage = () => {
     paareFilenames.map((filename, index) => {
       // Use filename directly - Vite handles static assets from public folder
       const src = `/Paare/${filename}`;
-      // Use empty alt text to avoid showing names in lightbox
-      const alt = '';
+      // SEO-optimierte Alt-Texte für Gallery-Bilder
+      const alt = `Paarshooting Portfolio ${index + 1} - Romantische Paarfotografie von Julia Mayr`;
       return {
         id: index + 1,
         src,
@@ -183,8 +183,8 @@ const PaarePage = () => {
   return (
     <Layout>
       <SEO
-        title="Paarshootings"
-        description="Authentische Paarshootings in München und Umgebung. Natürlich, achtsam und voller Emotionen. Eure Verbindung in ehrlichen Bildern festgehalten. Jetzt Shooting buchen!"
+        title="Paarshootings München - Romantische Paarfotografie | Julia Mayr"
+        description="Authentische Paarshootings in München und Umgebung. Cinematische, emotionale Fotografie mit natürlichem Licht. Eure Liebe in ehrlichen Bildern festgehalten. Packages ab 250€. Jetzt Shooting buchen!"
         image="/HeroPaar.webp"
       />
       {/* Internal Navigation */}
@@ -194,7 +194,7 @@ const PaarePage = () => {
       <PageHeader
         headline="Eure Verbindung, ehrlich festgehalten"
         imageSrc="/HeroPaar.webp"
-        imageAlt="Romantisches Paar beim Fotoshooting"
+        imageAlt="Romantisches Paarshooting im goldenen Licht - Authentische Paarfotografie München"
         overlayOpacity="medium"
         textPosition="center"
         minHeight="lg"

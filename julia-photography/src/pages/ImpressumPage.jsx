@@ -1,8 +1,13 @@
 import Layout from '../components/layout/Layout';
+import SEO from '../components/common/SEO';
 
 const ImpressumPage = () => {
   return (
     <Layout>
+      <SEO
+        title="Impressum - Julia Mayr Photography"
+        description="Impressum und rechtliche Angaben gemäß § 5 TMG für Julia Mayr Photography. Kontaktinformationen und Verantwortliche Stelle."
+      />
       <div className="bg-offwhite">
         {/* Content */}
         <section className="py-20 md:py-28">

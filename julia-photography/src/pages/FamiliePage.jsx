@@ -134,7 +134,7 @@ const FamiliePage = () => {
       return {
         id: index + 1,
         src,
-        alt: '',
+        alt: `Familienshooting Portfolio ${index + 1} - Lebendige Familienfotografie von Julia Mayr`,
         orientation: 'portrait',
         priority: index < 4,
       };
@@ -177,8 +177,8 @@ const FamiliePage = () => {
   return (
     <Layout>
       <SEO
-        title="Familienshootings"
-        description="Ehrliche Familienshootings in München. Lebendig, authentisch und voller Emotionen. Familienbilder, die mit jedem Jahr wertvoller werden. Jetzt Shooting buchen!"
+        title="Familienshootings München - Authentische Familienfotografie | Julia Mayr"
+        description="Ehrliche Familienshootings in München und Umgebung. Lebendig, authentisch und voller Emotionen. Familienbilder, die mit jedem Jahr wertvoller werden. Packages ab 300€. Jetzt Shooting buchen!"
         image="/HeroFamilie.webp"
       />
       {/* Internal Navigation */}
@@ -188,7 +188,7 @@ const FamiliePage = () => {
       <PageHeader
         headline="Eure Bande in Bildern"
         imageSrc="/HeroFamilie.webp"
-        imageAlt="Glückliche Familie beim Fotoshooting"
+        imageAlt="Lebendiges Familienshooting - Authentische Familienfotografie München"
         overlayOpacity="medium"
         textPosition="center"
         minHeight="lg"

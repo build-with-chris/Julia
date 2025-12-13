@@ -1,8 +1,13 @@
 import Layout from '../components/layout/Layout';
+import SEO from '../components/common/SEO';
 
 const DatenschutzPage = () => {
   return (
     <Layout>
+      <SEO
+        title="Datenschutzerklärung - Julia Mayr Photography"
+        description="Datenschutzerklärung gemäß DSGVO für Julia Mayr Photography. Informationen zur Datenverarbeitung, Cookies und Ihren Rechten als betroffene Person."
+      />
       <div className="bg-offwhite">
         {/* Content */}
         <section className="py-20 md:py-28">
