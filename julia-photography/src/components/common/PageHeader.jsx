@@ -11,6 +11,7 @@ const PageHeader = ({
   minHeight = 'lg', // 'sm', 'md', 'lg'
   verticalPosition = 'bottom', // 'bottom', 'lower-third'
   grayscale = false, // Apply grayscale filter to image
+  backgroundPosition = 'center', // CSS background-position value
 }) => {
   // Preload Hero-Bild für bessere SEO und Performance
   useEffect(() => {
@@ -60,8 +61,11 @@ const PageHeader = ({
     <section className={`relative w-full ${heightClasses[minHeight]} flex items-end justify-center overflow-hidden`}>
       {/* Background Image */}
       <div
-        className={`absolute inset-0 bg-cover bg-center bg-no-repeat ${grayscale ? 'grayscale' : ''}`}
-        style={{ backgroundImage: `url(${imageSrc})` }}
+        className={`absolute inset-0 bg-cover bg-no-repeat ${grayscale ? 'grayscale' : ''}`}
+        style={{ 
+          backgroundImage: `url(${imageSrc})`,
+          backgroundPosition: backgroundPosition
+        }}
         role="img"
         aria-label={imageAlt}
       />

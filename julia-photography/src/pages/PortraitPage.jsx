@@ -193,6 +193,7 @@ const PortraitPage = () => {
         overlayOpacity="medium"
         textPosition="center"
         minHeight="lg"
+        backgroundPosition="center 65%"
       />
 
       {/* Intro Section with Animation */}
