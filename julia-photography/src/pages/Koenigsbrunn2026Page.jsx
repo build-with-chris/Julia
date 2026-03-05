@@ -132,7 +132,7 @@ const Koenigsbrunn2026Page = () => {
     <Layout>
       <SEO
         title="Königsbrunn 2026 – Foto-Anmeldung"
-        description="Anmeldung für Fotonachricht und Vorauswahl – Königsbrunn 2026. Eislauf-Fotos von Julia Mayr Photography."
+        description="Wettkampfbilder Königscup – Königsbrunn 2026. Eislauf-Fotos von Julia Mayr Photography."
       />
       <section className="min-h-[calc(90vh-64px)] bg-offwhite py-12 md:py-16 lg:py-20">
         <div className="container-custom">
@@ -141,10 +141,10 @@ const Koenigsbrunn2026Page = () => {
               Eislauf Königsbrunn 2026
             </p>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight text-anthracite mb-4">
-              Anmeldung für Fotonachricht
+              Wettkampfbilder Königscup
             </h1>
             <p className="text-anthracite/80 text-base md:text-lg mb-8">
-              Trag dich hier ein, wenn du benachrichtigt werden möchtest, sobald die Fotos verfügbar sind und du die Vorauswahl ansehen kannst.
+              Melde dich an und erhalte Bescheid, sobald die Fotos bereit sind – ob du direkt bestellen möchtest oder dich erst in Ruhe informieren willst.
             </p>
 
             {/* Preise */}
