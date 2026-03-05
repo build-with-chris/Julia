@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import { createClient } from '@supabase/supabase-js';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -9,6 +10,7 @@ export default async function handler(req, res) {
     const {
       name,
       category,
+      startNumber,
       dressColor,
       email,
       phone,
@@ -20,6 +22,12 @@ export default async function handler(req, res) {
 
     if (!name || !name.trim() || !email || !email.trim()) {
       return res.status(400).json({ error: 'Name und E-Mail sind Pflichtfelder.' });
+    }
+    if (!category || !category.trim()) {
+      return res.status(400).json({ error: 'Kategorie ist ein Pflichtfeld.' });
+    }
+    if (!startNumber || !String(startNumber).trim()) {
+      return res.status(400).json({ error: 'Startnummer ist ein Pflichtfeld.' });
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -81,7 +89,8 @@ export default async function handler(req, res) {
                     <div style="background-color: #fafafa; border-left: 4px solid #8B7355; padding: 20px; margin-bottom: 20px; border-radius: 4px;">
                       <table role="presentation" style="width: 100%; border-collapse: collapse;">
                         <tr><td style="padding: 6px 0;"><strong style="color: #2D2A26; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Name</strong><br><span style="color: #2D2A26; font-size: 16px;">${escapeHtml(name)}</span></td></tr>
-                        <tr><td style="padding: 6px 0;"><strong style="color: #2D2A26; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Kategorie Läuferin</strong><br><span style="color: #2D2A26; font-size: 16px;">${escapeHtml(category || '–')}</span></td></tr>
+                        <tr><td style="padding: 6px 0;"><strong style="color: #2D2A26; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Kategorie</strong><br><span style="color: #2D2A26; font-size: 16px;">${escapeHtml(category)}</span></td></tr>
+                        <tr><td style="padding: 6px 0;"><strong style="color: #2D2A26; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Startnummer</strong><br><span style="color: #2D2A26; font-size: 16px;">${escapeHtml(String(startNumber))}</span></td></tr>
                         <tr><td style="padding: 6px 0;"><strong style="color: #2D2A26; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Farbe Kleid</strong><br><span style="color: #2D2A26; font-size: 16px;">${escapeHtml(dressColor || '–')}</span></td></tr>
                         <tr><td style="padding: 6px 0;"><strong style="color: #2D2A26; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">E-Mail</strong><br><a href="mailto:${escapeHtml(email)}" style="color: #8B7355; text-decoration: none;">${escapeHtml(email)}</a></td></tr>
                         <tr><td style="padding: 6px 0;"><strong style="color: #2D2A26; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Handynummer</strong><br><span style="color: #2D2A26; font-size: 16px;">${escapeHtml(phone || '–')}</span></td></tr>
@@ -91,7 +100,7 @@ export default async function handler(req, res) {
                       <h2 style="margin: 0 0 12px 0; color: #2D2A26; font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Optionen</h2>
                       <table role="presentation" style="width: 100%; border-collapse: collapse; font-size: 15px; color: #2D2A26;">
                         <tr><td style="padding: 4px 0;">WhatsApp-Benachrichtigung bei Fotos:</td><td style="padding: 4px 0;">${yesNo(consentWhatsApp)}</td></tr>
-                        <tr><td style="padding: 4px 0;">Direktkauf Serie (20€):</td><td style="padding: 4px 0;">${yesNo(directPurchase)}</td></tr>
+                        <tr><td style="padding: 4px 0;">Direktkauf Serie (25€):</td><td style="padding: 4px 0;">${yesNo(directPurchase)}</td></tr>
                         <tr><td style="padding: 4px 0;">Fotos mit Wasserzeichen:</td><td style="padding: 4px 0;">${yesNo(watermarkOption)}${watermarkOption && watermarkPackage ? ` – ${escapeHtml(watermarkPackage)}` : ''}</td></tr>
                       </table>
                     </div>
@@ -115,9 +124,30 @@ export default async function handler(req, res) {
       to: TO_EMAIL,
       replyTo: email,
       subject: emailSubject,
-      text: `Königsbrunn 2026 – Anmeldung\n\nName: ${name}\nKategorie: ${category || '–'}\nFarbe Kleid: ${dressColor || '–'}\nE-Mail: ${email}\nHandy: ${phone || '–'}\nWhatsApp: ${yesNo(consentWhatsApp)}\nDirektkauf Serie: ${yesNo(directPurchase)}\nMit Wasserzeichen: ${yesNo(watermarkOption)}${watermarkOption && watermarkPackage ? ` (${watermarkPackage})` : ''}`,
+      text: `Königsbrunn 2026 – Anmeldung\n\nName: ${name}\nKategorie: ${category}\nStartnummer: ${startNumber}\nFarbe Kleid: ${dressColor || '–'}\nE-Mail: ${email}\nHandy: ${phone || '–'}\nWhatsApp: ${yesNo(consentWhatsApp)}\nDirektkauf Serie (25€): ${yesNo(directPurchase)}\nMit Wasserzeichen: ${yesNo(watermarkOption)}${watermarkOption && watermarkPackage ? ` (${watermarkPackage})` : ''}`,
       html: emailHtml,
     });
+
+    const supabaseUrl = process.env.SUPABASE_URL;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    if (supabaseUrl && supabaseServiceKey) {
+      const supabase = createClient(supabaseUrl, supabaseServiceKey);
+      const { error: dbError } = await supabase.from('koenigsbrunn_anmeldungen').insert({
+        name: name.trim(),
+        category: category.trim(),
+        start_number: String(startNumber).trim(),
+        dress_color: dressColor?.trim() || null,
+        email: email.trim(),
+        phone: phone?.trim() || null,
+        consent_whatsapp: !!consentWhatsApp,
+        direct_purchase: !!directPurchase,
+        watermark_option: !!watermarkOption,
+        watermark_package: watermarkOption && watermarkPackage ? watermarkPackage : null,
+      });
+      if (dbError) {
+        console.error('Koenigsbrunn DB insert error:', dbError);
+      }
+    }
 
     return res.status(200).json({ success: true, message: 'Anmeldung gesendet.' });
   } catch (error) {

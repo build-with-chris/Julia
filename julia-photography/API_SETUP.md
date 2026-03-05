@@ -58,6 +58,27 @@ Das Kontaktformular sendet POST-Requests an `/api/contact` mit folgendem Format:
 }
 ```
 
+---
+
+## Königsbrunn 2026 Anmeldung (`/api/koenigsbrunn`)
+
+Die Anmeldungen werden per E-Mail versendet (gleiche SMTP-Variablen wie oben) und zusätzlich in Supabase gespeichert.
+
+### Supabase (optional, für DB-Speicherung)
+
+Falls gesetzt, wird jede Anmeldung in die Tabelle `koenigsbrunn_anmeldungen` geschrieben:
+
+1. **SUPABASE_URL**
+   - Projekt-URL, z. B. `https://erviwtqmxaoczqewrffc.supabase.co`
+
+2. **SUPABASE_SERVICE_ROLE_KEY**
+   - Service-Role-Key aus dem Supabase Dashboard: Project Settings → API → `service_role` (secret).  
+   - Nur im Backend (Vercel) verwenden, nie im Frontend.
+
+Ohne diese Variablen funktioniert die Anmeldung weiterhin (nur E-Mail, kein DB-Eintrag).
+
+---
+
 ## Fehlerbehebung
 
 - Stelle sicher, dass alle Environment Variables in Vercel gesetzt sind
