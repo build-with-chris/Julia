@@ -18,13 +18,25 @@ const Koenigsbrunn2026Page = () => {
     consentWhatsApp: false,
     directPurchase: false,
     watermarkOption: false,
-    watermarkPackage: '',
     privacy: false,
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [paypalCopied, setPaypalCopied] = useState(false);
   const successRef = useRef(null);
+
+  const PAYPAL_EMAIL = 'juliamayr.photo@gmail.com';
+
+  const copyPaypalEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(PAYPAL_EMAIL);
+      setPaypalCopied(true);
+      setTimeout(() => setPaypalCopied(false), 2000);
+    } catch {
+      setPaypalCopied(false);
+    }
+  };
 
   useEffect(() => {
     if (submitSuccess && successRef.current) {
@@ -52,9 +64,13 @@ const Koenigsbrunn2026Page = () => {
     if (!formData.name.trim()) next.name = 'Bitte Name angeben.';
     if (!formData.category.trim()) next.category = 'Bitte Kategorie angeben.';
     if (!formData.startNumber.trim()) next.startNumber = 'Bitte Startnummer angeben.';
+    if (!formData.dressColor.trim()) next.dressColor = 'Bitte Farbe des Kleids angeben.';
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim()) next.email = 'Bitte E-Mail angeben.';
     else if (!emailRegex.test(formData.email)) next.email = 'Bitte gültige E-Mail angeben.';
+    if (!formData.directPurchase && !formData.watermarkOption) {
+      next.packageChoice = 'Bitte wähle eine Option: Direktkauf oder Fotos mit Wasserzeichen.';
+    }
     if (!formData.privacy) next.privacy = 'Bitte Datenschutz akzeptieren.';
     setErrors(next);
     return Object.keys(next).length === 0;
@@ -75,13 +91,13 @@ const Koenigsbrunn2026Page = () => {
           name: formData.name.trim(),
           category: formData.category.trim(),
           startNumber: formData.startNumber.trim(),
-          dressColor: formData.dressColor.trim() || undefined,
+          dressColor: formData.dressColor.trim(),
           email: formData.email.trim(),
           phone: formData.phone.trim() || undefined,
           consentWhatsApp: formData.consentWhatsApp,
           directPurchase: formData.directPurchase,
           watermarkOption: formData.watermarkOption,
-          watermarkPackage: formData.watermarkOption ? formData.watermarkPackage : undefined,
+          watermarkPackage: formData.watermarkOption ? 'Alle Fotos (30€)' : undefined,
         }),
       });
       const data = await res.json();
@@ -101,7 +117,6 @@ const Koenigsbrunn2026Page = () => {
         consentWhatsApp: false,
         directPurchase: false,
         watermarkOption: false,
-        watermarkPackage: '',
         privacy: false,
       });
       setErrors({});
@@ -137,7 +152,7 @@ const Koenigsbrunn2026Page = () => {
               <h2 className="text-lg font-medium text-anthracite mb-3">Preise</h2>
               <ul className="space-y-2 text-anthracite/90 text-sm md:text-base">
                 <li><strong>Direktkauf</strong> (alle Fotos): 25€</li>
-                <li><strong>Mit Wasserzeichen:</strong> 1 Foto 5€ · 4 Fotos 15€ · Alle Fotos 30€</li>
+                <li><strong>Mit Wasserzeichen</strong> (alle Fotos): 30€</li>
               </ul>
             </div>
 
@@ -152,7 +167,7 @@ const Koenigsbrunn2026Page = () => {
                     </svg>
                   </span>
                 </summary>
-                <div className="px-5 pb-5 pt-0 md:px-6 md:pb-6 md:pt-0 border-t border-border-soft/50">
+                <div className="px-5 pt-5 pb-5 md:px-6 md:pt-6 md:pb-6 border-t border-border-soft/50">
                   <p className="text-anthracite/90 text-sm md:text-base leading-relaxed">
                     Fotos können in einer kostenlosen Online-Galerie angesehen und bei Interesse erworben werden. Hierzu füllt ihr einfach oben stehendes Formular aus und erhaltet danach den Zugang zur Galerie, sobald die Bilder verfügbar sind.
                   </p>
@@ -168,7 +183,7 @@ const Koenigsbrunn2026Page = () => {
                     </svg>
                   </span>
                 </summary>
-                <div className="px-5 pb-5 pt-0 md:px-6 md:pb-6 md:pt-0 border-t border-border-soft/50 space-y-4">
+                <div className="px-5 pt-5 pb-5 md:px-6 md:pt-6 md:pb-6 border-t border-border-soft/50 space-y-4">
                   <p className="text-anthracite/90 text-sm md:text-base leading-relaxed">
                     Bezahlung möglich über PayPal („Friends & Family“) oder Überweisung.
                   </p>
@@ -178,7 +193,19 @@ const Koenigsbrunn2026Page = () => {
                   <div className="grid gap-3 text-sm md:text-base">
                     <p className="text-anthracite/90">
                       <strong className="text-anthracite">PayPal:</strong>{' '}
-                      <a href="mailto:juliamayr.photo@gmail.com" className="text-warm-accent hover:underline break-all">juliamayr.photo@gmail.com</a>
+                      <button
+                        type="button"
+                        onClick={copyPaypalEmail}
+                        className="text-warm-accent hover:underline break-all text-left bg-transparent border-0 cursor-pointer p-0 font-inherit"
+                        aria-label="E-Mail-Adresse kopieren"
+                      >
+                        {PAYPAL_EMAIL}
+                      </button>
+                      {paypalCopied && (
+                        <span className="ml-2 text-warm-accent text-sm font-medium" role="status">
+                          Kopiert!
+                        </span>
+                      )}
                     </p>
                     <p className="text-anthracite/90">
                       <strong className="text-anthracite">Kontoverbindung:</strong><br />
@@ -198,7 +225,7 @@ const Koenigsbrunn2026Page = () => {
                     </svg>
                   </span>
                 </summary>
-                <div className="px-5 pb-5 pt-0 md:px-6 md:pb-6 md:pt-0 border-t border-border-soft/50">
+                <div className="px-5 pt-5 pb-5 md:px-6 md:pt-6 md:pb-6 border-t border-border-soft/50">
                   <p className="text-anthracite/90 text-sm md:text-base leading-relaxed space-y-3">
                     Für die private, dem Teilnehmer bestimmte Galerie findet nur eine einfache Vorauswahl statt. Ihr habt 14 Tage Zeit, euch die Galerie in Ruhe anzusehen und eure Bilder auszuwählen. Dies kann entweder direkt über die Galerie geschehen oder ihr schreibt mir eine E-Mail mit der bzw. den Bildnummer/n – ich lade euch die gekauften Bilder dann erneut ohne Wasserzeichen in die Galerie hoch. Dort könnt ihr sie downloaden und zur privaten bzw. nicht kommerziellen Nutzung verwenden.
                   </p>
@@ -214,7 +241,7 @@ const Koenigsbrunn2026Page = () => {
                     </svg>
                   </span>
                 </summary>
-                <div className="px-5 pb-5 pt-0 md:px-6 md:pb-6 md:pt-0 border-t border-border-soft/50 space-y-5">
+                <div className="px-5 pt-5 pb-5 md:px-6 md:pt-6 md:pb-6 border-t border-border-soft/50 space-y-5">
                   <div>
                     <p className="text-anthracite font-medium text-sm md:text-base mb-1">Wie schnell werden Anfragen bearbeitet?</p>
                     <p className="text-anthracite/90 text-sm md:text-base leading-relaxed">Alle Anfragen werden zeitnah bearbeitet.</p>
@@ -311,7 +338,7 @@ const Koenigsbrunn2026Page = () => {
 
               <div>
                 <label htmlFor="koenigsbrunn-dress" className="block text-anthracite mb-1.5 text-sm md:text-base">
-                  Farbe Kleid der Läuferin
+                  Farbe Kleid der Läuferin *
                 </label>
                 <input
                   type="text"
@@ -319,9 +346,11 @@ const Koenigsbrunn2026Page = () => {
                   name="dressColor"
                   value={formData.dressColor}
                   onChange={handleChange}
-                  className={inputClass(false)}
+                  className={inputClass(!!errors.dressColor)}
                   placeholder="z. B. Weiß, Blau"
+                  aria-required="true"
                 />
+                {errors.dressColor && <p className="mt-1 text-xs text-warm-accent" role="alert">{errors.dressColor}</p>}
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
@@ -358,22 +387,47 @@ const Koenigsbrunn2026Page = () => {
               </div>
 
               <div className="space-y-4 pt-2">
-                <div className="flex flex-col gap-2">
-                  <div className="flex items-start gap-2">
-                    <input
-                      type="checkbox"
-                      id="directPurchase"
-                      name="directPurchase"
-                      checked={formData.directPurchase}
-                      onChange={handleChange}
-                      className="mt-0.5 w-4 h-4 border-2 border-border-soft bg-offwhite focus:ring-0 cursor-pointer accent-warm-accent"
-                    />
-                    <label htmlFor="directPurchase" className="text-anthracite text-sm cursor-pointer">
-                      Direktkauf der Serie (alle Fotos) – 25€
-                    </label>
+                <fieldset className="space-y-3">
+                  <legend className="text-anthracite font-medium text-sm md:text-base mb-3 block">
+                    Bitte wähle eine Option *
+                  </legend>
+                  {errors.packageChoice && (
+                    <p className="text-xs text-warm-accent mb-2" role="alert">{errors.packageChoice}</p>
+                  )}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setFormData((prev) => ({ ...prev, directPurchase: true, watermarkOption: false }));
+                        if (errors.packageChoice) setErrors((prev) => ({ ...prev, packageChoice: '' }));
+                      }}
+                      className={`w-full text-left px-5 py-4 md:px-6 md:py-5 rounded-lg border-2 transition-all focus:outline-none focus:ring-2 focus:ring-warm-accent focus:ring-offset-2 ${
+                        formData.directPurchase
+                          ? 'border-warm-accent bg-warm-accent/10 text-anthracite'
+                          : 'border-border-soft bg-white hover:border-warm-accent/50 text-anthracite'
+                      }`}
+                      aria-pressed={formData.directPurchase}
+                    >
+                      <span className="block font-medium text-base md:text-lg">Direktkauf der Serie (alle Fotos) – 25€</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setFormData((prev) => ({ ...prev, watermarkOption: true, directPurchase: false }));
+                        if (errors.packageChoice) setErrors((prev) => ({ ...prev, packageChoice: '' }));
+                      }}
+                      className={`w-full text-left px-5 py-4 md:px-6 md:py-5 rounded-lg border-2 transition-all focus:outline-none focus:ring-2 focus:ring-warm-accent focus:ring-offset-2 ${
+                        formData.watermarkOption
+                          ? 'border-warm-accent bg-warm-accent/10 text-anthracite'
+                          : 'border-border-soft bg-white hover:border-warm-accent/50 text-anthracite'
+                      }`}
+                      aria-pressed={formData.watermarkOption}
+                    >
+                      <span className="block font-medium text-base md:text-lg">Zusenden aller Fotos mit Wasserzeichen – 30€</span>
+                    </button>
                   </div>
                   {formData.directPurchase && (
-                    <div className="ml-6 p-4 bg-warm-accent/10 border border-warm-accent/30 rounded-lg">
+                    <div className="p-4 bg-warm-accent/10 border border-warm-accent/30 rounded-lg">
                       <p className="text-anthracite/90 text-sm mb-3">
                         Du kannst jetzt gleich bezahlen. Alle Bezahlmöglichkeiten findest du oben im Abschnitt „Bezahlung“.
                       </p>
@@ -386,39 +440,7 @@ const Koenigsbrunn2026Page = () => {
                       </button>
                     </div>
                   )}
-                </div>
-                <div className="flex flex-col gap-2">
-                  <div className="flex items-start gap-2">
-                    <input
-                      type="checkbox"
-                      id="watermarkOption"
-                      name="watermarkOption"
-                      checked={formData.watermarkOption}
-                      onChange={handleChange}
-                      className="mt-0.5 w-4 h-4 border-2 border-border-soft bg-offwhite focus:ring-0 cursor-pointer accent-warm-accent"
-                    />
-                    <label htmlFor="watermarkOption" className="text-anthracite text-sm cursor-pointer">
-                      Zusenden der Fotos mit Wasserzeichen (1 Foto 5€, 4 Fotos 15€, alle Fotos 30€)
-                    </label>
-                  </div>
-                  {formData.watermarkOption && (
-                    <div className="ml-6">
-                      <label htmlFor="watermarkPackage" className="sr-only">Paket wählen</label>
-                      <select
-                        id="watermarkPackage"
-                        name="watermarkPackage"
-                        value={formData.watermarkPackage}
-                        onChange={handleChange}
-                        className={`${inputClass(false)} block w-full max-w-xs mt-1 py-2 cursor-pointer`}
-                      >
-                        <option value="">Paket wählen</option>
-                        <option value="1 Foto (5€)">1 Foto – 5€</option>
-                        <option value="4 Fotos (15€)">4 Fotos – 15€</option>
-                        <option value="Alle Fotos (30€)">Alle Fotos – 30€</option>
-                      </select>
-                    </div>
-                  )}
-                </div>
+                </fieldset>
                 <div className="flex items-start gap-2 pt-1">
                   <input
                     type="checkbox"

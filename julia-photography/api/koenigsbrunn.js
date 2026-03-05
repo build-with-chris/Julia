@@ -29,6 +29,12 @@ export default async function handler(req, res) {
     if (!startNumber || !String(startNumber).trim()) {
       return res.status(400).json({ error: 'Startnummer ist ein Pflichtfeld.' });
     }
+    if (!dressColor || !dressColor.trim()) {
+      return res.status(400).json({ error: 'Farbe des Kleids ist ein Pflichtfeld.' });
+    }
+    if (!directPurchase && !watermarkOption) {
+      return res.status(400).json({ error: 'Bitte wähle Direktkauf oder Fotos mit Wasserzeichen.' });
+    }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
@@ -91,7 +97,7 @@ export default async function handler(req, res) {
                         <tr><td style="padding: 6px 0;"><strong style="color: #2D2A26; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Name</strong><br><span style="color: #2D2A26; font-size: 16px;">${escapeHtml(name)}</span></td></tr>
                         <tr><td style="padding: 6px 0;"><strong style="color: #2D2A26; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Kategorie</strong><br><span style="color: #2D2A26; font-size: 16px;">${escapeHtml(category)}</span></td></tr>
                         <tr><td style="padding: 6px 0;"><strong style="color: #2D2A26; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Startnummer</strong><br><span style="color: #2D2A26; font-size: 16px;">${escapeHtml(String(startNumber))}</span></td></tr>
-                        <tr><td style="padding: 6px 0;"><strong style="color: #2D2A26; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Farbe Kleid</strong><br><span style="color: #2D2A26; font-size: 16px;">${escapeHtml(dressColor || '–')}</span></td></tr>
+                        <tr><td style="padding: 6px 0;"><strong style="color: #2D2A26; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Farbe Kleid</strong><br><span style="color: #2D2A26; font-size: 16px;">${escapeHtml(dressColor)}</span></td></tr>
                         <tr><td style="padding: 6px 0;"><strong style="color: #2D2A26; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">E-Mail</strong><br><a href="mailto:${escapeHtml(email)}" style="color: #8B7355; text-decoration: none;">${escapeHtml(email)}</a></td></tr>
                         <tr><td style="padding: 6px 0;"><strong style="color: #2D2A26; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Handynummer</strong><br><span style="color: #2D2A26; font-size: 16px;">${escapeHtml(phone || '–')}</span></td></tr>
                       </table>
@@ -124,7 +130,7 @@ export default async function handler(req, res) {
       to: TO_EMAIL,
       replyTo: email,
       subject: emailSubject,
-      text: `Königsbrunn 2026 – Anmeldung\n\nName: ${name}\nKategorie: ${category}\nStartnummer: ${startNumber}\nFarbe Kleid: ${dressColor || '–'}\nE-Mail: ${email}\nHandy: ${phone || '–'}\nWhatsApp: ${yesNo(consentWhatsApp)}\nDirektkauf Serie (25€): ${yesNo(directPurchase)}\nMit Wasserzeichen: ${yesNo(watermarkOption)}${watermarkOption && watermarkPackage ? ` (${watermarkPackage})` : ''}`,
+      text: `Königsbrunn 2026 – Anmeldung\n\nName: ${name}\nKategorie: ${category}\nStartnummer: ${startNumber}\nFarbe Kleid: ${dressColor}\nE-Mail: ${email}\nHandy: ${phone || '–'}\nWhatsApp: ${yesNo(consentWhatsApp)}\nDirektkauf Serie (25€): ${yesNo(directPurchase)}\nMit Wasserzeichen: ${yesNo(watermarkOption)}${watermarkOption && watermarkPackage ? ` (${watermarkPackage})` : ''}`,
       html: emailHtml,
     });
 
