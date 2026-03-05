@@ -301,25 +301,43 @@ const Koenigsbrunn2026Page = () => {
                 {errors.name && <p className="mt-1 text-xs text-warm-accent" role="alert">{errors.name}</p>}
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+              <div>
+                <label htmlFor="koenigsbrunn-category" className="block text-anthracite mb-1.5 text-sm md:text-base">
+                  Kategorie *
+                </label>
+                <input
+                  type="text"
+                  id="koenigsbrunn-category"
+                  name="category"
+                  value={formData.category}
+                  onChange={handleChange}
+                  className={inputClass(!!errors.category)}
+                  placeholder="z. B. Parcours Eismäuse, Elemente III D"
+                  aria-required="true"
+                />
+                <p className="mt-1.5 text-xs text-anthracite/70">z. B. Parcours Eismäuse, Elemente III D, Figurenläufer C</p>
+                {errors.category && <p className="mt-1 text-xs text-warm-accent" role="alert">{errors.category}</p>}
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
                 <div>
-                  <label htmlFor="koenigsbrunn-category" className="block text-anthracite mb-1.5 text-sm md:text-base">
-                    Kategorie *
+                  <label htmlFor="koenigsbrunn-dress" className="block text-anthracite mb-1 text-sm md:text-base">
+                    Farbe Kleid der Läuferin *
                   </label>
                   <input
                     type="text"
-                    id="koenigsbrunn-category"
-                    name="category"
-                    value={formData.category}
+                    id="koenigsbrunn-dress"
+                    name="dressColor"
+                    value={formData.dressColor}
                     onChange={handleChange}
-                    className={inputClass(!!errors.category)}
-                    placeholder="z. B. Schüler, Jugend"
+                    className={`${inputClass(!!errors.dressColor)} text-sm md:text-base`}
+                    placeholder="z. B. Weiß, Blau"
                     aria-required="true"
                   />
-                  {errors.category && <p className="mt-1 text-xs text-warm-accent" role="alert">{errors.category}</p>}
+                  {errors.dressColor && <p className="mt-1 text-xs text-warm-accent" role="alert">{errors.dressColor}</p>}
                 </div>
                 <div>
-                  <label htmlFor="koenigsbrunn-startnumber" className="block text-anthracite mb-1.5 text-sm md:text-base">
+                  <label htmlFor="koenigsbrunn-startnumber" className="block text-anthracite mb-1 text-sm md:text-base">
                     Startnummer *
                   </label>
                   <input
@@ -328,29 +346,12 @@ const Koenigsbrunn2026Page = () => {
                     name="startNumber"
                     value={formData.startNumber}
                     onChange={handleChange}
-                    className={inputClass(!!errors.startNumber)}
+                    className={`${inputClass(!!errors.startNumber)} text-sm md:text-base`}
                     placeholder="z. B. 12"
                     aria-required="true"
                   />
                   {errors.startNumber && <p className="mt-1 text-xs text-warm-accent" role="alert">{errors.startNumber}</p>}
                 </div>
-              </div>
-
-              <div>
-                <label htmlFor="koenigsbrunn-dress" className="block text-anthracite mb-1.5 text-sm md:text-base">
-                  Farbe Kleid der Läuferin *
-                </label>
-                <input
-                  type="text"
-                  id="koenigsbrunn-dress"
-                  name="dressColor"
-                  value={formData.dressColor}
-                  onChange={handleChange}
-                  className={inputClass(!!errors.dressColor)}
-                  placeholder="z. B. Weiß, Blau"
-                  aria-required="true"
-                />
-                {errors.dressColor && <p className="mt-1 text-xs text-warm-accent" role="alert">{errors.dressColor}</p>}
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
@@ -423,7 +424,7 @@ const Koenigsbrunn2026Page = () => {
                       }`}
                       aria-pressed={formData.watermarkOption}
                     >
-                      <span className="block font-medium text-base md:text-lg">Zusenden aller Fotos mit Wasserzeichen – 30€</span>
+                      <span className="block font-medium text-base md:text-lg">Zusenden aller Fotos mit Wasserzeichen</span>
                     </button>
                   </div>
                   {formData.directPurchase && (
