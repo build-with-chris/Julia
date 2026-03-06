@@ -152,7 +152,7 @@ const Koenigsbrunn2026Page = () => {
               <h2 className="text-lg font-medium text-anthracite mb-3">Preise</h2>
               <ul className="space-y-2 text-anthracite/90 text-sm md:text-base">
                 <li><strong>Direktkauf</strong> (alle Fotos): 25€</li>
-                <li><strong>Mit Wasserzeichen</strong> (alle Fotos): 30€</li>
+                <li><strong>Mit Wasserzeichen:</strong> 1 Bild 5€ | 3 Bilder 15€ | Serie 30€</li>
               </ul>
             </div>
 

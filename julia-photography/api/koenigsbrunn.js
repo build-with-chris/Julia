@@ -136,22 +136,24 @@ export default async function handler(req, res) {
 
     const supabaseUrl = process.env.SUPABASE_URL;
     const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-    if (supabaseUrl && supabaseServiceKey) {
+    if (!supabaseUrl || !supabaseServiceKey) {
+      console.warn('Koenigsbrunn: Supabase nicht konfiguriert. SUPABASE_URL und SUPABASE_SERVICE_ROLE_KEY in Vercel setzen.');
+    } else {
       const supabase = createClient(supabaseUrl, supabaseServiceKey);
       const { error: dbError } = await supabase.from('koenigsbrunn_anmeldungen').insert({
         name: name.trim(),
         category: category.trim(),
         start_number: String(startNumber).trim(),
-        dress_color: dressColor?.trim() || null,
+        dress_color: (dressColor && dressColor.trim()) ? dressColor.trim() : null,
         email: email.trim(),
-        phone: phone?.trim() || null,
+        phone: (phone && phone.trim()) ? phone.trim() : null,
         consent_whatsapp: !!consentWhatsApp,
         direct_purchase: !!directPurchase,
         watermark_option: !!watermarkOption,
         watermark_package: watermarkOption && watermarkPackage ? watermarkPackage : null,
       });
       if (dbError) {
-        console.error('Koenigsbrunn DB insert error:', dbError);
+        console.error('Koenigsbrunn DB insert error:', dbError.message, dbError.details);
       }
     }
 
