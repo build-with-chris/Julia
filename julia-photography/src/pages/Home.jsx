@@ -47,24 +47,6 @@ const Home = () => {
         />
       </div>
 
-      {/* Königsbrunn 2026 – Auffällige CTA-Section (Abstand wegen Hero neg. margin) */}
-      <section className="bg-anthracite py-6 md:py-8 mt-12 md:mt-16">
-        <div className="container-custom">
-          <button
-            onClick={() => navigate('/koenigsbrunn-2026')}
-            className="w-full group flex flex-col sm:flex-row sm:items-center sm:justify-center gap-2 sm:gap-4 text-left sm:text-center focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-warm-accent focus:ring-offset-anthracite rounded-sm py-1"
-            aria-label="Zu Eislaufen Königsbrunn 2026 – Wettkampf-Fotos"
-          >
-            <span className="text-offwhite font-medium text-lg md:text-xl tracking-tight">
-              Eislaufen Königsbrunn 2026
-            </span>
-            <span className="text-warm-accent text-sm md:text-base font-normal group-hover:text-warm-accent/80 transition-colors">
-              Wettkampf-Fotos →
-            </span>
-          </button>
-        </div>
-      </section>
-
       {/* Services - Anschauliche Kategorien */}
       <section id="services" className="pt-20 md:pt-28 lg:pt-32 pb-16 md:pb-24 lg:pb-32 bg-offwhite">
         <div className="w-[80%] mx-auto">
