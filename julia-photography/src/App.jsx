@@ -9,7 +9,6 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import ImpressumPage from './pages/ImpressumPage';
 import DatenschutzPage from './pages/DatenschutzPage';
-import Koenigsbrunn2026Page from './pages/Koenigsbrunn2026Page';
 
 // Component to ensure scrolling is enabled on route changes
 function ScrollToTop() {
@@ -39,7 +38,6 @@ function App() {
         <Route path="/kontakt" element={<ContactPage />} />
         <Route path="/impressum" element={<ImpressumPage />} />
         <Route path="/datenschutz" element={<DatenschutzPage />} />
-        <Route path="/koenigsbrunn-2026" element={<Koenigsbrunn2026Page />} />
       </Routes>
     </BrowserRouter>
   );
