@@ -127,7 +127,7 @@ const PaarePage = () => {
   // Generate gallery images from Paare folder - use .webp optimized versions
   const paareFilenames = [
     '1-1.webp', '1-2.webp', '1-3.JPG.webp', '1-4.webp', '1-5.webp', '1-6.webp', '1-7.webp',
-    '2-1.webp', '2-2.webp', '2-3.webp', '2-4.webp', '2-5 + dieses bild als Paarshooting Bild auf die Landiungpage.JPG.webp', '2-6.webp', '2-7.JPG.webp',
+    '2-1.webp', '2-2.webp', '2-3.webp', '2-4.webp', '2-5.JPG.webp', '2-6.webp', '2-7.JPG.webp',
     '3-1.webp', '3-2.webp', '3-3.webp', '3-4.webp', '3-5.webp', '3-6.webp', '3-7.webp',
     '4-1.webp', '4-2.webp', '4-3.webp', '4-4.webp', '4-5.webp', '4-6.JPG.webp', '4-7.JPG.webp',
   ];
