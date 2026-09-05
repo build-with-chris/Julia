@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import PaarePage from './pages/PaarePage';
 import HochzeitenPage from './pages/HochzeitenPage';
@@ -38,6 +38,10 @@ function App() {
         <Route path="/kontakt" element={<ContactPage />} />
         <Route path="/impressum" element={<ImpressumPage />} />
         <Route path="/datenschutz" element={<DatenschutzPage />} />
+        {/* Unbekannte Pfade auf die Startseite. Ohne das zeigt jeder Tippfehler
+            und jeder alte Link, etwa auf die entfernte Koenigsbrunn-Anmeldung,
+            eine weisse Seite. */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );
