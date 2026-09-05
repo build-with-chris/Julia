@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer';
+import { checkSubmission } from './_botcheck.js';
 
 export default async function handler(req, res) {
   // Only allow POST requests
@@ -7,6 +8,14 @@ export default async function handler(req, res) {
   }
 
   try {
+    // Bot-Pruefung vor allem anderen. Wer haengen bleibt, bekommt die normale
+    // Erfolgsantwort, damit ein Skript nicht merkt, dass es erkannt wurde.
+    const check = checkSubmission(req);
+    if (!check.ok) {
+      console.log('Contact form: submission verworfen, Grund:', check.reason);
+      return res.status(200).json({ success: true, message: 'Email sent successfully' });
+    }
+
     const { firstName, lastName, email, phone, message } = req.body;
 
     // Validate required fields

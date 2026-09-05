@@ -1,6 +1,15 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
+
+// Muessen zu den Namen in api/_botcheck.js passen.
+const HONEYPOT_FIELD = 'website';
+const ELAPSED_FIELD = 'formTime';
 
 const useContactForm = (initialMessage = '') => {
+  // Zeitpunkt, an dem das Formular aufgebaut wurde. Gesendet wird spaeter die
+  // verstrichene Spanne, nicht dieser Zeitpunkt, damit eine falsch gestellte
+  // Uhr auf dem Geraet niemanden aussperrt.
+  const formLoadedAt = useRef(Date.now());
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -11,6 +20,8 @@ const useContactForm = (initialMessage = '') => {
     preferredDate: '',
     location: '',
     message: initialMessage,
+    // Honeypot. Bleibt bei Menschen leer, weil das Feld unsichtbar ist.
+    [HONEYPOT_FIELD]: '',
   });
 
   const [errors, setErrors] = useState({});
@@ -94,6 +105,8 @@ const useContactForm = (initialMessage = '') => {
         email: formData.email,
         phone: formData.phone || '',
         message: formData.message,
+        [HONEYPOT_FIELD]: formData[HONEYPOT_FIELD] || '',
+        [ELAPSED_FIELD]: Date.now() - formLoadedAt.current,
       };
 
       // Call API endpoint
@@ -123,8 +136,12 @@ const useContactForm = (initialMessage = '') => {
         preferredDate: '',
         location: '',
         message: '',
+        [HONEYPOT_FIELD]: '',
       });
       setErrors({});
+
+      // Zeitmessung fuer eine moegliche zweite Anfrage neu starten.
+      formLoadedAt.current = Date.now();
 
       // Reset success message after 5 seconds
       setTimeout(() => {

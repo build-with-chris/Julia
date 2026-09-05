@@ -102,6 +102,35 @@ const Contact19 = () => {
 
               {/* Contact Form - Helles Design */}
               <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4" noValidate>
+                {/*
+                  Honeypot gegen Bots. Fuer Menschen unerreichbar: aus dem
+                  sichtbaren Bereich geschoben, nicht per Tabulator anspringbar
+                  und fuer Screenreader ausgeblendet. Skripte, die stumpf alle
+                  Felder fuellen, verraten sich hier. Bewusst kein display:none,
+                  weil manche Bots genau darauf achten.
+                */}
+                <div
+                  aria-hidden="true"
+                  style={{
+                    position: 'absolute',
+                    left: '-9999px',
+                    width: '1px',
+                    height: '1px',
+                    overflow: 'hidden',
+                  }}
+                >
+                  <label htmlFor="website">Bitte dieses Feld leer lassen</label>
+                  <input
+                    type="text"
+                    id="website"
+                    name="website"
+                    value={formData.website || ''}
+                    onChange={handleChange}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
+
                 {/* Vorname / Nachname - 2 Spalten */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                   <div>
